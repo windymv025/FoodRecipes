@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbFoodRecipesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FoodCookingStep">
+          <Key>
+            <PropertyRef Name="IdFoodRecipes" />
+            <PropertyRef Name="NumberStep" />
+          </Key>
+          <Property Name="IdFoodRecipes" Type="int" Nullable="false" />
+          <Property Name="NumberStep" Type="int" Nullable="false" />
+          <Property Name="Step" Type="nvarchar(max)" />
+          <Property Name="ImageStep" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FoodRecipes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NameFood" Type="nvarchar" MaxLength="100" />
+          <Property Name="DishDescription" Type="nvarchar(max)" />
+          <Property Name="CookingIngredients" Type="nvarchar(max)" />
+          <Property Name="ulrVideo" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="fk_FoodCookingStep_FoodRecipes">
+          <End Role="FoodRecipes" Type="Self.FoodRecipes" Multiplicity="1" />
+          <End Role="FoodCookingStep" Type="Self.FoodCookingStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodRecipes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FoodCookingStep">
+              <PropertyRef Name="IdFoodRecipes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbFoodRecipesModelStoreContainer">
+          <EntitySet Name="FoodCookingStep" EntityType="Self.FoodCookingStep" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodRecipes" EntityType="Self.FoodRecipes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_FoodCookingStep_FoodRecipes" Association="Self.fk_FoodCookingStep_FoodRecipes">
+            <End Role="FoodRecipes" EntitySet="FoodRecipes" />
+            <End Role="FoodCookingStep" EntitySet="FoodCookingStep" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbFoodRecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FoodCookingStep">
+          <Key>
+            <PropertyRef Name="IdFoodRecipes" />
+            <PropertyRef Name="NumberStep" />
+          </Key>
+          <Property Name="IdFoodRecipes" Type="Int32" Nullable="false" />
+          <Property Name="NumberStep" Type="Int32" Nullable="false" />
+          <Property Name="Step" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageStep" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FoodRecipe" Relationship="Self.fk_FoodCookingStep_FoodRecipes" FromRole="FoodCookingStep" ToRole="FoodRecipes" />
+        </EntityType>
+        <EntityType Name="FoodRecipe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NameFood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DishDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CookingIngredients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ulrVideo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FoodCookingSteps" Relationship="Self.fk_FoodCookingStep_FoodRecipes" FromRole="FoodRecipes" ToRole="FoodCookingStep" />
+        </EntityType>
+        <Association Name="fk_FoodCookingStep_FoodRecipes">
+          <End Role="FoodRecipes" Type="Self.FoodRecipe" Multiplicity="1" />
+          <End Role="FoodCookingStep" Type="Self.FoodCookingStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodRecipes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FoodCookingStep">
+              <PropertyRef Name="IdFoodRecipes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbFoodRecipesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FoodCookingSteps" EntityType="Self.FoodCookingStep" />
+          <EntitySet Name="FoodRecipes" EntityType="Self.FoodRecipe" />
+          <AssociationSet Name="fk_FoodCookingStep_FoodRecipes" Association="Self.fk_FoodCookingStep_FoodRecipes">
+            <End Role="FoodRecipes" EntitySet="FoodRecipes" />
+            <End Role="FoodCookingStep" EntitySet="FoodCookingSteps" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbFoodRecipesModelStoreContainer" CdmEntityContainer="dbFoodRecipesEntities">
+          <EntitySetMapping Name="FoodCookingSteps">
+            <EntityTypeMapping TypeName="dbFoodRecipesModel.FoodCookingStep">
+              <MappingFragment StoreEntitySet="FoodCookingStep">
+                <ScalarProperty Name="IdFoodRecipes" ColumnName="IdFoodRecipes" />
+                <ScalarProperty Name="NumberStep" ColumnName="NumberStep" />
+                <ScalarProperty Name="Step" ColumnName="Step" />
+                <ScalarProperty Name="ImageStep" ColumnName="ImageStep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodRecipes">
+            <EntityTypeMapping TypeName="dbFoodRecipesModel.FoodRecipe">
+              <MappingFragment StoreEntitySet="FoodRecipes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NameFood" ColumnName="NameFood" />
+                <ScalarProperty Name="DishDescription" ColumnName="DishDescription" />
+                <ScalarProperty Name="CookingIngredients" ColumnName="CookingIngredients" />
+                <ScalarProperty Name="ulrVideo" ColumnName="ulrVideo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

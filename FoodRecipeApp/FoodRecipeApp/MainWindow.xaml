@@ -14,7 +14,7 @@
 
     <Window.Resources>
         <!--//Toggle btn style-->
-        <ImageBrush ImageSource="Assets/tgBtn_MouseOver.png" x:Key="tb_mouse_over" />
+        <ImageBrush ImageSource="/Assets/tgBtn_MouseOver.png" x:Key="tb_mouse_over" />
         
         <!--//Text font style-->
         <Style x:Key="font_style" TargetType="TextBlock">
@@ -82,10 +82,10 @@
             
             <!--//Background image-->
             <Grid x:Name="bg" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
-                <Grid.Background>
-                    <ImageBrush x:Name="img_bg" ImageSource="Assets/background.jpg" Stretch="Fill" />
-                </Grid.Background>
-            </Grid>
+				<Grid.Background>
+					<ImageBrush x:Name="img_bg" ImageSource="/Assets/background.jpg" Stretch="Fill" />
+				</Grid.Background>
+			</Grid>
 
             <!--//navigation panel // bảng điều hướng-->
             <Grid x:Name="nav_pnl" HorizontalAlignment="Left" Width="65" Background="#2E333A">
@@ -108,7 +108,7 @@
                         <!--//Toggle btn-->
                         <ToggleButton x:Name="Tg_btn" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18,-20,0,0" Height="30" Width="30" BorderThickness="0" Style="{StaticResource tb_style}" Unchecked="Tg_btn_Unchecked" Checked="Tg_btn_Checked">
                             <ToggleButton.Background>
-                                <ImageBrush ImageSource="Assets/tgBtn_default.png" Stretch="None"></ImageBrush>
+                                <ImageBrush ImageSource="/Assets/tgBtn_default.png" Stretch="None"></ImageBrush>
                             </ToggleButton.Background>
                             
                             <!--//Check, uncheck event-->
@@ -145,7 +145,7 @@
                         <!--//HOME-->                       
                         <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="Assets/img_home.png" Stretch="None" Margin="12,0,0,0" />
+                                <Image Source="/Assets/img_home.png" Stretch="None" Margin="12,0,0,0" />
                                 <TextBlock Text="Home" Margin="25,0,0,0" Style="{StaticResource font_style}" />
                             </StackPanel>
 
@@ -157,7 +157,7 @@
                         <!--//Favorite-->
                         <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="Assets/heart.png" Stretch="None" Margin="12,0,0,0" />
+                                <Image Source="/Assets/heart.png" Stretch="None" Margin="12,0,0,0" />
                                 <TextBlock Text="Favorite" Margin="25,0,0,0" Style="{StaticResource font_style}" />
                             </StackPanel>
 
@@ -169,7 +169,7 @@
                         <!--//ADD-->
                         <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="Assets/plus.png" Stretch="None" Margin="12,0,0,0" />
+                                <Image Source="/Assets/plus.png" Stretch="None" Margin="12,0,0,0" />
                                 <TextBlock Text="Add Food" Margin="25,0,0,0" Style="{StaticResource font_style}" />
                             </StackPanel>
 
@@ -181,7 +181,7 @@
                         <!--//Search-->
                         <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="Assets/search.png" Stretch="None" Margin="12,0,0,0" />
+                                <Image Source="/Assets/search.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" />
                                 <TextBlock Text="Search" Margin="25,0,0,0" Style="{StaticResource font_style}" />
                             </StackPanel>
 
@@ -193,7 +193,7 @@
                         <!--//Contact-->
                         <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="Assets/img_contact.png" Stretch="None" Margin="12,0,0,0" />
+                                <Image Source="/Assets/img_contact.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" />
                                 <TextBlock Text="Contact" Margin="25,0,0,0" Style="{StaticResource font_style}" />
                             </StackPanel>
 

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using FoodRecipeApp.Models;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +23,11 @@ namespace FoodRecipeApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<FoodRecipe> foodRecipes;
         public MainWindow()
         {
+            DBFoodRecipesEntities db = new DBFoodRecipesEntities();
+            foodRecipes = db.FoodRecipes.ToList();
             InitializeComponent();
         }
 
