@@ -147,6 +147,8 @@
     <Resource Include="Assets\heart2.png" />
     <Resource Include="Assets\plus.png" />
     <Resource Include="Assets\search.png" />
+    <Resource Include="Assets\nextbutton.png" />
+    <Resource Include="Assets\previousbutton.png" />
     <Content Include="Models\DBFoodRecipe.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
