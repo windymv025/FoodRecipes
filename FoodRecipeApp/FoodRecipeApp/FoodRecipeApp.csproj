@@ -96,15 +96,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dish.cs" />
     <Compile Include="Models\FavoriteFood.cs">
       <DependentUpon>DBFoodRecipe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FavoriteDishDAO.cs" />
     <Compile Include="Models\FoodCookingStep.cs">
       <DependentUpon>DBFoodRecipe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FoodRecipe.cs">
       <DependentUpon>DBFoodRecipe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DishDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -140,6 +143,40 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\bimbimkhoailang1.jpeg" />
+    <Resource Include="Images\bimbimkhoailang2.jpeg" />
+    <Resource Include="Images\bimbimkhoailang3.jpeg" />
+    <Resource Include="Images\bunbohue1.jpg" />
+    <Resource Include="Images\bunbohue2.jpg" />
+    <Resource Include="Images\bunbohue3.jpg" />
+    <Resource Include="Images\bunbohue4.jpg" />
+    <Resource Include="Images\burger1.jpg" />
+    <Resource Include="Images\burger2.jpg" />
+    <Resource Include="Images\burger3.jpg" />
+    <Resource Include="Images\burger4.jpg" />
+    <Resource Include="Images\burger5.jpg" />
+    <Resource Include="Images\daheo1.jpeg" />
+    <Resource Include="Images\daheo2.jpeg" />
+    <Resource Include="Images\daheo3.jpeg" />
+    <Resource Include="Images\daheo4.jpeg" />
+    <Resource Include="Images\daheo5.jpeg" />
+    <Resource Include="Images\daheo6.jpeg" />
+    <Resource Include="Images\flan1.jpg" />
+    <Resource Include="Images\flan2.jpg" />
+    <Resource Include="Images\flan3.jpg" />
+    <Resource Include="Images\flan4.jpg" />
+    <Resource Include="Images\flan5.jpg" />
+    <Resource Include="Images\flan6.jpg" />
+    <Resource Include="Images\phobo1.jpg" />
+    <Resource Include="Images\phobo2.jpg" />
+    <Resource Include="Images\phobo3.jpg" />
+    <Resource Include="Images\sandwich1.jpg" />
+    <Resource Include="Images\sandwich2.jpg" />
+    <Resource Include="Images\sandwich3.jpg" />
+    <Resource Include="Images\tomvien1.jpg" />
+    <Resource Include="Images\tomvien2.jpg" />
+    <Resource Include="Images\tomvien3.jpg" />
+    <Resource Include="Images\tomvien4.jpg" />
     <Content Include="Models\DBFoodRecipe.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBFoodRecipe.edmx</DependentUpon>

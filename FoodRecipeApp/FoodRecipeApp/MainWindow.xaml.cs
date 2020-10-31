@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
@@ -25,11 +26,20 @@ namespace FoodRecipeApp
     public partial class MainWindow : Window
     {
         private List<FoodRecipe> foodRecipes;
+        private DBFoodRecipesEntities db;
+        private BindingList<Dish> dishes;
+
         public MainWindow()
         {
-            DBFoodRecipesEntities db = new DBFoodRecipesEntities();
-            foodRecipes = db.FoodRecipes.ToList();
             InitializeComponent();
+        }
+
+        private void loadDuLieu(object sender, RoutedEventArgs e)
+        {
+            db = new DBFoodRecipesEntities();
+            foodRecipes = db.FoodRecipes.ToList();
+            dishes = DishDAO.GetAll();
+            listDish.ItemsSource = dishes;
         }
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)

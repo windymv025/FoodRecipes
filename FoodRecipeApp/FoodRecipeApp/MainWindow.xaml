@@ -9,7 +9,8 @@
         Height="700" 
         Width="1024"
         Topmost="True"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+		Loaded="loadDuLieu">
     <!--<Button Margin="20" Background="#189EFF">-->
 
     <Window.Resources>
@@ -97,294 +98,345 @@
             </Setter>
 
         </Style>
-    </Window.Resources>
-    
-    <Grid>
-        <!--//Background color-->
-        <Grid Background="Black">
-            
-            <!--//Background image-->
-            <Grid x:Name="bg" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+		
+		<!--//dish-->
+		<Style x:Key="dish_btn" TargetType="{x:Type Button}">
+
+			<Setter Property="Template">
+
+				<Setter.Value>
+
+					<ControlTemplate TargetType="{x:Type Button}">
+
+						<Border x:Name="button"
+                                BorderThickness="0"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+
+						</Border>
+
+					</ControlTemplate>
+
+				</Setter.Value>
+
+			</Setter>
+
+		</Style>
+	</Window.Resources>
+
+	<Grid>
+		<!--//Background color-->
+		<Grid Background="Black">
+
+			<!--//Background image-->
+			<Grid x:Name="bg" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
 				<Grid.Background>
 					<ImageBrush x:Name="img_bg" ImageSource="/Assets/background.jpg" Stretch="Fill" />
 				</Grid.Background>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="30"/>
-                </Grid.ColumnDefinitions>
-                
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="10"/>
-                </Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="150"/>
+					<ColumnDefinition Width="120"/>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="70"/>
+					<ColumnDefinition Width="70"/>
+					<ColumnDefinition Width="70"/>
+					<ColumnDefinition Width="30"/>
+				</Grid.ColumnDefinitions>
 
-                <Button x:Name="btnNext"
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="40"/>
+					<RowDefinition Height="10"/>
+				</Grid.RowDefinitions>
+
+				<Button x:Name="btnNext"
                         Grid.Column="6" Grid.Row="1"
                         BorderThickness="0"
                         FontFamily="Fonts/Roboto-Light.ttf #Roboto"
                         Height="40" Width="40"
                         Style="{StaticResource next_prev_btn}">
-                    <Button.Background>
-                        <ImageBrush ImageSource="Assets/nextbutton.png"/>
-                    </Button.Background>
-                    
-                </Button>
-                <Button x:Name="btnPrev" Content="Prev"
+					<Button.Background>
+						<ImageBrush ImageSource="Assets/nextbutton.png"/>
+					</Button.Background>
+
+				</Button>
+				<Button x:Name="btnPrev" Content="Prev"
                         Grid.Column="4" Grid.Row="1"
                         BorderThickness="0"
                         FontFamily="Fonts/Roboto-Light.ttf #Roboto"
                         Height="40" Width="40"
                         Style="{StaticResource next_prev_btn}">
-                    <Button.Background>
-                        <ImageBrush ImageSource="Assets/previousbutton.png"/>
-                    </Button.Background>
-                </Button>
-                <Label x:Name="LabelPage" 
+					<Button.Background>
+						<ImageBrush ImageSource="Assets/previousbutton.png"/>
+					</Button.Background>
+				</Button>
+				<Label x:Name="LabelPage" 
                        Content="10/10"
                        Grid.Column="5" Grid.Row="1"
                        HorizontalContentAlignment="Center"
                        VerticalContentAlignment="Center"
                        FontSize="18" FontWeight="Bold">
-                    
-                </Label>
-                <Label Content="Số lượng:"
+
+				</Label>
+				<Label Content="Số lượng:"
                        Grid.Column="1" Grid.Row="1"
                        HorizontalContentAlignment="Right"
                        VerticalContentAlignment="Center"
                        FontSize="18" FontWeight="Bold">
-                </Label>
+				</Label>
 
-                <ComboBox x:Name="btnSoLuong"
+				<ComboBox x:Name="btnSoLuong"
                           Grid.Column="2" Grid.Row="1"
                           HorizontalContentAlignment="Center"
                           VerticalContentAlignment="Center"
                           FontWeight="Bold">
-                    <ComboBoxItem x:Name="cb4" IsSelected="True"
+					<ComboBoxItem x:Name="cb4" IsSelected="True"
                                   FontWeight="Bold">6 món/trang</ComboBoxItem>
-                    <ComboBoxItem x:Name="cb8" FontWeight="Bold">8 món/trang</ComboBoxItem>
-                    
-                </ComboBox>
+					<ComboBoxItem x:Name="cb8" FontWeight="Bold">8 món/trang</ComboBoxItem>
 
-            </Grid>
+				</ComboBox>
 
-            <!--//HomeScreen-->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="20" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    
-                    <!--//to do Home Screen-->
-                    <Button x:Name="Mon1" Content="Món 1"
+			</Grid>
+
+			<!--//HomeScreen-->
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="70" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="60" />
+				</Grid.RowDefinitions>
+				<Grid Grid.Row="0" Grid.Column="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="20" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="20" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="20" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+
+					<!--<ListView HorizontalAlignment = "Left" 
+							  Margin = "20,20,20,20" 
+							  VerticalAlignment = "Top"  
+                              Name = "listDish">
+
+					<ListView.View>
+
+						<GridView>
+
+							<GridViewColumn>
+								<StackPanel>
+									<Button x:Name="Mon"
+							    Style="{StaticResource dish_btn}">
+										<Button.Background>
+											<ImageBrush ImageSource="{Binding ImageDish}"/>
+										</Button.Background>
+									</Button>
+									<Label Content="{Binding NameDish}" />
+								</StackPanel>
+							</GridViewColumn>
+
+						</GridView>
+
+					</ListView.View>
+
+				</ListView>-->
+
+					<!--//to do Home Screen-->
+
+					<Button x:Name="Mon1" Content="Món 1"
                             Background="red"
                             Grid.Column="1" Grid.Row="1"
-                            Margin="10">
-                    </Button>
-                    <Button x:Name="Mon2" Content="Món 2"
+                            Margin="10"
+							Style="{StaticResource dish_btn}">
+					</Button>
+					<Button x:Name="Mon2" Content="Món 2"
                             Background="Green"
                             Grid.Column="2" Grid.Row="1"
                             Margin="10">
-                    </Button>
-                    <Button x:Name="Mon3" Content="Món 3"
+					</Button>
+					<Button x:Name="Mon3" Content="Món 3"
                             Background="Blue"
                             Grid.Column="3" Grid.Row="1"
                             Margin="10">
-                    </Button>
-                    <Button x:Name="Mon4" Content="Món 4"
+					</Button>
+					<Button x:Name="Mon4" Content="Món 4"
                             Background="Yellow"
                             Grid.Column="1" Grid.Row="2"
                             Margin="10">
-                    </Button>
-                    <Button x:Name="Mon5" Content="Món 5"
+					</Button>
+					<Button x:Name="Mon5" Content="Món 5"
                             Background="Gray"
                             Grid.Column="2" Grid.Row="2"
                             Margin="10">
-                    </Button>
-                    <Button x:Name="Mon6" Content="Món 6"
+					</Button>
+					<Button x:Name="Mon6" Content="Món 6"
                             Background="DeepPink"
                             Grid.Column="3" Grid.Row="2"
                             Margin="10">
-                    </Button>
-                </Grid>
-            </Grid>
-            
-            <!--//navigation panel // bảng điều hướng-->
-            <Grid x:Name="nav_pnl" HorizontalAlignment="Left" Width="65" Background="#2E333A">
-                <StackPanel x:Name="st_pnl">
-                    <!--//Grid chuyển đổi menu-->
-                    <Grid Height="90">
-                        <!--//text tiêu để menu-->
-                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="73,-20,0,0" Text="MENU" Foreground="White"
+					</Button>
+				</Grid>
+			</Grid>
+
+			<!--//navigation panel // bảng điều hướng-->
+			<Grid x:Name="nav_pnl" HorizontalAlignment="Left" Width="65" Background="#2E333A">
+				<StackPanel x:Name="st_pnl">
+					<!--//Grid chuyển đổi menu-->
+					<Grid Height="90">
+						<!--//text tiêu để menu-->
+						<TextBlock Grid.Row="1" Grid.Column="0" Margin="73,-20,0,0" Text="MENU" Foreground="White"
                                    FontSize="22" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center"
                                    Style="{StaticResource font_style}">
                             
                             <!--//Shadow-->
-                            <TextBlock.Effect>
-                                <DropShadowEffect BlurRadius="10" ShadowDepth="1" Direction="-90" Color="White" />
-                            </TextBlock.Effect>
-                            
-                        </TextBlock>
-                        
-                        
-                        <!--//Toggle btn-->
-                        <ToggleButton x:Name="Tg_btn" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18,-20,0,0" Height="30" Width="30" BorderThickness="0" Style="{StaticResource tb_style}" Unchecked="Tg_btn_Unchecked" Checked="Tg_btn_Checked">
-                            <ToggleButton.Background>
-                                <ImageBrush ImageSource="/Assets/tgBtn_default.png" Stretch="None"></ImageBrush>
-                            </ToggleButton.Background>
-                            
-                            <!--//Check, uncheck event-->
-                            <ToggleButton.Triggers>
-                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                    <BeginStoryboard>
-                                        <Storyboard x:Name="HideStackPanel">
-                                            <DoubleAnimation Storyboard.TargetName="nav_pnl" Storyboard.TargetProperty="Width" BeginTime="0:0:0"
-                                                             From="230" To="65" Duration="0:0:0.2">
-                                                
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
+							<TextBlock.Effect>
+								<DropShadowEffect BlurRadius="10" ShadowDepth="1" Direction="-90" Color="White" />
+							</TextBlock.Effect>
 
-                                <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                    <BeginStoryboard>
-                                        <Storyboard x:Name="ShowStackPanel">
-                                            <DoubleAnimation Storyboard.TargetName="nav_pnl" Storyboard.TargetProperty="Width" BeginTime="0:0:0"
+						</TextBlock>
+
+
+						<!--//Toggle btn-->
+						<ToggleButton x:Name="Tg_btn" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18,-20,0,0" Height="30" Width="30" BorderThickness="0" Style="{StaticResource tb_style}" Unchecked="Tg_btn_Unchecked" Checked="Tg_btn_Checked">
+							<ToggleButton.Background>
+								<ImageBrush ImageSource="/Assets/tgBtn_default.png" Stretch="None"></ImageBrush>
+							</ToggleButton.Background>
+
+							<!--//Check, uncheck event-->
+							<ToggleButton.Triggers>
+								<EventTrigger RoutedEvent="ToggleButton.Unchecked">
+									<BeginStoryboard>
+										<Storyboard x:Name="HideStackPanel">
+											<DoubleAnimation Storyboard.TargetName="nav_pnl" Storyboard.TargetProperty="Width" BeginTime="0:0:0"
+                                                             From="230" To="65" Duration="0:0:0.2">
+
+											</DoubleAnimation>
+										</Storyboard>
+									</BeginStoryboard>
+								</EventTrigger>
+
+								<EventTrigger RoutedEvent="ToggleButton.Checked">
+									<BeginStoryboard>
+										<Storyboard x:Name="ShowStackPanel">
+											<DoubleAnimation Storyboard.TargetName="nav_pnl" Storyboard.TargetProperty="Width" BeginTime="0:0:0"
                                                              From="65" To="230" Duration="0:0:0.3">
 
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                
-                            </ToggleButton.Triggers>
-                        </ToggleButton>
-                    </Grid>
-                    
-                    <!--//List items //ListView-->
-                    <ListView x:Name="LV" Background="Transparent" BorderBrush="Transparent"
+											</DoubleAnimation>
+										</Storyboard>
+									</BeginStoryboard>
+								</EventTrigger>
+
+							</ToggleButton.Triggers>
+						</ToggleButton>
+					</Grid>
+
+					<!--//List items //ListView-->
+					<ListView x:Name="LV" Background="Transparent" BorderBrush="Transparent"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <!--//HOME-->                       
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-                            <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="/Assets/img_home.png" Stretch="None" Margin="12,0,0,0" />
-                                <TextBlock Text="Home" Margin="25,0,0,0" Style="{StaticResource font_style}" />
-                            </StackPanel>
+						<!--//HOME-->
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+							<StackPanel Orientation="Horizontal" Width="230">
+								<Image Source="/Assets/img_home.png" Stretch="None" Margin="12,0,0,0" />
+								<TextBlock Text="Home" Margin="25,0,0,0" Style="{StaticResource font_style}" />
+							</StackPanel>
 
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_home" Content="HOME" Style="{StaticResource tt_style}" />
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
+							<ListViewItem.ToolTip>
+								<ToolTip x:Name="tt_home" Content="HOME" Style="{StaticResource tt_style}" />
+							</ListViewItem.ToolTip>
+						</ListViewItem>
 
-                        <!--//Favorite-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-                            <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="/Assets/heart.png" Stretch="None" Margin="12,0,0,0" />
-                                <TextBlock Text="Favorite" Margin="25,0,0,0" Style="{StaticResource font_style}" />
-                            </StackPanel>
+						<!--//Favorite-->
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+							<StackPanel Orientation="Horizontal" Width="230">
+								<Image Source="/Assets/heart.png" Stretch="None" Margin="12,0,0,0" />
+								<TextBlock Text="Favorite" Margin="25,0,0,0" Style="{StaticResource font_style}" />
+							</StackPanel>
 
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_favorite" Content="FAVORITE" Style="{StaticResource tt_style}" />
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
+							<ListViewItem.ToolTip>
+								<ToolTip x:Name="tt_favorite" Content="FAVORITE" Style="{StaticResource tt_style}" />
+							</ListViewItem.ToolTip>
+						</ListViewItem>
 
-                        <!--//ADD-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-                            <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="/Assets/plus.png" Stretch="None" Margin="12,0,0,0" />
-                                <TextBlock Text="Add Food" Margin="25,0,0,0" Style="{StaticResource font_style}" />
-                            </StackPanel>
+						<!--//ADD-->
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+							<StackPanel Orientation="Horizontal" Width="230">
+								<Image Source="/Assets/plus.png" Stretch="None" Margin="12,0,0,0" />
+								<TextBlock Text="Add Food" Margin="25,0,0,0" Style="{StaticResource font_style}" />
+							</StackPanel>
 
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_add" Content="ADD FOOD" Style="{StaticResource tt_style}" />
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
+							<ListViewItem.ToolTip>
+								<ToolTip x:Name="tt_add" Content="ADD FOOD" Style="{StaticResource tt_style}" />
+							</ListViewItem.ToolTip>
+						</ListViewItem>
 
-                        <!--//Search-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-                            <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="/Assets/search.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" />
-                                <TextBlock Text="Search" Margin="25,0,0,0" Style="{StaticResource font_style}" />
-                            </StackPanel>
+						<!--//Search-->
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+							<StackPanel Orientation="Horizontal" Width="230">
+								<Image Source="/Assets/search.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" />
+								<TextBlock Text="Search" Margin="25,0,0,0" Style="{StaticResource font_style}" />
+							</StackPanel>
 
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_search" Content="SEARCH" Style="{StaticResource tt_style}" />
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
+							<ListViewItem.ToolTip>
+								<ToolTip x:Name="tt_search" Content="SEARCH" Style="{StaticResource tt_style}" />
+							</ListViewItem.ToolTip>
+						</ListViewItem>
 
-                        <!--//Contact-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-                            <StackPanel Orientation="Horizontal" Width="230">
-                                <Image Source="/Assets/img_contact.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" />
-                                <TextBlock Text="Contact" Margin="25,0,0,0" Style="{StaticResource font_style}" />
-                            </StackPanel>
+						<!--//Contact-->
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+							<StackPanel Orientation="Horizontal" Width="230">
+								<Image Source="/Assets/img_contact.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" />
+								<TextBlock Text="Contact" Margin="25,0,0,0" Style="{StaticResource font_style}" />
+							</StackPanel>
 
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_contact" Content="CONTACT" Style="{StaticResource tt_style}" />
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        
-                        <!--//Style-->
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <Border x:Name="Bd" Height="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+							<ListViewItem.ToolTip>
+								<ToolTip x:Name="tt_contact" Content="CONTACT" Style="{StaticResource tt_style}" />
+							</ListViewItem.ToolTip>
+						</ListViewItem>
+
+						<!--//Style-->
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<Setter Property="Template">
+									<Setter.Value>
+										<ControlTemplate TargetType="{x:Type ListViewItem}">
+											<Border x:Name="Bd" Height="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                                                     Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+												<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                                   VerticalAlignment="{TemplateBinding VerticalAlignment}" />
-                                            </Border>
+											</Border>
 
-                                            <ControlTemplate.Triggers>
-                                                <MultiTrigger>
-                                                    <MultiTrigger.Conditions>
-                                                        <Condition Property="IsMouseOver" Value="True" />
-                                                    </MultiTrigger.Conditions>
+											<ControlTemplate.Triggers>
+												<MultiTrigger>
+													<MultiTrigger.Conditions>
+														<Condition Property="IsMouseOver" Value="True" />
+													</MultiTrigger.Conditions>
 
-                                                    <Setter Property="Background" TargetName="Bd" Value="#404D5B" />
-                                                    <Setter Property="BorderBrush" TargetName="Bd" Value="#404D5B" />
+													<Setter Property="Background" TargetName="Bd" Value="#404D5B" />
+													<Setter Property="BorderBrush" TargetName="Bd" Value="#404D5B" />
 
-                                                </MultiTrigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        
-                    </ListView>
-                    
-                </StackPanel>
-            </Grid>
-        </Grid>
-        
-    </Grid>
+												</MultiTrigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</ListView.ItemContainerStyle>
 
+					</ListView>
 
- </Window>
+				</StackPanel>
+			</Grid>
+		</Grid>
+	</Grid>
+
+</Window>
