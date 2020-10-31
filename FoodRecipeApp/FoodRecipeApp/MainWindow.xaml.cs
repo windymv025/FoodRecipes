@@ -39,7 +39,7 @@ namespace FoodRecipeApp
             db = new DBFoodRecipesEntities();
             foodRecipes = db.FoodRecipes.ToList();
             dishes = DishDAO.GetAll();
-            listDish.ItemsSource = dishes;
+            //listDish.ItemsSource = dishes;
         }
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)

@@ -138,7 +138,9 @@
 					<ColumnDefinition Width="150"/>
 					<ColumnDefinition Width="120"/>
 					<ColumnDefinition Width="100"/>
-					<ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="70"/>
 					<ColumnDefinition Width="70"/>
 					<ColumnDefinition Width="70"/>
@@ -152,7 +154,7 @@
 				</Grid.RowDefinitions>
 
 				<Button x:Name="btnNext"
-                        Grid.Column="6" Grid.Row="1"
+                        Grid.Column="8" Grid.Row="1"
                         BorderThickness="0"
                         FontFamily="Fonts/Roboto-Light.ttf #Roboto"
                         Height="40" Width="40"
@@ -163,7 +165,7 @@
 
 				</Button>
 				<Button x:Name="btnPrev" Content="Prev"
-                        Grid.Column="4" Grid.Row="1"
+                        Grid.Column="6" Grid.Row="1"
                         BorderThickness="0"
                         FontFamily="Fonts/Roboto-Light.ttf #Roboto"
                         Height="40" Width="40"
@@ -174,7 +176,7 @@
 				</Button>
 				<Label x:Name="LabelPage" 
                        Content="10/10"
-                       Grid.Column="5" Grid.Row="1"
+                       Grid.Column="7" Grid.Row="1"
                        HorizontalContentAlignment="Center"
                        VerticalContentAlignment="Center"
                        FontSize="18" FontWeight="Bold">
@@ -192,16 +194,33 @@
                           HorizontalContentAlignment="Center"
                           VerticalContentAlignment="Center"
                           FontWeight="Bold">
-					<ComboBoxItem x:Name="cb4" IsSelected="True"
+					<ComboBoxItem x:Name="cbb6" IsSelected="True"
                                   FontWeight="Bold">6 món/trang</ComboBoxItem>
-					<ComboBoxItem x:Name="cb8" FontWeight="Bold">8 món/trang</ComboBoxItem>
+                    <ComboBoxItem x:Name="cbb8" FontWeight="Bold">8 món/trang</ComboBoxItem>
 
 				</ComboBox>
+                <Label Content="Sắp xếp:"
+                       Grid.Column="3" Grid.Row="1"
+                       HorizontalContentAlignment="Right"
+                       VerticalContentAlignment="Center"
+                       FontSize="18" FontWeight="Bold">
+                </Label>
 
-			</Grid>
+                <ComboBox x:Name="btnSapxep"
+                          Grid.Column="4" Grid.Row="1"
+                          HorizontalContentAlignment="Center"
+                          VerticalContentAlignment="Center"
+                          FontWeight="Bold">
+                    <ComboBoxItem x:Name="cbbtentang" IsSelected="True"
+                                  FontWeight="Bold">Tăng dần theo tên</ComboBoxItem>
+                    <ComboBoxItem x:Name="cbbtengiam" FontWeight="Bold">Giảm dần theo tên</ComboBoxItem>
+
+                </ComboBox>
+
+            </Grid>
 
 			<!--//HomeScreen-->
-			<Grid>
+			<Grid x:Name="grid6">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="70" />
 					<ColumnDefinition Width="*" />
@@ -253,41 +272,123 @@
 
 					<!--//to do Home Screen-->
 
-					<Button x:Name="Mon1" Content="Món 1"
+					<Button x:Name="Mon6_1" Content="Món 1"
                             Background="red"
                             Grid.Column="1" Grid.Row="1"
                             Margin="10"
 							Style="{StaticResource dish_btn}">
 					</Button>
-					<Button x:Name="Mon2" Content="Món 2"
+					<Button x:Name="Mon6_2" Content="Món 2"
                             Background="Green"
                             Grid.Column="2" Grid.Row="1"
-                            Margin="10">
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
 					</Button>
-					<Button x:Name="Mon3" Content="Món 3"
+					<Button x:Name="Mon6_3" Content="Món 3"
                             Background="Blue"
                             Grid.Column="3" Grid.Row="1"
-                            Margin="10">
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
 					</Button>
-					<Button x:Name="Mon4" Content="Món 4"
+					<Button x:Name="Mon6_4" Content="Món 4"
                             Background="Yellow"
                             Grid.Column="1" Grid.Row="2"
-                            Margin="10">
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
 					</Button>
-					<Button x:Name="Mon5" Content="Món 5"
+					<Button x:Name="Mon6_5" Content="Món 5"
                             Background="Gray"
                             Grid.Column="2" Grid.Row="2"
-                            Margin="10">
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
 					</Button>
-					<Button x:Name="Mon6" Content="Món 6"
+					<Button x:Name="Mon6_6" Content="Món 6"
                             Background="DeepPink"
                             Grid.Column="3" Grid.Row="2"
-                            Margin="10">
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
 					</Button>
 				</Grid>
 			</Grid>
+            
+            <Grid x:Name="grid8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-			<!--//navigation panel // bảng điều hướng-->
+                    <!--//to do Home Screen-->
+
+                    <Button x:Name="Mon8_1" Content="Món 1"
+                            Background="red"
+                            Grid.Column="1" Grid.Row="1"
+                            Margin="10"
+							Style="{StaticResource dish_btn}">
+                    </Button>
+                    <Button x:Name="Mon8_2" Content="Món 2"
+                            Background="Green"
+                            Grid.Column="2" Grid.Row="1"
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
+                    </Button>
+                    <Button x:Name="Mon8_3" Content="Món 3"
+                            Background="Blue"
+                            Grid.Column="3" Grid.Row="1"
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
+                    </Button>
+                    <Button x:Name="Mon8_4" Content="Món 4"
+                            Background="Yellow"
+                            Grid.Column="4" Grid.Row="1"
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
+                    </Button>
+                    <Button x:Name="Mon8_5" Content="Món 5"
+                            Background="Gray"
+                            Grid.Column="1" Grid.Row="2"
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
+                    </Button>
+                    <Button x:Name="Mon8_6" Content="Món 6"
+                            Background="DeepPink"
+                            Grid.Column="2" Grid.Row="2"
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
+                    </Button>
+                    <Button x:Name="Mon8_7" Content="Món 6"
+                            Background="Orange"
+                            Grid.Column="3" Grid.Row="2"
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
+                    </Button>
+                    <Button x:Name="Mon8_8" Content="Món 6"
+                            Background="Purple"
+                            Grid.Column="4" Grid.Row="2"
+                            Margin="10"
+                            Style="{StaticResource dish_btn}">
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <!--//navigation panel // bảng điều hướng-->
 			<Grid x:Name="nav_pnl" HorizontalAlignment="Left" Width="65" Background="#2E333A">
 				<StackPanel x:Name="st_pnl">
 					<!--//Grid chuyển đổi menu-->
