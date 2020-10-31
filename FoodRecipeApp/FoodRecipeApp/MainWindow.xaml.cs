@@ -78,5 +78,11 @@ namespace FoodRecipeApp
             Tg_btn.IsChecked = false;
         }
 
+        private void img_contact_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            //grid6.Visibility = Visibility.Collapsed;
+            //grid8.Visibility = Visibility.Visible;
+        }
     }
 }
