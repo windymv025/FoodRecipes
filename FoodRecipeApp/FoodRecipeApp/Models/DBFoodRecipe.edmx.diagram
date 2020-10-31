@@ -4,10 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e0dbd186fc1042478d63be2de2a552d5" Name="Diagram1">
-        <EntityTypeShape EntityType="dbFoodRecipesModel.FoodCookingStep" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbFoodRecipesModel.FoodRecipe" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="dbFoodRecipesModel.fk_FoodCookingStep_FoodRecipes" ManuallyRouted="false" />
+      <Diagram DiagramId="abfb40c70a6145f6a801af763dc01f02" Name="Diagram1">
+        <EntityTypeShape EntityType="DBFoodRecipesModel.FavoriteFood" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFoodRecipesModel.FoodCookingStep" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFoodRecipesModel.FoodRecipe" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="DBFoodRecipesModel.fk_FavoriteFood_FoodRecipes" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFoodRecipesModel.fk_FoodCookingStep_FoodRecipes" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

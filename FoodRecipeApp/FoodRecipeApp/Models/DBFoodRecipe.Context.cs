@@ -16,7 +16,7 @@ namespace FoodRecipeApp.Models
     public partial class DBFoodRecipesEntities : DbContext
     {
         public DBFoodRecipesEntities()
-            : base("name=dbFoodRecipesEntities")
+            : base("name=DBFoodRecipesEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace FoodRecipeApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<FavoriteFood> FavoriteFoods { get; set; }
         public virtual DbSet<FoodCookingStep> FoodCookingSteps { get; set; }
         public virtual DbSet<FoodRecipe> FoodRecipes { get; set; }
     }

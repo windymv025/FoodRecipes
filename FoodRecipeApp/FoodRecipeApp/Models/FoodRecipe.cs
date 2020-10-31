@@ -26,6 +26,7 @@ namespace FoodRecipeApp.Models
         public string CookingIngredients { get; set; }
         public string ulrVideo { get; set; }
     
+        public virtual FavoriteFood FavoriteFood { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FoodCookingStep> FoodCookingSteps { get; set; }
     }

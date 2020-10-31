@@ -4,7 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbFoodRecipesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBFoodRecipesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FavoriteFood">
+          <Key>
+            <PropertyRef Name="IdFoodRecipes" />
+          </Key>
+          <Property Name="IdFoodRecipes" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="FoodCookingStep">
           <Key>
             <PropertyRef Name="IdFoodRecipes" />
@@ -25,6 +31,18 @@
           <Property Name="CookingIngredients" Type="nvarchar(max)" />
           <Property Name="ulrVideo" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <Association Name="fk_FavoriteFood_FoodRecipes">
+          <End Role="FoodRecipes" Type="Self.FoodRecipes" Multiplicity="1" />
+          <End Role="FavoriteFood" Type="Self.FavoriteFood" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FoodRecipes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FavoriteFood">
+              <PropertyRef Name="IdFoodRecipes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_FoodCookingStep_FoodRecipes">
           <End Role="FoodRecipes" Type="Self.FoodRecipes" Multiplicity="1" />
           <End Role="FoodCookingStep" Type="Self.FoodCookingStep" Multiplicity="*" />
@@ -37,9 +55,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbFoodRecipesModelStoreContainer">
+        <EntityContainer Name="DBFoodRecipesModelStoreContainer">
+          <EntitySet Name="FavoriteFood" EntityType="Self.FavoriteFood" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FoodCookingStep" EntityType="Self.FoodCookingStep" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FoodRecipes" EntityType="Self.FoodRecipes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_FavoriteFood_FoodRecipes" Association="Self.fk_FavoriteFood_FoodRecipes">
+            <End Role="FoodRecipes" EntitySet="FoodRecipes" />
+            <End Role="FavoriteFood" EntitySet="FavoriteFood" />
+          </AssociationSet>
           <AssociationSet Name="fk_FoodCookingStep_FoodRecipes" Association="Self.fk_FoodCookingStep_FoodRecipes">
             <End Role="FoodRecipes" EntitySet="FoodRecipes" />
             <End Role="FoodCookingStep" EntitySet="FoodCookingStep" />
@@ -49,7 +72,14 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="dbFoodRecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DBFoodRecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FavoriteFood">
+          <Key>
+            <PropertyRef Name="IdFoodRecipes" />
+          </Key>
+          <Property Name="IdFoodRecipes" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FoodRecipe" Relationship="Self.fk_FavoriteFood_FoodRecipes" FromRole="FavoriteFood" ToRole="FoodRecipes" />
+        </EntityType>
         <EntityType Name="FoodCookingStep">
           <Key>
             <PropertyRef Name="IdFoodRecipes" />
@@ -70,8 +100,21 @@
           <Property Name="DishDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CookingIngredients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ulrVideo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FavoriteFood" Relationship="Self.fk_FavoriteFood_FoodRecipes" FromRole="FoodRecipes" ToRole="FavoriteFood" />
           <NavigationProperty Name="FoodCookingSteps" Relationship="Self.fk_FoodCookingStep_FoodRecipes" FromRole="FoodRecipes" ToRole="FoodCookingStep" />
         </EntityType>
+        <Association Name="fk_FavoriteFood_FoodRecipes">
+          <End Role="FoodRecipes" Type="Self.FoodRecipe" Multiplicity="1" />
+          <End Role="FavoriteFood" Type="Self.FavoriteFood" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FoodRecipes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FavoriteFood">
+              <PropertyRef Name="IdFoodRecipes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_FoodCookingStep_FoodRecipes">
           <End Role="FoodRecipes" Type="Self.FoodRecipe" Multiplicity="1" />
           <End Role="FoodCookingStep" Type="Self.FoodCookingStep" Multiplicity="*" />
@@ -84,9 +127,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbFoodRecipesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBFoodRecipesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FavoriteFoods" EntityType="Self.FavoriteFood" />
           <EntitySet Name="FoodCookingSteps" EntityType="Self.FoodCookingStep" />
           <EntitySet Name="FoodRecipes" EntityType="Self.FoodRecipe" />
+          <AssociationSet Name="fk_FavoriteFood_FoodRecipes" Association="Self.fk_FavoriteFood_FoodRecipes">
+            <End Role="FoodRecipes" EntitySet="FoodRecipes" />
+            <End Role="FavoriteFood" EntitySet="FavoriteFoods" />
+          </AssociationSet>
           <AssociationSet Name="fk_FoodCookingStep_FoodRecipes" Association="Self.fk_FoodCookingStep_FoodRecipes">
             <End Role="FoodRecipes" EntitySet="FoodRecipes" />
             <End Role="FoodCookingStep" EntitySet="FoodCookingSteps" />
@@ -97,9 +145,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbFoodRecipesModelStoreContainer" CdmEntityContainer="dbFoodRecipesEntities">
+        <EntityContainerMapping StorageEntityContainer="DBFoodRecipesModelStoreContainer" CdmEntityContainer="DBFoodRecipesEntities">
+          <EntitySetMapping Name="FavoriteFoods">
+            <EntityTypeMapping TypeName="DBFoodRecipesModel.FavoriteFood">
+              <MappingFragment StoreEntitySet="FavoriteFood">
+                <ScalarProperty Name="IdFoodRecipes" ColumnName="IdFoodRecipes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="FoodCookingSteps">
-            <EntityTypeMapping TypeName="dbFoodRecipesModel.FoodCookingStep">
+            <EntityTypeMapping TypeName="DBFoodRecipesModel.FoodCookingStep">
               <MappingFragment StoreEntitySet="FoodCookingStep">
                 <ScalarProperty Name="IdFoodRecipes" ColumnName="IdFoodRecipes" />
                 <ScalarProperty Name="NumberStep" ColumnName="NumberStep" />
@@ -109,7 +164,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FoodRecipes">
-            <EntityTypeMapping TypeName="dbFoodRecipesModel.FoodRecipe">
+            <EntityTypeMapping TypeName="DBFoodRecipesModel.FoodRecipe">
               <MappingFragment StoreEntitySet="FoodRecipes">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NameFood" ColumnName="NameFood" />

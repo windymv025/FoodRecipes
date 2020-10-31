@@ -75,6 +75,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Models\DBFoodRecipe.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,18 +96,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\FavoriteFood.cs">
+      <DependentUpon>DBFoodRecipe.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\FoodCookingStep.cs">
       <DependentUpon>DBFoodRecipe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FoodRecipe.cs">
       <DependentUpon>DBFoodRecipe.tt</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,6 +140,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Models\DBFoodRecipe.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
+      <LastGenOutput>DBFoodRecipe.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBFoodRecipe.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
+      <LastGenOutput>DBFoodRecipe.cs</LastGenOutput>
+    </Content>
     <Resource Include="Assets\img_contact.png" />
     <Resource Include="Assets\img_home.png" />
     <Resource Include="Assets\tgBtn_default.png" />
@@ -149,16 +162,6 @@
     <Resource Include="Assets\search.png" />
     <Resource Include="Assets\nextbutton.png" />
     <Resource Include="Assets\previousbutton.png" />
-    <Content Include="Models\DBFoodRecipe.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
-      <LastGenOutput>DBFoodRecipe.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DBFoodRecipe.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
-      <LastGenOutput>DBFoodRecipe.cs</LastGenOutput>
-    </Content>
     <Content Include="Images\food.png" />
   </ItemGroup>
   <ItemGroup>
