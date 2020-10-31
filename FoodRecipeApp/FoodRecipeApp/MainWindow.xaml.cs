@@ -27,7 +27,10 @@ namespace FoodRecipeApp
     {
         private List<FoodRecipe> foodRecipes;
         private DBFoodRecipesEntities db;
-        private BindingList<Dish> dishes;
+        private int dishNumberInPage;
+        private const int rowPerPage = 2;
+        private int totalPages;
+        //private BindingList<Dish> dishes;
 
         public MainWindow()
         {
@@ -38,8 +41,41 @@ namespace FoodRecipeApp
         {
             db = new DBFoodRecipesEntities();
             foodRecipes = db.FoodRecipes.ToList();
-            dishes = DishDAO.GetAll();
+            dishNumberInPage = 6;
+            totalPages = (foodRecipes.Count / rowPerPage) + ((foodRecipes.Count % rowPerPage) == 0 ? 0 : 1);
+            LabelPage.Content = $"1/{totalPages}";
+            if (dishNumberInPage == 6)
+            {
+                grid6.Visibility = Visibility.Visible;
+                grid8.Visibility = Visibility.Collapsed;
+                visibleDishInPage(1);
+            }
+            else
+            {
+                grid6.Visibility = Visibility.Collapsed;
+                grid8.Visibility = Visibility.Visible;
+                visibleDishInPage(1);
+            }
+            //dishes = DishDAO.GetAll();
             //listDish.ItemsSource = dishes;
+        }
+
+        private void phanTrang()
+        {
+            
+        }
+
+        private void visibleDishInPage(int page)
+        {
+            var dishes = foodRecipes.Skip((page - 1) * rowPerPage).Take(rowPerPage);
+            if(dishNumberInPage==6)
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
