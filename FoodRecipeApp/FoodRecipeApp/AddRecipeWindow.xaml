@@ -1,0 +1,68 @@
+﻿<Window x:Class="FoodRecipeApp.AddRecipeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodRecipeApp"
+        mc:Ignorable="d"
+        Title="AddRecipeWindow"
+        Height="700" 
+        Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="480"></ColumnDefinition>
+            <ColumnDefinition Width="544"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <StackPanel>
+                <TextBlock x:Name="FoodAvatar" Width="150" Height="40"
+                               Text="Ảnh mô tả:" TextAlignment="Center" 
+                               FontSize="24" FontWeight="Bold"
+                               Padding="5" Margin="0"></TextBlock>
+                <Border BorderThickness="3" BorderBrush="SlateGray" Width="450" Height="450" Margin="0,0">
+                    <Button x:Name="InsertFoodImage" Height="60" VerticalAlignment="Bottom"
+                            Click="InsertFoodImage_Click">
+                        <TextBlock x:Name="InsertImage" Width="165" Height="40"
+                                   Text="Click để chèn ảnh" FontSize="20"
+                                   Padding="5" FontWeight="Medium"
+                                   FontStyle="Italic" TextAlignment="Center"></TextBlock>
+                    </Button>
+                </Border>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <StackPanel>
+                <TextBlock x:Name="Title" Width="150" Height="40"
+                           Text="Tên món ăn:" TextAlignment="Center" 
+                           FontSize="24" FontWeight="Bold"
+                           Padding="5" Margin="-12,0,336,0"></TextBlock>
+                <TextBox x:Name="FoodName" Width="480" Height="70" Padding="5" Margin="17,0,17,0"
+                         FontSize="20" BorderThickness="3"></TextBox>
+                <TextBlock x:Name="Desciption" Width="100" Height="40"
+                           Text="Mô tả:" HorizontalAlignment="Center"
+                           FontSize="24" FontWeight="Bold"
+                           Padding="5" Margin="24,0,420,0"></TextBlock>
+                <TextBox x:Name="FoodDesciption" Width="480" Height="240" Padding="5" Margin="17,0,17,0"
+                         FontSize="20" BorderThickness="3"></TextBox>
+                <TextBlock x:Name="LinkYoutube" Width="150" Height="40"
+                           Text="Link Youtube:" TextAlignment="Center" 
+                           FontSize="24" FontWeight="Bold"
+                           Padding="5" Margin="-12,0,336,0"></TextBlock>
+                <TextBox x:Name="FoodLinkYoutube" Width="480" Height="60" Padding="5" Margin="17,0,17,0"
+                         FontSize="20" BorderThickness="3"></TextBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="262,0.333">
+            <Button x:Name="AddStep" Width="250" Height="60" 
+                    Click="AddStep_Click" Content="Thêm các bước nấu ăn" 
+                    FontSize="20" Margin="0,10" FontWeight="Bold"
+                    Background="LightCoral"
+                    Padding="5"></Button>
+        </Grid>
+    </Grid>
+</Window>
