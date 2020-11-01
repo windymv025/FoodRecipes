@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,16 @@ namespace FoodRecipeApp
 
         private void InsertFoodImage_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog open = new OpenFileDialog();
+            open.Multiselect = false;
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            bool? result = open.ShowDialog();
+            if (result == true)
+            {
+                var img = open.FileNames;
+                ImageSource imgsource = new BitmapImage(new Uri(img[0].ToString()));
+                ImageDescriptionOfRecipe.ImageSource = imgsource;
+            }
         }
     }
 }

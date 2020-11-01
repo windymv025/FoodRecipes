@@ -25,6 +25,12 @@
                                FontSize="24" FontWeight="Bold"
                                Padding="5" Margin="0"></TextBlock>
                 <Border BorderThickness="3" BorderBrush="SlateGray" Width="450" Height="450" Margin="0,0">
+                    <Border.Background>
+                        <ImageBrush x:Name="ImageDescriptionOfRecipe" 
+                                    RenderOptions.BitmapScalingMode="HighQuality" 
+                                    Stretch="UniformToFill">
+                        </ImageBrush>
+                    </Border.Background>
                     <Button x:Name="InsertFoodImage" Height="60" VerticalAlignment="Bottom"
                             Click="InsertFoodImage_Click">
                         <TextBlock x:Name="InsertImage" Width="165" Height="40"
