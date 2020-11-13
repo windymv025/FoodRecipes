@@ -144,9 +144,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\bimbimkhoailang1.jpeg" />
-    <Resource Include="Images\bimbimkhoailang2.jpeg" />
-    <Resource Include="Images\bimbimkhoailang3.jpeg" />
     <Resource Include="Images\bunbohue1.jpg" />
     <Resource Include="Images\bunbohue2.jpg" />
     <Resource Include="Images\bunbohue3.jpg" />
@@ -156,12 +153,6 @@
     <Resource Include="Images\burger3.jpg" />
     <Resource Include="Images\burger4.jpg" />
     <Resource Include="Images\burger5.jpg" />
-    <Resource Include="Images\daheo1.jpeg" />
-    <Resource Include="Images\daheo2.jpeg" />
-    <Resource Include="Images\daheo3.jpeg" />
-    <Resource Include="Images\daheo4.jpeg" />
-    <Resource Include="Images\daheo5.jpeg" />
-    <Resource Include="Images\daheo6.jpeg" />
     <Resource Include="Images\flan1.jpg" />
     <Resource Include="Images\flan2.jpg" />
     <Resource Include="Images\flan3.jpg" />
@@ -178,6 +169,18 @@
     <Resource Include="Images\tomvien2.jpg" />
     <Resource Include="Images\tomvien3.jpg" />
     <Resource Include="Images\tomvien4.jpg" />
+    <Resource Include="Images\daheo1.jpg" />
+    <Resource Include="Images\daheo2.jpg" />
+    <Resource Include="Images\daheo3.jpg" />
+    <Resource Include="Images\daheo4.jpg" />
+    <Resource Include="Images\daheo5.jpg" />
+    <Resource Include="Images\daheo6.jpg" />
+    <Resource Include="Images\bimbimkhoailang1.jpg" />
+    <Resource Include="Images\bimbimkhoailang2.jpg" />
+    <Resource Include="Images\bimbimkhoailang3.jpg" />
+    <Resource Include="Assets\Vuong.jpg" />
+    <Resource Include="Assets\Vu.jpg" />
+    <Resource Include="Assets\That.jpg" />
     <Content Include="Models\DBFoodRecipe.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBFoodRecipe.edmx</DependentUpon>

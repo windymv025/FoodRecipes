@@ -8,7 +8,6 @@
         Title="Food Ricipe App" 
         Height="700" 
         Width="1024"
-        Topmost="True"
         WindowStartupLocation="CenterScreen"
 		Loaded="loadDuLieu">
     <!--<Button Margin="20" Background="#189EFF">-->
@@ -222,7 +221,7 @@
             </Grid>
 
 			<!--//HomeScreen-->
-			<Grid x:Name="grid6" Visibility="Visible">
+            <Grid x:Name="grid6" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="70" />
 					<ColumnDefinition Width="*" />
@@ -253,7 +252,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_1" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon6_1" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon6_1" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -267,7 +266,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_2" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon6_2" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon6_2" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -281,7 +280,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_3" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon6_3" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon6_3" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -295,7 +294,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_4" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon6_4" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon6_4" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -309,7 +308,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_5" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon6_5" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon6_5" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -323,7 +322,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_6" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon6_6" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon6_6" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -333,8 +332,8 @@
                     </Grid>
                 </Grid>
 			</Grid>
-            
-            <Grid x:Name="grid8" Visibility="Collapsed">
+
+            <Grid x:Name="grid8" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="70" />
                     <ColumnDefinition Width="*" />
@@ -366,7 +365,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_1" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon8_1" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon8_1" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -380,7 +379,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_2" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon8_2" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon8_2" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -394,7 +393,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_3" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon8_3" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon8_3" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -408,7 +407,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_4" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon8_4" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon8_4" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -422,7 +421,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_5" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon8_5" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon8_5" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -436,7 +435,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_6" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon8_6" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon8_6" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -450,7 +449,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_7" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon8_7" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon8_7" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -464,7 +463,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_8" Source="Images/daheo6.jpeg" Stretch="UniformToFill" 
+                        <Image x:Name="img_mon8_8" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
                         <Label x:Name="lb_mon8_8" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
@@ -475,6 +474,68 @@
                 </Grid>
             </Grid>
 
+            <!--//Contact Screen-->
+            <Grid x:Name="contact_screen" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+                <Grid.Background>
+                    <ImageBrush x:Name="img_bg_contact" ImageSource="/Assets/background.jpg" Stretch="Fill" />
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="Vuong" Grid.Row="0" Grid.Column="1" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="90" />
+                        </Grid.RowDefinitions>
+                        <Image Source="Assets/Vuong.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <Label Content="Phạm Minh Vương"
+                               Grid.Row="1" HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               FontWeight="Bold" FontSize="25"/>
+                        
+                    </Grid>
+                </Grid>
+                <Grid x:Name="That" Grid.Row="0" Grid.Column="2" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="90" />
+                        </Grid.RowDefinitions>
+                        <Image Source="Assets/That.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <Label Content="Phạm Văn Thật"
+                               Grid.Row="1" HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               FontWeight="Bold" FontSize="25"/>
+
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Vu" Grid.Row="0" Grid.Column="3" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="90" />
+                        </Grid.RowDefinitions>
+                        <Image Source="/Assets/Vu.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <Label Content="Lưu Trường Vũ"
+                               Grid.Row="1" HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               FontWeight="Bold" FontSize="25"/>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+            
             <!--//navigation panel // bảng điều hướng-->
 			<Grid x:Name="nav_pnl" HorizontalAlignment="Left" Width="65" Background="#2E333A">
 				<StackPanel x:Name="st_pnl">
@@ -532,8 +593,9 @@
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 						<!--//HOME-->
 						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-							<StackPanel Orientation="Horizontal" Width="230">
-								<Image Source="/Assets/img_home.png" Stretch="None" Margin="12,0,0,0" />
+                            <StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown">
+								<Image Source="/Assets/img_home.png" Stretch="None" Margin="12,0,0,0" 
+                                       PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"/>
 								<TextBlock Text="Home" Margin="25,0,0,0" Style="{StaticResource font_style}" />
 							</StackPanel>
 
@@ -580,7 +642,7 @@
 
 						<!--//Contact-->
 						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-							<StackPanel Orientation="Horizontal" Width="230">
+                            <StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown">
 								<Image x:Name="img_contact" Source="/Assets/img_contact.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown" />
 								<TextBlock Text="Contact" Margin="25,0,0,0" Style="{StaticResource font_style}" />
 							</StackPanel>
