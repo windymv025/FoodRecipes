@@ -38,7 +38,7 @@ namespace FoodRecipeApp.ViewModels
 
     class HomeViewModel
     {
-        public List<FoodRecipe> foodRecipes { get; set; }
+        public List<FoodRecipe> FoodRecipes { get; set; }
         public PagingInfo PagingInfo { get; set; }
     }
 }

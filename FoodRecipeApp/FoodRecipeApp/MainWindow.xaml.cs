@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,55 +42,56 @@ namespace FoodRecipeApp
 
             homeViewModel = new HomeViewModel()
             {
-                foodRecipes = FoodRecipeDao.GetAll(),
-                PagingInfo = new PagingInfo()
+                FoodRecipes = FoodRecipeDao.GetAll(),
+                PagingInfo = new PagingInfo(2, 6, FoodRecipeDao.GetAll().Count)
             };
+            
         }
 
         private void loadDuLieu(object sender, RoutedEventArgs e)
         {
 
             //Doc tu file log bien dishNumberInPage
-            totalPages = (foodRecipes.Count / dishNumberInPage) + ((foodRecipes.Count % dishNumberInPage) == 0 ? 0 : 1);
-            LabelPage.Content = $"1/{totalPages}";
+            //totalPages = (foodRecipes.Count / dishNumberInPage) + ((foodRecipes.Count % dishNumberInPage) == 0 ? 0 : 1);
+            //LabelPage.Content = $"1/{totalPages}";
 
-            if (dishNumberInPage == 6)
-            {
-                grid6.Visibility = Visibility.Visible;
-                grid8.Visibility = Visibility.Collapsed;
-                //visibleDishInPage(page);
-            }
-            else
-            {
-                grid6.Visibility = Visibility.Collapsed;
-                grid8.Visibility = Visibility.Visible;
-               //visibleDishInPage(page);
-            }
-        }
-
-        private List<Dish> getDishInPage(int page, int dishNumberInPage)
-        {
-            //if (foodRecipes != null)
+            //if (dishNumberInPage == 6)
             //{
-            //    var dishes = foodRecipes.Skip((page - 1) * dishNumberInPage).Take(dishNumberInPage).ToList();
-            //    var list = new List<Dish>();
-
-            //    foreach (var fr in foodRecipes)
-            //    {
-            //        var dish = new Dish();
-            //        var steps = fr.FoodCookingSteps.ToList();
-
-            //        dish.ImageDish = steps[steps.Count - 1].ImageStep;
-            //        dish.ID = fr.ID;
-            //        dish.NameDish = fr.NameFood;
-
-            //        list.Add(dish);
-            //    }
-
-            //    return list;
+            //    grid6.Visibility = Visibility.Visible;
+            //    grid8.Visibility = Visibility.Collapsed;
+            //    //visibleDishInPage(page);
             //}
-            return null;
+            //else
+            //{
+            //    grid6.Visibility = Visibility.Collapsed;
+            //    grid8.Visibility = Visibility.Visible;
+            //   //visibleDishInPage(page);
+            //}
         }
+
+        //private List<Dish> getDishInPage(int page, int dishNumberInPage)
+        //{
+        //    //if (foodRecipes != null)
+        //    //{
+        //    //    var dishes = foodRecipes.Skip((page - 1) * dishNumberInPage).Take(dishNumberInPage).ToList();
+        //    //    var list = new List<Dish>();
+
+        //    //    foreach (var fr in foodRecipes)
+        //    //    {
+        //    //        var dish = new Dish();
+        //    //        var steps = fr.FoodCookingSteps.ToList();
+
+        //    //        dish.ImageDish = steps[steps.Count - 1].ImageStep;
+        //    //        dish.ID = fr.ID;
+        //    //        dish.NameDish = fr.NameFood;
+
+        //    //        list.Add(dish);
+        //    //    }
+
+        //    //    return list;
+        //    //}
+        //    return null;
+        //}
 
         private void visibleDishInPage(int page)
         {
@@ -195,7 +197,7 @@ namespace FoodRecipeApp
 
         private void cbb6_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            dishNumberInPage = 6;
+            //dishNumberInPage = 6;
             grid6.Visibility = Visibility.Visible;
             grid8.Visibility = Visibility.Collapsed;
             //visibleDishInPage(page);
@@ -203,7 +205,7 @@ namespace FoodRecipeApp
 
         private void cbb8_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            dishNumberInPage = 8;
+            //dishNumberInPage = 8;
             grid6.Visibility = Visibility.Collapsed;
             grid8.Visibility = Visibility.Visible;
             //visibleDishInPage(page);
