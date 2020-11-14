@@ -67,6 +67,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\DBFoodRecipeEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBFoodRecipeEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBFoodRecipeEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBFoodRecipeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBFoodRecipeEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBFoodRecipeEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FavoriteFood.cs">
+      <DependentUpon>DBFoodRecipeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FoodCookingStep.cs">
+      <DependentUpon>DBFoodRecipeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FoodRecipe.cs">
+      <DependentUpon>DBFoodRecipeEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="purivate.cs" />
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
@@ -90,30 +114,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\DBFoodRecipe.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBFoodRecipe.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBFoodRecipe.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBFoodRecipe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBFoodRecipe.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FavoriteFood.cs">
-      <DependentUpon>DBFoodRecipe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FoodCookingStep.cs">
-      <DependentUpon>DBFoodRecipe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FoodRecipe.cs">
-      <DependentUpon>DBFoodRecipe.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -132,12 +132,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\Roboto-Light.ttf" />
-    <EntityDeploy Include="Models\DBFoodRecipe.edmx">
+    <EntityDeploy Include="Models\DBFoodRecipeEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBFoodRecipe.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBFoodRecipeEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\DBFoodRecipe.edmx.diagram">
-      <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
+    <None Include="Models\DBFoodRecipeEntities.edmx.diagram">
+      <DependentUpon>DBFoodRecipeEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -149,6 +149,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Models\DBFoodRecipeEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBFoodRecipeEntities.edmx</DependentUpon>
+      <LastGenOutput>DBFoodRecipeEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBFoodRecipeEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBFoodRecipeEntities.edmx</DependentUpon>
+      <LastGenOutput>DBFoodRecipeEntities.cs</LastGenOutput>
+    </Content>
     <Resource Include="Images\bunbohue1.jpg" />
     <Resource Include="Images\bunbohue2.jpg" />
     <Resource Include="Images\bunbohue3.jpg" />
@@ -186,16 +196,6 @@
     <Resource Include="Assets\Vuong.jpg" />
     <Resource Include="Assets\Vu.jpg" />
     <Resource Include="Assets\That.jpg" />
-    <Content Include="Models\DBFoodRecipe.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
-      <LastGenOutput>DBFoodRecipe.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DBFoodRecipe.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
-      <LastGenOutput>DBFoodRecipe.cs</LastGenOutput>
-    </Content>
     <Resource Include="Assets\img_contact.png" />
     <Resource Include="Assets\img_home.png" />
     <Resource Include="Assets\tgBtn_default.png" />

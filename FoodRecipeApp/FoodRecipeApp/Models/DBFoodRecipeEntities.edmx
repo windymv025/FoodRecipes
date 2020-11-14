@@ -29,6 +29,7 @@
           <Property Name="NameFood" Type="nvarchar" MaxLength="100" />
           <Property Name="DishDescription" Type="nvarchar(max)" />
           <Property Name="CookingIngredients" Type="nvarchar(max)" />
+          <Property Name="FoodImage" Type="nvarchar(max)" />
           <Property Name="ulrVideo" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="fk_FavoriteFood_FoodRecipes">
@@ -99,6 +100,7 @@
           <Property Name="NameFood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DishDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CookingIngredients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FoodImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ulrVideo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FavoriteFood" Relationship="Self.fk_FavoriteFood_FoodRecipes" FromRole="FoodRecipes" ToRole="FavoriteFood" />
           <NavigationProperty Name="FoodCookingSteps" Relationship="Self.fk_FoodCookingStep_FoodRecipes" FromRole="FoodRecipes" ToRole="FoodCookingStep" />
@@ -170,6 +172,7 @@
                 <ScalarProperty Name="NameFood" ColumnName="NameFood" />
                 <ScalarProperty Name="DishDescription" ColumnName="DishDescription" />
                 <ScalarProperty Name="CookingIngredients" ColumnName="CookingIngredients" />
+                <ScalarProperty Name="FoodImage" ColumnName="FoodImage" />
                 <ScalarProperty Name="ulrVideo" ColumnName="ulrVideo" />
               </MappingFragment>
             </EntityTypeMapping>
