@@ -1,4 +1,5 @@
 ﻿using FoodRecipeApp.Models;
+using FoodRecipeApp.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,20 +26,24 @@ namespace FoodRecipeApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<FoodRecipe> foodRecipes;
-        public DBFoodRecipesEntities db;
-        private int dishNumberInPage = 6;
-        private const int rowPerPage = 2;
-        private int totalPages;
-        private int page = 1;
+        //public List<FoodRecipe> foodRecipes;
+        //public DBFoodRecipesEntities db;
+        //private int dishNumberInPage = 6;
+        //private const int rowPerPage = 2;
+        //private int totalPages;
+        //private int page = 1;
         //private BindingList<Dish> dishes;
+        HomeViewModel homeViewModel;
 
         public MainWindow()
         {
-            db = new DBFoodRecipesEntities();
-            foodRecipes = db.FoodRecipes.ToList();
             InitializeComponent();
-           
+
+            homeViewModel = new HomeViewModel()
+            {
+                foodRecipes = FoodRecipeDao.GetAll(),
+                PagingInfo = new PagingInfo()
+            };
         }
 
         private void loadDuLieu(object sender, RoutedEventArgs e)

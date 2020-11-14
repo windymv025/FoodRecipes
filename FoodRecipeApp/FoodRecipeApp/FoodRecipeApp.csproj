@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="purivate.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,18 +98,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBFoodRecipe.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dish.cs" />
     <Compile Include="Models\FavoriteFood.cs">
       <DependentUpon>DBFoodRecipe.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FavoriteDishDAO.cs" />
     <Compile Include="Models\FoodCookingStep.cs">
       <DependentUpon>DBFoodRecipe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FoodRecipe.cs">
       <DependentUpon>DBFoodRecipe.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DishDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
