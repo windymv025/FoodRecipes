@@ -67,11 +67,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddRecipeWindow.xaml.cs">
+      <DependentUpon>AddRecipeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddStepFoodRecipes.xaml.cs">
+      <DependentUpon>AddStepFoodRecipes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="purivate.cs" />
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Page Include="AddRecipeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddStepFoodRecipes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

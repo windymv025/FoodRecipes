@@ -500,8 +500,7 @@
                         <Label Content="Phạm Minh Vương"
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="25"/>
-                        
+                               FontWeight="Bold" FontSize="25"/>            
                     </Grid>
                 </Grid>
                 <Grid x:Name="That" Grid.Row="0" Grid.Column="2" Margin="10">
