@@ -592,7 +592,8 @@
 					<ListView x:Name="LV" Background="Transparent" BorderBrush="Transparent"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 						<!--//HOME-->
-						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" 
+                                      PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown">
                             <StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown">
 								<Image Source="/Assets/img_home.png" Stretch="None" Margin="12,0,0,0" 
                                        PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"/>
@@ -641,7 +642,8 @@
 						</ListViewItem>
 
 						<!--//Contact-->
-						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown">
                             <StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown">
 								<Image x:Name="img_contact" Source="/Assets/img_contact.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown" />
 								<TextBlock Text="Contact" Margin="25,0,0,0" Style="{StaticResource font_style}" />

@@ -24,11 +24,11 @@
         </Grid>
         <Grid Grid.Row="2">
             <CheckBox x:Name="CheckSplashScreen"
-     Unchecked="CheckSplashScreen_Unchecked"
-     Checked="CheckSplashScreen_Checked" Content="Don't Show Again!"
-     FontSize="16" HorizontalAlignment="Center"
-     HorizontalContentAlignment="Center"
-     Margin="208,30,207.667,100">
+                     Unchecked="CheckSplashScreen_Unchecked"
+                     Checked="CheckSplashScreen_Checked" Content="Don't Show Again!"
+                     FontSize="16" HorizontalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Margin="208,30,207.667,100">
             </CheckBox>
             <Button x:Name="Skip" Click="Skip_Click" Width="80" Height="40" Margin="250,74,250,36" Content="Skip" FontSize="30" Background="LightYellow">
             </Button>
