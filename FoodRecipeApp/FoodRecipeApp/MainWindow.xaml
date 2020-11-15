@@ -219,9 +219,37 @@
                 </ComboBox>
 
             </Grid>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="70"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="60" />
+				</Grid.RowDefinitions>
+				<ListView x:Name="dishListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="dishListView_SelectionChanged"
+						  Grid.Column="1">
+					<ListView.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel Margin="10" />
+						</ItemsPanelTemplate>
+					</ListView.ItemsPanel>
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Margin="10">
+								<Image Source="{Binding FoodImage}" Stretch="UniformToFill" />
+								<TextBlock Text="{Binding NameFood}" VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               FontWeight="Bold" FontSize="14" />
+							</StackPanel>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</Grid>
 
-			<!--//HomeScreen-->
-            <Grid x:Name="grid6" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+				<!--//HomeScreen-->
+            <!--<Grid x:Name="grid6" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="70" />
 					<ColumnDefinition Width="*" />
@@ -244,7 +272,7 @@
 						<RowDefinition Height="*" />
 					</Grid.RowDefinitions>
 
-					<!--//to do Home Screen-->
+					--><!--//to do Home Screen--><!--
 
 					<Grid Grid.Column="1" Grid.Row="1"
                             Margin="10">
@@ -357,7 +385,7 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <!--//to do Home Screen-->
+                    --><!--//to do Home Screen--><!--
 
                     <Grid Grid.Column="1" Grid.Row="1"
                             Margin="10">
@@ -472,7 +500,7 @@
                                FontWeight="Bold" FontSize="20"/>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid>-->
 
             <!--//Contact Screen-->
             <Grid x:Name="contact_screen" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">

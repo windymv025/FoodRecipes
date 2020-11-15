@@ -24,6 +24,7 @@ namespace FoodRecipeApp.Models
         public string NameFood { get; set; }
         public string DishDescription { get; set; }
         public string CookingIngredients { get; set; }
+        public string FoodImage { get; set; }
         public string ulrVideo { get; set; }
     
         public virtual FavoriteFood FavoriteFood { get; set; }

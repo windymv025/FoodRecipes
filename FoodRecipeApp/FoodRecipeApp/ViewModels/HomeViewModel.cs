@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace FoodRecipeApp.ViewModels
         public static List<FoodRecipe> GetAll()
         {
             List<FoodRecipe> foodRecipes;
-            using(DBFoodRecipesEntities db = new DBFoodRecipesEntities)
+            using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
             {
                 foodRecipes = db.FoodRecipes.ToList();
             }
@@ -40,5 +41,30 @@ namespace FoodRecipeApp.ViewModels
     {
         public List<FoodRecipe> FoodRecipes { get; set; }
         public PagingInfo PagingInfo { get; set; }
+
+        public List<FoodRecipe> loadPage(int pageNumber, int numDishInPage)
+        {
+            if (pageNumber > PagingInfo.TotalPage)
+                return null;
+
+            PagingInfo.NumberOfDishInPerPage = numDishInPage;
+            PagingInfo.CurrentPage = pageNumber;
+
+            List<FoodRecipe> resulf = FoodRecipes.Skip((pageNumber - 1) * PagingInfo.NumberOfDishInPerPage).Take(PagingInfo.NumberOfDishInPerPage).ToList();
+            
+            return resulf;
+        }
+        public List<FoodRecipe> nextPage()
+        {
+            if (PagingInfo.CurrentPage < PagingInfo.TotalPage)
+                return loadPage(PagingInfo.CurrentPage + 1, PagingInfo.NumberOfDishInPerPage);
+            return loadPage(1, PagingInfo.NumberOfDishInPerPage);
+        }
+        public List<FoodRecipe> previousPage()
+        {
+            if (PagingInfo.CurrentPage > 1)
+                return loadPage(PagingInfo.CurrentPage - 1, PagingInfo.NumberOfDishInPerPage);
+            return loadPage(PagingInfo.TotalPage, PagingInfo.NumberOfDishInPerPage);
+        }
     }
 }

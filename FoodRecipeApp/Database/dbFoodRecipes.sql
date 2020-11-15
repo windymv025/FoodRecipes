@@ -11,6 +11,7 @@ CREATE TABLE FoodRecipes
 	NameFood nvarchar(100),
 	DishDescription nvarchar(max),
 	CookingIngredients nvarchar(max),
+	FoodImage nvarchar(max),
 	ulrVideo nvarchar(100),
 	primary key(ID)
 )
@@ -58,6 +59,7 @@ INSERT INTO FoodRecipes VALUES
 - Bánh phở: 500 gram
 - Gia vị: Bột ngọt, mắm, muối, đường, tiêu, dầu ăn, tương ớt, tương đen, quế khô, hoa hồi, thảo quả, gừng tươi, hành tím, hạt mùi ...
 - Các loại rau thơm, giá, ớt sừng, chanh, rau mùi, hành lá …',
+		'Images/phobo3.jpg',
 		'https://youtu.be/yJuQ4tS6O18'
 	),
 	(
@@ -77,6 +79,7 @@ INSERT INTO FoodRecipes VALUES
 -Gừng 100g
 -Thơm chín 1 trái
 -Chả lá Huế 20 cái',
+		'Images/bunbohue4.jpg',
 		'https://youtu.be/43uGYn0iyNw'
 	),
 	(
@@ -87,6 +90,7 @@ INSERT INTO FoodRecipes VALUES
 - Tỏi băm: 5gr
 - Muối, ớt bột, tiêu xay
 - Lòng đỏ trứng gà: 1 quả',
+		'Images/burger5.jpg',
 		'https://youtu.be/3KQs3EqQ9SA'
 	),
 	(
@@ -100,6 +104,7 @@ INSERT INTO FoodRecipes VALUES
 - 100ml kem béo
 - 30gr đường
 - 10 quả trứng gà',
+		'Images/flan5.jpg',
 		'https://youtu.be/YqgDpVxgA7E'
 	),
 	(
@@ -109,6 +114,7 @@ INSERT INTO FoodRecipes VALUES
 		N'- 400gr da heo
 - 1 muỗng cà phê muối
 - 5gr gừng lát',
+		'Images/daheo6.jpg',
 		'https://youtu.be/3vI7CNSyQEo'
 	),
 	(
@@ -116,6 +122,7 @@ INSERT INTO FoodRecipes VALUES
 		N'Bánh Sandwich sữa chua',
 		N'Bánh Sandwich sữa chua nhỏ xinh, lớp nhân sữa chua thanh mát làm dịu nhẹ độ béo của phô mai, không quá ngấy ăn vào lại muốn ăn tiếp. Bánh ngon, thực hiện nhanh trong vòng 1 nốt nhạc, không cần phải nấu.',
 		N'Phô mai, sữa chua, và sữa đặc',
+		'Images/sandwich3.jpg',
 		'https://youtu.be/N4Z2eSbC2JQ'
 	),
 	(
@@ -132,6 +139,7 @@ INSERT INTO FoodRecipes VALUES
 - 1/2 muỗng cà phê ớt bột
 - 1 muỗng cà phê dầu hào 
 - 20gr bột bắp',
+		'Images/tomvien4.jpg',
 		'https://youtu.be/dSpo7o6Msw0'
 	),
 	(
@@ -139,6 +147,7 @@ INSERT INTO FoodRecipes VALUES
 		N'Bim bim khoai lang',
 		N'Bim bim khoai lang là món ăn vặt được yêu thích bởi sự giòn tan của khoai lang mà vẫn giữ được hương vị ban đầu.',
 		N'Khoai lang, dầu ăn',
+		'Images/bimbimkhoailang3.jpg',
 		'https://youtu.be/jwcjuhwX2AQ'
 	)
 
@@ -364,3 +373,4 @@ INSERT INTO FoodCookingStep VALUES
 	)
 
 
+	

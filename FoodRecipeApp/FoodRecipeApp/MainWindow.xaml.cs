@@ -39,12 +39,6 @@ namespace FoodRecipeApp
         public MainWindow()
         {
             InitializeComponent();
-
-            homeViewModel = new HomeViewModel()
-            {
-                FoodRecipes = FoodRecipeDao.GetAll(),
-                PagingInfo = new PagingInfo(2, 6, FoodRecipeDao.GetAll().Count)
-            };
             
         }
 
@@ -52,100 +46,86 @@ namespace FoodRecipeApp
         {
 
             //Doc tu file log bien dishNumberInPage
-            //totalPages = (foodRecipes.Count / dishNumberInPage) + ((foodRecipes.Count % dishNumberInPage) == 0 ? 0 : 1);
-            //LabelPage.Content = $"1/{totalPages}";
+            homeViewModel = new HomeViewModel();
+            homeViewModel.FoodRecipes = FoodRecipeDao.GetAll();
+            homeViewModel.PagingInfo = new PagingInfo(2, 6, homeViewModel.FoodRecipes.Count);
+            
 
-            //if (dishNumberInPage == 6)
+            //this.DataContext = homeViewModel.loadPage(1, homeViewModel.PagingInfo.NumberOfDishInPerPage);
+            dishListView.ItemsSource = homeViewModel.loadPage(1, homeViewModel.PagingInfo.NumberOfDishInPerPage);
+            //if (homeViewModel.PagingInfo.NumberOfDishInPerPage == 6)
             //{
-            //    grid6.Visibility = Visibility.Visible;
-            //    grid8.Visibility = Visibility.Collapsed;
-            //    //visibleDishInPage(page);
+            //    //grid6.Visibility = Visibility.Visible;
+            //    //grid8.Visibility = Visibility.Collapsed;
+            //    //visibleDishInPage(homeViewModel.PagingInfo.CurrentPage);
             //}
             //else
             //{
-            //    grid6.Visibility = Visibility.Collapsed;
-            //    grid8.Visibility = Visibility.Visible;
-            //   //visibleDishInPage(page);
+            //    //grid6.Visibility = Visibility.Collapsed;
+            //    //grid8.Visibility = Visibility.Visible;
+            //    //visibleDishInPage(homeViewModel.PagingInfo.CurrentPage);
             //}
+
         }
 
-        //private List<Dish> getDishInPage(int page, int dishNumberInPage)
+        
+
+        //private void visibleDishInPage(int page)
         //{
-        //    //if (foodRecipes != null)
-        //    //{
-        //    //    var dishes = foodRecipes.Skip((page - 1) * dishNumberInPage).Take(dishNumberInPage).ToList();
-        //    //    var list = new List<Dish>();
+        //    var dishes = homeViewModel.loadPage(page, homeViewModel.PagingInfo.NumberOfDishInPerPage);
+        //    if (dishes == null)
+        //        return;
 
-        //    //    foreach (var fr in foodRecipes)
-        //    //    {
-        //    //        var dish = new Dish();
-        //    //        var steps = fr.FoodCookingSteps.ToList();
+        //    //MessageBox.Show(dishes[0].FoodImage);
+        //    //var bitMap = 
 
-        //    //        dish.ImageDish = steps[steps.Count - 1].ImageStep;
-        //    //        dish.ID = fr.ID;
-        //    //        dish.NameDish = fr.NameFood;
+        //    if (homeViewModel.PagingInfo.NumberOfDishInPerPage == 6)
+        //    {
+        //        img_mon6_1.Source = new BitmapImage(new Uri(dishes[0].FoodImage, UriKind.Relative));
+        //        lb_mon6_1.Content = dishes[0].NameFood;
 
-        //    //        list.Add(dish);
-        //    //    }
+        //        img_mon6_2.Source = new BitmapImage(new Uri(dishes[1].FoodImage, UriKind.Relative));
+        //        lb_mon6_2.Content = dishes[1].NameFood;
 
-        //    //    return list;
-        //    //}
-        //    return null;
+        //        img_mon6_3.Source = new BitmapImage(new Uri(dishes[2].FoodImage, UriKind.Relative));
+        //        lb_mon6_3.Content = dishes[2].NameFood;
+
+        //        img_mon6_4.Source = new BitmapImage(new Uri(dishes[3].FoodImage, UriKind.Relative));
+        //        lb_mon6_4.Content = dishes[3].NameFood;
+
+        //        img_mon6_5.Source = new BitmapImage(new Uri(dishes[4].FoodImage, UriKind.Relative));
+        //        lb_mon6_5.Content = dishes[4].NameFood;
+
+        //        img_mon6_6.Source = new BitmapImage(new Uri(dishes[5].FoodImage, UriKind.Relative));
+        //        lb_mon6_6.Content = dishes[5].NameFood;
+        //    }
+        //    else
+        //    {
+        //        img_mon8_1.Source = new BitmapImage(new Uri(dishes[0].FoodImage, UriKind.Relative));
+        //        lb_mon8_1.Content = dishes[0].NameFood;
+
+        //        img_mon8_2.Source = new BitmapImage(new Uri(dishes[1].FoodImage, UriKind.Relative));
+        //        lb_mon8_2.Content = dishes[1].NameFood;
+
+        //        img_mon8_3.Source = new BitmapImage(new Uri(dishes[2].FoodImage, UriKind.Relative));
+        //        lb_mon8_3.Content = dishes[2].NameFood;
+
+        //        img_mon8_4.Source = new BitmapImage(new Uri(dishes[3].FoodImage, UriKind.Relative));
+        //        lb_mon8_4.Content = dishes[3].NameFood;
+
+        //        img_mon8_5.Source = new BitmapImage(new Uri(dishes[4].FoodImage, UriKind.Relative));
+        //        lb_mon8_5.Content = dishes[4].NameFood;
+
+        //        img_mon8_6.Source = new BitmapImage(new Uri(dishes[5].FoodImage, UriKind.Relative));
+        //        lb_mon8_6.Content = dishes[5].NameFood;
+
+        //        img_mon8_7.Source = new BitmapImage(new Uri(dishes[6].FoodImage, UriKind.Relative));
+        //        lb_mon8_7.Content = dishes[6].NameFood;
+
+        //        img_mon8_8.Source = new BitmapImage(new Uri(dishes[7].FoodImage, UriKind.Relative));
+        //        lb_mon8_8.Content = dishes[7].NameFood;
+        //    }
         //}
-
-        private void visibleDishInPage(int page)
-        {
-            //var dishes = getDishInPage(page, dishNumberInPage);
-            //if (dishes == null)
-            //    return;
-
-            //if (dishNumberInPage == 6)
-            //{
-            //    img_mon6_1.Source = new BitmapImage(new Uri(dishes[0].ImageDish));
-            //    lb_mon6_1.Content = dishes[0].NameDish;
-
-            //    img_mon6_2.Source = new BitmapImage(new Uri(dishes[1].ImageDish));
-            //    lb_mon6_2.Content = dishes[1].NameDish;
-
-            //    img_mon6_3.Source = new BitmapImage(new Uri(dishes[2].ImageDish));
-            //    lb_mon6_3.Content = dishes[2].NameDish;
-
-            //    img_mon6_4.Source = new BitmapImage(new Uri(dishes[3].ImageDish));
-            //    lb_mon6_4.Content = dishes[3].NameDish;
-
-            //    img_mon6_5.Source = new BitmapImage(new Uri(dishes[4].ImageDish));
-            //    lb_mon6_5.Content = dishes[4].NameDish;
-
-            //    img_mon6_6.Source = new BitmapImage(new Uri(dishes[5].ImageDish));
-            //    lb_mon6_6.Content = dishes[5].NameDish;
-            //}
-            //else
-            //{
-            //    img_mon8_1.Source = new BitmapImage(new Uri(dishes[0].ImageDish));
-            //    lb_mon8_1.Content = dishes[0].NameDish;
-
-            //    img_mon8_2.Source = new BitmapImage(new Uri(dishes[1].ImageDish));
-            //    lb_mon8_2.Content = dishes[1].NameDish;
-
-            //    img_mon8_3.Source = new BitmapImage(new Uri(dishes[2].ImageDish));
-            //    lb_mon8_3.Content = dishes[2].NameDish;
-
-            //    img_mon8_4.Source = new BitmapImage(new Uri(dishes[3].ImageDish));
-            //    lb_mon8_4.Content = dishes[3].NameDish;
-
-            //    img_mon8_5.Source = new BitmapImage(new Uri(dishes[4].ImageDish));
-            //    lb_mon8_5.Content = dishes[4].NameDish;
-
-            //    img_mon8_6.Source = new BitmapImage(new Uri(dishes[5].ImageDish));
-            //    lb_mon8_6.Content = dishes[5].NameDish;
-
-            //    img_mon8_7.Source = new BitmapImage(new Uri(dishes[6].ImageDish));
-            //    lb_mon8_7.Content = dishes[6].NameDish;
-
-            //    img_mon8_8.Source = new BitmapImage(new Uri(dishes[7].ImageDish));
-            //    lb_mon8_8.Content = dishes[7].NameDish;
-            //}
-        }
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -188,8 +168,8 @@ namespace FoodRecipeApp
         private void img_contact_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            grid6.Visibility = Visibility.Collapsed;
-            grid8.Visibility = Visibility.Collapsed;
+            //grid6.Visibility = Visibility.Collapsed;
+            //grid8.Visibility = Visibility.Collapsed;
             bg.Visibility = Visibility.Collapsed;
             contact_screen.Visibility = Visibility.Visible;
             Tg_btn.IsChecked = false;
@@ -198,21 +178,31 @@ namespace FoodRecipeApp
         private void cbb6_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //dishNumberInPage = 6;
-            grid6.Visibility = Visibility.Visible;
-            grid8.Visibility = Visibility.Collapsed;
-            //visibleDishInPage(page);
+            homeViewModel.PagingInfo.NumberOfDishInPerPage = 6;
+            //grid6.Visibility = Visibility.Visible;
+            //grid8.Visibility = Visibility.Collapsed;
+            homeViewModel.PagingInfo.CurrentPage = 1;
+            //visibleDishInPage(1);
+            //dishListView.ItemsSource = homeViewModel.loadPage(homeViewModel.PagingInfo.CurrentPage, homeViewModel.PagingInfo.NumberOfDishInPerPage);
         }
 
         private void cbb8_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //dishNumberInPage = 8;
-            grid6.Visibility = Visibility.Collapsed;
-            grid8.Visibility = Visibility.Visible;
+            homeViewModel.PagingInfo.NumberOfDishInPerPage = 8;
+
+            //grid6.Visibility = Visibility.Collapsed;
+            //grid8.Visibility = Visibility.Visible;
             //visibleDishInPage(page);
+            homeViewModel.PagingInfo.CurrentPage = 1;
+            //visibleDishInPage(1);
+            this.DataContext = homeViewModel.loadPage(homeViewModel.PagingInfo.CurrentPage, homeViewModel.PagingInfo.NumberOfDishInPerPage);
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
+            this.DataContext = homeViewModel.nextPage();
+
             //if (page < totalPages)
             //{
             //    page++;
@@ -227,6 +217,7 @@ namespace FoodRecipeApp
 
         private void btnPrev_Click(object sender, RoutedEventArgs e)
         {
+            this.DataContext = homeViewModel.previousPage();
             //if (page > 1)
             //{
             //    page--;
@@ -243,11 +234,16 @@ namespace FoodRecipeApp
         private void Image_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //if grid 6 or 8, now default 6
-            grid6.Visibility = Visibility.Visible;
-            grid8.Visibility = Visibility.Collapsed;
+            //grid6.Visibility = Visibility.Visible;
+            //grid8.Visibility = Visibility.Collapsed;
             bg.Visibility = Visibility.Visible;
             contact_screen.Visibility = Visibility.Collapsed;
             Tg_btn.IsChecked = false;
+        }
+
+        private void dishListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
