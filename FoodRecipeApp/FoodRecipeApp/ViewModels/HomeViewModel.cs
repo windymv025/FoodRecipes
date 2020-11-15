@@ -45,7 +45,9 @@ namespace FoodRecipeApp.ViewModels
         public List<FoodRecipe> loadPage(int pageNumber, int numDishInPage)
         {
             if (pageNumber > PagingInfo.TotalPage)
-                return null;
+                pageNumber = 1;
+            if (pageNumber < 1)
+                pageNumber = PagingInfo.TotalPage;
 
             PagingInfo.NumberOfDishInPerPage = numDishInPage;
             PagingInfo.CurrentPage = pageNumber;
