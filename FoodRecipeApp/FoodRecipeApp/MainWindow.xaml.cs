@@ -12,13 +12,6 @@ namespace FoodRecipeApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public List<FoodRecipe> foodRecipes;
-        //public DBFoodRecipesEntities db;
-        //private int dishNumberInPage = 6;
-        //private const int rowPerPage = 2;
-        //private int totalPages;
-        //private int page = 1;
-        //private BindingList<Dish> dishes;
         HomeViewModel homeViewModel;
 
         public MainWindow()
@@ -30,11 +23,22 @@ namespace FoodRecipeApp
         private void loadDuLieu(object sender, RoutedEventArgs e)
         {
 
-            //Doc tu file log bien dishNumberInPage
             homeViewModel = new HomeViewModel();
             homeViewModel.FoodRecipes = FoodRecipeDao.GetAll();
             homeViewModel.PagingInfo = new PagingInfo(2, 6, homeViewModel.FoodRecipes.Count);
+            homeViewModel.LogFile = new LogFile();
 
+            homeViewModel.loadLogFile();
+
+            btnSapxep.SelectedIndex = homeViewModel.LogFile.TypeSort;
+
+            if (homeViewModel.LogFile.NumberOfDishInPerPage == 6)
+                btnSoLuong.SelectedIndex = 0;
+            else
+            {
+                if (homeViewModel.LogFile.NumberOfDishInPerPage == 8)
+                    btnSoLuong.SelectedIndex = 1;
+            }
             //dishListView.ItemsSource = homeViewModel.loadPage(1, homeViewModel.PagingInfo.NumberOfDishInPerPage); 
             if (homeViewModel.PagingInfo.NumberOfDishInPerPage == 6)
             {
@@ -329,8 +333,9 @@ namespace FoodRecipeApp
 
         private void cbb6_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //homeViewModel.PagingInfo.NumberOfDishInPerPage = 6;
             homeViewModel.PagingInfo = new PagingInfo(2, 6, homeViewModel.FoodRecipes.Count);
+            homeViewModel.LogFile.NumberOfDishInPerPage = 6;
+
             grid6.Visibility = Visibility.Visible;
             grid8.Visibility = Visibility.Collapsed;
             homeViewModel.PagingInfo.CurrentPage = 1;
@@ -340,9 +345,8 @@ namespace FoodRecipeApp
 
         private void cbb8_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-           // homeViewModel.PagingInfo.NumberOfDishInPerPage = 8;
             homeViewModel.PagingInfo = new PagingInfo(2, 8, homeViewModel.FoodRecipes.Count);
-
+            homeViewModel.LogFile.NumberOfDishInPerPage = 8;
 
             grid6.Visibility = Visibility.Collapsed;
             grid8.Visibility = Visibility.Visible;
@@ -364,25 +368,91 @@ namespace FoodRecipeApp
         private void Image_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //if grid 6 or 8, now default 6
+            homeViewModel.FoodRecipes = FoodRecipeDao.GetAll();
+            btnSapxep.SelectedIndex = homeViewModel.LogFile.TypeSort;
+
+            homeViewModel.PagingInfo = new PagingInfo(2, homeViewModel.LogFile.NumberOfDishInPerPage, homeViewModel.FoodRecipes.Count);
+            LabelPage.Content = $"{homeViewModel.PagingInfo.CurrentPage}/{homeViewModel.PagingInfo.TotalPage}";
+
             if (homeViewModel.PagingInfo.NumberOfDishInPerPage == 6)
             {
                 grid6.Visibility = Visibility.Visible;
                 grid8.Visibility = Visibility.Collapsed;
-            }
+                btnSoLuong.SelectedIndex = 0;
+}
             else
             {
                 grid6.Visibility = Visibility.Collapsed;
                 grid8.Visibility = Visibility.Visible;
+                btnSoLuong.SelectedIndex = 1;
             }
+          
+            visibleDishInPage(homeViewModel.PagingInfo.CurrentPage);
+
 
             bg.Visibility = Visibility.Visible;
             contact_screen.Visibility = Visibility.Collapsed;
             Tg_btn.IsChecked = false;
         }
 
-        private void dishListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnSapxep_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(btnSapxep.SelectedIndex==0)
+            {
+                homeViewModel.LogFile.TypeSort = 0;
+                homeViewModel.sortAscendingName();
+                homeViewModel.PagingInfo.CurrentPage = 1;
+                visibleDishInPage(homeViewModel.PagingInfo.CurrentPage);
+            }
+            else
+            {
+                if(btnSapxep.SelectedIndex==1)
+                {
+                    homeViewModel.LogFile.TypeSort = 1;
+                    homeViewModel.sortDescendingName();
+                    homeViewModel.PagingInfo.CurrentPage = 1;
+                    visibleDishInPage(homeViewModel.PagingInfo.CurrentPage);
+                }
+            }
+        }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (btnSapxep.SelectedIndex == -1)
+                homeViewModel.LogFile.TypeSort = -1;
+            homeViewModel.saveLogfile();
+        }
+
+        //even Favorite Food
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            homeViewModel.FoodRecipes = FavoriteFoodDao.GetAll();
+
+            if (homeViewModel.FoodRecipes != null)
+                visibleDishInPage(1);
+            else
+            {
+                homeViewModel.PagingInfo.CurrentPage = 0;
+            }
+
+            bg.Visibility = Visibility.Visible;
+            contact_screen.Visibility = Visibility.Collapsed;
+            Tg_btn.IsChecked = false;
+
+            btnSoLuong.SelectedIndex = 0;
+            btnSapxep.SelectedIndex = -1;
+            homeViewModel.PagingInfo.NumberOfDishInPerPage = 6;
+            homeViewModel.LogFile.TypeSort = -1;
+
+            homeViewModel.PagingInfo.TotalPage = homeViewModel.FoodRecipes.Count;
+
+            LabelPage.Content = $"{homeViewModel.PagingInfo.CurrentPage}/{homeViewModel.PagingInfo.TotalPage}";
+
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            
         }
     }
 }

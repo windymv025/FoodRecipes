@@ -9,95 +9,96 @@
         Height="700" 
         Width="1024"
         WindowStartupLocation="CenterScreen"
-		Loaded="loadDuLieu">
-    <!--<Button Margin="20" Background="#189EFF">-->
+		Loaded="loadDuLieu"
+		Closing="Window_Closing">
+	<!--<Button Margin="20" Background="#189EFF">-->
 
-    <Window.Resources>
-        <!--//Toggle btn style-->
-        <ImageBrush ImageSource="/Assets/tgBtn_MouseOver.png" x:Key="tb_mouse_over" />
-        
-        <!--//Text font style-->
-        <Style x:Key="font_style" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="20" />
-        </Style>
-        
-        <!--//Tooltip Style-->
-        <Style TargetType="ToolTip" x:Key="tt_style">
-            <Setter Property="Placement" Value="Right" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Margin" Value="20,0,0,0" />
-            <Setter Property="Background" Value="#4A5668" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="PlacementRectangle" Value="60,0,0,0" />
-            <Setter Property="HorizontalOffset" Value="15" />
-            <Setter Property="VerticalOffset" Value="6" />
-            <Setter Property="HasDropShadow" Value="True" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-        </Style>
-        
-        <!--//togglebutton style-->
-        <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                            
-                        </Border>
+	<Window.Resources>
+		<!--//Toggle btn style-->
+		<ImageBrush ImageSource="/Assets/tgBtn_MouseOver.png" x:Key="tb_mouse_over" />
 
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource tb_mouse_over}">
-                                    
-                                </Setter>
+		<!--//Text font style-->
+		<Style x:Key="font_style" TargetType="TextBlock">
+			<Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="HorizontalAlignment" Value="Left" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="FontSize" Value="20" />
+		</Style>
 
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource tb_mouse_over}">
-                                    
-                                </Setter>
-                            </Trigger>
+		<!--//Tooltip Style-->
+		<Style TargetType="ToolTip" x:Key="tt_style">
+			<Setter Property="Placement" Value="Right" />
+			<Setter Property="Height" Value="40" />
+			<Setter Property="Width" Value="100" />
+			<Setter Property="Margin" Value="20,0,0,0" />
+			<Setter Property="Background" Value="#4A5668" />
+			<Setter Property="BorderBrush" Value="Transparent" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="PlacementRectangle" Value="60,0,0,0" />
+			<Setter Property="HorizontalOffset" Value="15" />
+			<Setter Property="VerticalOffset" Value="6" />
+			<Setter Property="HasDropShadow" Value="True" />
+			<Setter Property="HorizontalContentAlignment" Value="Center" />
+		</Style>
 
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource tb_mouse_over}" />
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource tb_mouse_over}" />
-                            </Trigger>
-                            
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        
-        <!--//button next, prev style-->
-        <Style x:Key="next_prev_btn" TargetType="{x:Type Button}">
+		<!--//togglebutton style-->
+		<Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ToggleButton}">
+						<Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
 
-            <Setter Property="Template">
+						</Border>
 
-                <Setter.Value>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="Background" TargetName="border" Value="{StaticResource tb_mouse_over}">
 
-                    <ControlTemplate TargetType="{x:Type Button}">
+								</Setter>
 
-                        <Border x:Name="button"
+								<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource tb_mouse_over}">
+
+								</Setter>
+							</Trigger>
+
+							<Trigger Property="IsChecked" Value="True">
+								<Setter Property="Background" TargetName="border" Value="{StaticResource tb_mouse_over}" />
+								<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource tb_mouse_over}" />
+							</Trigger>
+
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<!--//button next, prev style-->
+		<Style x:Key="next_prev_btn" TargetType="{x:Type Button}">
+
+			<Setter Property="Template">
+
+				<Setter.Value>
+
+					<ControlTemplate TargetType="{x:Type Button}">
+
+						<Border x:Name="button"
                                 BorderThickness="0"
                                 Background="{TemplateBinding Background}"
                                 SnapsToDevicePixels="True">
 
-                        </Border>
+						</Border>
 
-                    </ControlTemplate>
+					</ControlTemplate>
 
-                </Setter.Value>
+				</Setter.Value>
 
-            </Setter>
+			</Setter>
 
-        </Style>
-		
+		</Style>
+
 		<!--//dish-->
 		<Style x:Key="dish_btn" TargetType="{x:Type Button}">
 
@@ -136,10 +137,11 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="150"/>
 					<ColumnDefinition Width="120"/>
-					<ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="130"/>
-                    <ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="71.639"/>
+					<ColumnDefinition Width="28.361"/>
+					<ColumnDefinition Width="120"/>
+					<ColumnDefinition Width="130"/>
+					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="70"/>
 					<ColumnDefinition Width="70"/>
 					<ColumnDefinition Width="70"/>
@@ -153,29 +155,29 @@
 				</Grid.RowDefinitions>
 
 				<Button x:Name="btnNext" Click="btnNext_Click"
-                        Grid.Column="8" Grid.Row="1"
+                        Grid.Column="9" Grid.Row="1"
                         BorderThickness="0"
                         FontFamily="Fonts/Roboto-Light.ttf #Roboto"
                         Height="40" Width="40"
-                        Style="{StaticResource next_prev_btn}">
+                        Style="{StaticResource next_prev_btn}" Margin="15,0">
 					<Button.Background>
 						<ImageBrush ImageSource="Assets/nextbutton.png"/>
 					</Button.Background>
 
 				</Button>
 				<Button x:Name="btnPrev" Content="Prev" Click="btnPrev_Click"
-                        Grid.Column="6" Grid.Row="1"
+                        Grid.Column="7" Grid.Row="1"
                         BorderThickness="0"
                         FontFamily="Fonts/Roboto-Light.ttf #Roboto"
                         Height="40" Width="40"
-                        Style="{StaticResource next_prev_btn}">
+                        Style="{StaticResource next_prev_btn}" Margin="15,0">
 					<Button.Background>
 						<ImageBrush ImageSource="Assets/previousbutton.png"/>
 					</Button.Background>
 				</Button>
 				<Label x:Name="LabelPage" 
                        Content="10/10"
-                       Grid.Column="7" Grid.Row="1"
+                       Grid.Column="8" Grid.Row="1"
                        HorizontalContentAlignment="Center"
                        VerticalContentAlignment="Center"
                        FontSize="18" FontWeight="Bold">
@@ -192,33 +194,34 @@
                           Grid.Column="2" Grid.Row="1"
                           HorizontalContentAlignment="Center"
                           VerticalContentAlignment="Center"
-                          FontWeight="Bold">
+                          FontWeight="Bold" Grid.ColumnSpan="2">
 					<ComboBoxItem x:Name="cbb6" IsSelected="True"
                                   FontWeight="Bold"
                                   PreviewMouseLeftButtonDown="cbb6_PreviewMouseLeftButtonDown">6 món/trang</ComboBoxItem>
-                    <ComboBoxItem x:Name="cbb8" FontWeight="Bold"
+					<ComboBoxItem x:Name="cbb8" FontWeight="Bold"
                                   PreviewMouseLeftButtonDown="cbb8_PreviewMouseLeftButtonDown">8 món/trang</ComboBoxItem>
 
 				</ComboBox>
-                <Label Content="Sắp xếp:"
-                       Grid.Column="3" Grid.Row="1"
+				<Label Content="Sắp xếp:"
+                       Grid.Column="4" Grid.Row="1"
                        HorizontalContentAlignment="Right"
                        VerticalContentAlignment="Center"
                        FontSize="18" FontWeight="Bold">
-                </Label>
+				</Label>
 
-                <ComboBox x:Name="btnSapxep"
-                          Grid.Column="4" Grid.Row="1"
+				<ComboBox x:Name="btnSapxep"
+                          Grid.Column="5" Grid.Row="1"
                           HorizontalContentAlignment="Center"
                           VerticalContentAlignment="Center"
-                          FontWeight="Bold">
-                    <ComboBoxItem x:Name="cbbtentang" IsSelected="True"
+                          FontWeight="Bold"
+						  SelectionChanged="btnSapxep_SelectionChanged">
+					<ComboBoxItem x:Name="cbbtentang"
                                   FontWeight="Bold">Tăng dần theo tên</ComboBoxItem>
-                    <ComboBoxItem x:Name="cbbtengiam" FontWeight="Bold">Giảm dần theo tên</ComboBoxItem>
+					<ComboBoxItem x:Name="cbbtengiam" FontWeight="Bold">Giảm dần theo tên</ComboBoxItem>
 
-                </ComboBox>
+				</ComboBox>
 
-            </Grid>
+			</Grid>
 			<!--<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="70"/>
@@ -248,8 +251,8 @@
 				</ListView>
 			</Grid>-->
 
-				<!--//HomeScreen-->
-            <Grid x:Name="grid6" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+			<!--//HomeScreen-->
+			<Grid x:Name="grid6" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="70" />
 					<ColumnDefinition Width="*" />
@@ -276,294 +279,295 @@
 
 					<Grid Grid.Column="1" Grid.Row="1"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_1" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon6_1" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon6_1" Content="Daheo"
+						<Label x:Name="lb_mon6_1" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="2" Grid.Row="1"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="2" Grid.Row="1"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_2" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon6_2" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon6_2" Content="Daheo"
+						<Label x:Name="lb_mon6_2" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="3" Grid.Row="1"
+							   
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="3" Grid.Row="1"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_3" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon6_3" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon6_3" Content="Daheo"
+						<Label x:Name="lb_mon6_3" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="1" Grid.Row="2"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="1" Grid.Row="2"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_4" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon6_4" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon6_4" Content="Daheo"
+						<Label x:Name="lb_mon6_4" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="2" Grid.Row="2"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="2" Grid.Row="2"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_5" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon6_5" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon6_5" Content="Daheo"
+						<Label x:Name="lb_mon6_5" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="3" Grid.Row="2"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="3" Grid.Row="2"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon6_6" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon6_6" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon6_6" Content="Daheo"
+						<Label x:Name="lb_mon6_6" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                </Grid>
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+				</Grid>
 			</Grid>
 
-            <Grid x:Name="grid8" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="20" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+			<Grid x:Name="grid8" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="70" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="60" />
+				</Grid.RowDefinitions>
+				<Grid Grid.Row="0" Grid.Column="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="20" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="20" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="20" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
 
-                    <!--//to do Home Screen-->
+					<!--//to do Home Screen-->
 
-                    <Grid Grid.Column="1" Grid.Row="1"
+					<Grid Grid.Column="1" Grid.Row="1"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_1" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon8_1" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon8_1" Content="Daheo"
+						<Label x:Name="lb_mon8_1" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="2" Grid.Row="1"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="2" Grid.Row="1"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_2" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon8_2" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon8_2" Content="Daheo"
+						<Label x:Name="lb_mon8_2" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="3" Grid.Row="1"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="3" Grid.Row="1"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_3" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon8_3" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon8_3" Content="Daheo"
+						<Label x:Name="lb_mon8_3" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="4" Grid.Row="1"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="4" Grid.Row="1"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_4" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon8_4" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon8_4" Content="Daheo"
+						<Label x:Name="lb_mon8_4" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="1" Grid.Row="2"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="1" Grid.Row="2"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_5" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon8_5" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon8_5" Content="Daheo"
+						<Label x:Name="lb_mon8_5" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="2" Grid.Row="2"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="2" Grid.Row="2"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_6" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon8_6" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon8_6" Content="Daheo"
+						<Label x:Name="lb_mon8_6" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="3" Grid.Row="2"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="3" Grid.Row="2"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_7" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon8_7" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon8_7" Content="Daheo"
+						<Label x:Name="lb_mon8_7" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                    <Grid Grid.Column="4" Grid.Row="2"
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+					<Grid Grid.Column="4" Grid.Row="2"
                             Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="img_mon8_8" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Image x:Name="img_mon8_8" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="lb_mon8_8" Content="Daheo"
+						<Label x:Name="lb_mon8_8" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="20"/>
-                    </Grid>
-                </Grid>
-            </Grid>
+                               FontWeight="Bold" FontSize="15"/>
+					</Grid>
+				</Grid>
+			</Grid>
 
-            <!--//Contact Screen-->
-            <Grid x:Name="contact_screen" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
-                <Grid.Background>
-                    <ImageBrush x:Name="img_bg_contact" ImageSource="/Assets/background.jpg" Stretch="Fill" />
-                </Grid.Background>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="60"/>
-                </Grid.RowDefinitions>
-                <Grid x:Name="Vuong" Grid.Row="0" Grid.Column="1" Margin="10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-                        <Image Source="Assets/Vuong.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
-                        <Label Content="Phạm Minh Vương"
+			<!--//Contact Screen-->
+			<Grid x:Name="contact_screen" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+				<Grid.Background>
+					<ImageBrush x:Name="img_bg_contact" ImageSource="/Assets/background.jpg" Stretch="Fill" />
+				</Grid.Background>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="70"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="60"/>
+				</Grid.RowDefinitions>
+				<Grid x:Name="Vuong" Grid.Row="0" Grid.Column="1" Margin="10">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="50" />
+							<RowDefinition Height="90" />
+						</Grid.RowDefinitions>
+						<Image Source="Assets/Vuong.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+						<Label Content="Phạm Minh Vương"
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="25"/>            
-                    </Grid>
-                </Grid>
-                <Grid x:Name="That" Grid.Row="0" Grid.Column="2" Margin="10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-                        <Image Source="Assets/That.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
-                        <Label Content="Phạm Văn Thật"
+                               FontWeight="Bold" FontSize="25"/>
+					</Grid>
+				</Grid>
+				<Grid x:Name="That" Grid.Row="0" Grid.Column="2" Margin="10">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="50" />
+							<RowDefinition Height="90" />
+						</Grid.RowDefinitions>
+						<Image Source="Assets/That.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+						<Label Content="Phạm Văn Thật"
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                FontWeight="Bold" FontSize="25"/>
 
-                    </Grid>
-                </Grid>
-                <Grid x:Name="Vu" Grid.Row="0" Grid.Column="3" Margin="10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-                        <Image Source="/Assets/Vu.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
-                        <Label Content="Lưu Trường Vũ"
+					</Grid>
+				</Grid>
+				<Grid x:Name="Vu" Grid.Row="0" Grid.Column="3" Margin="10">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="50" />
+							<RowDefinition Height="90" />
+						</Grid.RowDefinitions>
+						<Image Source="/Assets/Vu.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+						<Label Content="Lưu Trường Vũ"
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                FontWeight="Bold" FontSize="25"/>
 
-                    </Grid>
-                </Grid>
-            </Grid>
-            
-            <!--//navigation panel // bảng điều hướng-->
+					</Grid>
+				</Grid>
+			</Grid>
+
+			<!--//navigation panel // bảng điều hướng-->
 			<Grid x:Name="nav_pnl" HorizontalAlignment="Left" Width="65" Background="#2E333A">
 				<StackPanel x:Name="st_pnl">
 					<!--//Grid chuyển đổi menu-->
@@ -619,9 +623,9 @@
 					<ListView x:Name="LV" Background="Transparent" BorderBrush="Transparent"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 						<!--//HOME-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" 
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" 
                                       PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown">
-                            <StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown">
+							<StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown">
 								<Image Source="/Assets/img_home.png" Stretch="None" Margin="12,0,0,0" 
                                        PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"/>
 								<TextBlock Text="Home" Margin="25,0,0,0" Style="{StaticResource font_style}" />
@@ -633,7 +637,8 @@
 						</ListViewItem>
 
 						<!--//Favorite-->
-						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+									  PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown">
 							<StackPanel Orientation="Horizontal" Width="230">
 								<Image Source="/Assets/heart.png" Stretch="None" Margin="12,0,0,0" />
 								<TextBlock Text="Favorite" Margin="25,0,0,0" Style="{StaticResource font_style}" />
@@ -645,7 +650,8 @@
 						</ListViewItem>
 
 						<!--//ADD-->
-						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+									  PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown_1">
 							<StackPanel Orientation="Horizontal" Width="230">
 								<Image Source="/Assets/plus.png" Stretch="None" Margin="12,0,0,0" />
 								<TextBlock Text="Add Food" Margin="25,0,0,0" Style="{StaticResource font_style}" />
@@ -671,7 +677,7 @@
 						<!--//Contact-->
 						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
                                       PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown">
-                            <StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown">
+							<StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown">
 								<Image x:Name="img_contact" Source="/Assets/img_contact.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" PreviewMouseLeftButtonDown="img_contact_PreviewMouseLeftButtonDown" />
 								<TextBlock Text="Contact" Margin="25,0,0,0" Style="{StaticResource font_style}" />
 							</StackPanel>
