@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Compile Include="Models\DBFoodRecipeEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,12 +91,27 @@
     </Compile>
     <Compile Include="Models\FoodRecipe.cs">
       <DependentUpon>DBFoodRecipeEntities.tt</DependentUpon>
+=======
+    <Compile Include="AddRecipeWindow.xaml.cs">
+      <DependentUpon>AddRecipeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddStepFoodRecipes.xaml.cs">
+      <DependentUpon>AddStepFoodRecipes.xaml</DependentUpon>
+>>>>>>> f86d748448a58fc7cf1571eb8d49fa48aeeb616c
     </Compile>
     <Compile Include="purivate.cs" />
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Page Include="AddRecipeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddStepFoodRecipes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
