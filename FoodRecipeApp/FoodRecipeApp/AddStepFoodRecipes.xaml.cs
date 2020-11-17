@@ -20,6 +20,7 @@ namespace FoodRecipeApp
     /// </summary>
     public partial class AddStepFoodRecipes : Window
     {
+        public int stepNumber = 1;
         public AddStepFoodRecipes()
         {
             InitializeComponent();
@@ -37,12 +38,7 @@ namespace FoodRecipeApp
             this.Close();
         }
 
-        private void NextStep_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ImageStepDescription_Click(object sender, RoutedEventArgs e)
+        private void InsertFoodImage_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
             open.Multiselect = false;
@@ -54,6 +50,15 @@ namespace FoodRecipeApp
                 ImageSource imgsource = new BitmapImage(new Uri(img[0].ToString()));
                 ImageDescriptionOfRecipe.ImageSource = imgsource;
             }
+        }
+
+        private void AddStep_Click(object sender, RoutedEventArgs e)
+        {
+            stepNumber++;
+           // var nextStep = new StackPanel();
+            //nextStep.Height = 250;
+            
+           // StepByStep.Children.Add(nextStep);
         }
     }
 }
