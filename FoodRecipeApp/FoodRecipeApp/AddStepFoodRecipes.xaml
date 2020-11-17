@@ -43,7 +43,7 @@
                     
                     <TextBox Width="700" Height="180" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                                  Margin="5,10,10,5" VerticalAlignment="Top" AcceptsReturn="True" FontSize="16"
-                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Nhập hướng dẫn cách làm"/>
+                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
                     
                     <Border Width="220" Height="180" BorderBrush="LightGray" BorderThickness="2">
                         <Border.Background>
@@ -66,7 +66,7 @@
                     FontWeight="Bold" Click="AddStep_Click">
             </Button>
         </Grid>
-        <materialDesign:Card Grid.Row="3" Margin="5" Height="300">
+        <Border Grid.Row="3" Margin="5" Height="300">
             <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem}">
                 <ListView.View>
                     <GridView ToolBar.OverflowMode="AsNeeded">
@@ -76,7 +76,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-        </materialDesign:Card>
+        </Border>
         <Grid Grid.Row="4" VerticalAlignment="Stretch">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="Save" Width="170" Height="40" Content="Lưu và kết thúc"
