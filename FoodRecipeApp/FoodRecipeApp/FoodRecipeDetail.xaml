@@ -8,37 +8,38 @@
 		Height="700" 
 		Width="1024"
         WindowStartupLocation="CenterScreen"
-      Title="{Binding NameFood}">
+      Title="{Binding NameFood}" >
 
-	<DockPanel>
-		<StackPanel DockPanel.Dock="Top">
-			<TextBlock Text="{Binding NameFood}" FontSize="25" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Black" Foreground="Red"/>
+	<DockPanel Background="White">
+		<StackPanel DockPanel.Dock="Top" Background="#FF27272A" >
+			<TextBlock Text="{Binding NameFood}" FontSize="50" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Rockwell Extra Bold" Margin="10" Foreground="#FFFFBE00"/>
 		</StackPanel>
 		<StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
 			<Image Name="favorite" Width="30" Height="30" PreviewMouseLeftButtonDown="favorite_PreviewMouseLeftButtonDown"/>
 		</StackPanel>
 		<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-			<StackPanel Margin="10,20,10,0">
+			<StackPanel Margin="20,20,20,0">
 				<TextBlock Text="{Binding DishDescription}" TextWrapping="WrapWithOverflow" FontSize="15" FontStyle="Italic" FontFamily="Arial" FontWeight="Light" TextAlignment="Justify"/>
-				<WebBrowser x:Name="video" Margin="0,15,0,0"  Height="340" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-				<TextBlock Text="Nguyên liệu:" FontSize="15" FontWeight="Bold" Margin="10,5,10,5" HorizontalAlignment="Left" FontFamily="Arial"/>
-				<TextBlock Text="{Binding CookingIngredients}" FontSize="15" TextWrapping="WrapWithOverflow" FontStyle="Italic" FontFamily="Arial" Margin="15, 0, 15, 0" />
-				<ListView x:Name="foodStepListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-					<ListView.ItemsPanel>
+				<WebBrowser x:Name="video" Margin="0,15,0,0"  Height="355" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				<TextBlock Text="Nguyên liệu:" FontSize="15" FontWeight="Bold" Margin="10,10,10,5" HorizontalAlignment="Left" FontFamily="Arial"/>
+				<TextBlock Text="{Binding CookingIngredients}" FontSize="15" TextWrapping="WrapWithOverflow" FontStyle="Italic" FontFamily="Arial" Margin="25, 0, 25, 0" />
+				<TextBlock Text="Cách thực hiện:" FontSize="15" FontWeight="Bold" Margin="0,25,0,10" HorizontalAlignment="Left" FontFamily="Arial"/>
+				<ListView x:Name="foodStepListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"  HorizontalAlignment="Center" VerticalAlignment="Center" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" IsEnabled="False" >
+					<ListView.ItemsPanel >
 						<ItemsPanelTemplate>
-							<StackPanel Orientation="Vertical"/>
+							<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 						</ItemsPanelTemplate>
 					</ListView.ItemsPanel>
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<StackPanel Orientation="Vertical">
 								<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-									<TextBlock Text="Bước " FontSize="14" FontWeight="Bold" FontFamily="Arial"/>
-									<TextBlock Text="{Binding NumberStep}" FontSize="15" FontWeight="Bold" FontFamily="Arial"/>
-									<TextBlock Text=":"  FontSize="15" FontWeight="Bold" FontFamily="Arial"/>
+									<TextBlock Text="Bước " FontSize="14" FontWeight="Bold" FontFamily="Arial" Margin="5,10,0,5"/>
+									<TextBlock Text="{Binding NumberStep}" FontSize="15" FontWeight="Bold" FontFamily="Arial" Margin="5,10,5,5"/>
+									<TextBlock Text=":"  FontSize="15" FontWeight="Bold" FontFamily="Arial" Margin="0,10,0,5"/>
 								</StackPanel>
-								<TextBlock Text="{Binding Step}" FontFamily="Arial" FontSize="15" TextWrapping="WrapWithOverflow" TextAlignment="Justify"/>
-								<Image Source="{Binding ImageStep}" Margin="10"/>
+								<TextBlock Text="{Binding Step}" FontFamily="Arial" FontSize="15" TextWrapping="WrapWithOverflow" TextAlignment="Justify" Margin="25,0,25,0"/>
+								<Image Source="{Binding ImageStep}" Margin="0,15,0,25" Width="640" Height="360"  RenderOptions.BitmapScalingMode="HighQuality" Stretch="Uniform"/>
 							</StackPanel>
 						</DataTemplate>
 					</ListView.ItemTemplate>

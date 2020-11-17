@@ -129,7 +129,7 @@
 		<Grid Background="Black">
 
 			<!--//Background image-->
-			<Grid x:Name="bg" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+			<Grid x:Name="bg" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown" Margin="0,2,0,-2">
 				<Grid.Background>
 					<ImageBrush x:Name="img_bg" ImageSource="/Assets/background.jpg" Stretch="Fill" />
 				</Grid.Background>
