@@ -413,6 +413,10 @@ namespace FoodRecipeApp
                     homeViewModel.PagingInfo.CurrentPage = 1;
                     visibleDishInPage(homeViewModel.PagingInfo.CurrentPage);
                 }
+                else
+                {
+                    visibleDishInPage(homeViewModel.PagingInfo.CurrentPage);
+                }
             }
         }
 
@@ -427,13 +431,11 @@ namespace FoodRecipeApp
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             homeViewModel.FoodRecipes = FavoriteFoodDao.GetAll();
-
-            if (homeViewModel.FoodRecipes != null)
-                visibleDishInPage(1);
-            else
-            {
-                homeViewModel.PagingInfo.CurrentPage = 0;
-            }
+            homeViewModel.PagingInfo = new PagingInfo(2, 6, homeViewModel.FoodRecipes.Count);
+            
+            grid6.Visibility = Visibility.Visible;
+            grid8.Visibility = Visibility.Collapsed;
+            visibleDishInPage(1);
 
             bg.Visibility = Visibility.Visible;
             contact_screen.Visibility = Visibility.Collapsed;
@@ -441,18 +443,90 @@ namespace FoodRecipeApp
 
             btnSoLuong.SelectedIndex = 0;
             btnSapxep.SelectedIndex = -1;
-            homeViewModel.PagingInfo.NumberOfDishInPerPage = 6;
             homeViewModel.LogFile.TypeSort = -1;
-
-            homeViewModel.PagingInfo.TotalPage = homeViewModel.FoodRecipes.Count;
 
             LabelPage.Content = $"{homeViewModel.PagingInfo.CurrentPage}/{homeViewModel.PagingInfo.TotalPage}";
 
         }
 
+
+        private void grid6_1_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 0]);
+            detail.Show();
+        }
+
+        private void grid6_2_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 1]);
+            detail.Show();
+        }
+        private void grid6_3_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 2]);
+            detail.Show();
+        }
+        private void grid6_4_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 3]);
+            detail.Show();
+        }
+        private void grid6_5_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 4]);
+            detail.Show();
+        }
+        private void grid6_6_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 5]);
+            detail.Show();
+        }
+
+        private void grid8_1_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 0]);
+            detail.Show();
+        }
+        private void grid8_2_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 1]);
+            detail.Show();
+        }
+        private void grid8_3_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 2]);
+            detail.Show();
+        }
+        private void grid8_4_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 3]);
+            detail.Show();
+        }
+        private void grid8_5_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 4]);
+            detail.Show();
+        }
+        private void grid8_6_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 5]);
+            detail.Show();
+        }
+        private void grid8_7_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 6]);
+            detail.Show();
+        }
+        private void grid8_8_Event(object sender, MouseButtonEventArgs e)
+        {
+            var detail = new FoodRecipeDetail(homeViewModel.FoodRecipes[(homeViewModel.PagingInfo.CurrentPage - 1) * homeViewModel.PagingInfo.NumberOfDishInPerPage + 7]);
+            detail.Show();
+        }
+
         private void ListViewItem_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            
+            search6_tb.Visibility = Visibility.Visible;
+            search6_img.Visibility = Visibility.Visible;
         }
     }
 }

@@ -39,6 +39,7 @@ namespace FoodRecipeApp.ViewModels
             return resulf;
         }
     }
+
     public class PagingInfo
     {
         public int CurrentPage { get; set; }
@@ -60,6 +61,11 @@ namespace FoodRecipeApp.ViewModels
         public int NumberOfDishInPerPage { get; set; }
         public int TypeSort { get; set; }
         private const string FILE_NAME = "logfile.log";
+        public LogFile()
+        {
+            TypeSort = -1;
+            NumberOfDishInPerPage = 6;
+        }
         public void readLog()
         {
             if (!File.Exists(FILE_NAME))

@@ -73,6 +73,9 @@
     <Compile Include="AddStepFoodRecipes.xaml.cs">
       <DependentUpon>AddStepFoodRecipes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FoodRecipeDetail.cs">
+      <DependentUpon>FoodRecipeDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\DBFoodRecipeEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,12 +104,17 @@
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\DetailViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Page Include="AddRecipeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddStepFoodRecipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FoodRecipeDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

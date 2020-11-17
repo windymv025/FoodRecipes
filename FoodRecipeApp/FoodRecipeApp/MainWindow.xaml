@@ -187,7 +187,7 @@
                        Grid.Column="1" Grid.Row="1"
                        HorizontalContentAlignment="Right"
                        VerticalContentAlignment="Center"
-                       FontSize="18" FontWeight="Bold">
+                       FontSize="18" FontWeight="Bold" FontFamily="Arial" >
 				</Label>
 
 				<ComboBox x:Name="btnSoLuong"
@@ -222,46 +222,33 @@
 				</ComboBox>
 
 			</Grid>
-			<!--<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="70"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="*" />
-					<RowDefinition Height="60" />
-				</Grid.RowDefinitions>
-				<ListView x:Name="dishListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="dishListView_SelectionChanged"
-						  Grid.Column="1">
-					<ListView.ItemsPanel>
-						<ItemsPanelTemplate>
-							<WrapPanel/>
-						</ItemsPanelTemplate>
-					</ListView.ItemsPanel>
-					<ListView.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Grid.Column="0" Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-								<Image Source="{Binding FoodImage}" Stretch="UniformToFill"/>
-								<TextBlock Text="{Binding NameFood}" VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               FontWeight="Bold" FontSize="14" />
-							</StackPanel>
-						</DataTemplate>
-					</ListView.ItemTemplate>
-				</ListView>
-			</Grid>-->
 
 			<!--//HomeScreen-->
-			<Grid x:Name="grid6" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+			<Grid Visibility="Visible" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="70" />
 					<ColumnDefinition Width="*" />
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
+					<RowDefinition Height="33" />
 					<RowDefinition Height="*" />
 					<RowDefinition Height="60" />
 				</Grid.RowDefinitions>
-				<Grid Grid.Row="0" Grid.Column="1">
+
+				<Grid Grid.Column="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="350"/>
+					</Grid.ColumnDefinitions>
+					<TextBox x:Name="search6_tb" Grid.Column="1" Visibility="Collapsed" VerticalContentAlignment="Center"
+							 Padding="5,0,0,0" Margin="10,3,30,0">
+
+					</TextBox>
+					<Image Visibility="Collapsed" Grid.Column="1" x:Name="search6_img" Source="Assets/search.png"
+						   HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Margin="10,3,35,0" />
+				</Grid>
+
+				<Grid x:Name="grid6" Grid.Row="1" Grid.Column="1" 	Visibility="Collapsed"	>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="20" />
 						<ColumnDefinition Width="*" />
@@ -270,111 +257,104 @@
 						<ColumnDefinition Width="20" />
 					</Grid.ColumnDefinitions>
 					<Grid.RowDefinitions>
-						<RowDefinition Height="20" />
+						<RowDefinition Height="0" />
 						<RowDefinition Height="*" />
 						<RowDefinition Height="*" />
 					</Grid.RowDefinitions>
 
 					<!--//to do Home Screen-->
-
+					
 					<Grid Grid.Column="1" Grid.Row="1"
-                            Margin="10">
+                            Margin="10" PreviewMouseLeftButtonDown="grid6_1_Event">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
 						<Image x:Name="img_mon6_1" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
-                               Grid.Column="0" Grid.Row="0"/>
+                               Grid.Column="0" Grid.Row="0"
+							   RenderOptions.BitmapScalingMode="HighQuality"/>
 						<Label x:Name="lb_mon6_1" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
-                               FontWeight="Bold" FontSize="15"/>
+                               FontWeight="Bold" FontSize="15"
+							   Foreground="DarkBlue"/>
 					</Grid>
-					<Grid Grid.Column="2" Grid.Row="1"
+					<Grid Grid.Column="2" Grid.Row="1" PreviewMouseLeftButtonDown="grid6_2_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
 						<Image x:Name="img_mon6_2" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
-                               Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon6_2" Content="Daheo"
+                               Grid.Column="0" Grid.Row="0"
+							   RenderOptions.BitmapScalingMode="HighQuality"/>
+						<Label Foreground="DarkBlue" x:Name="lb_mon6_2" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
 							   
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="3" Grid.Row="1"
+					<Grid Grid.Column="3" Grid.Row="1" PreviewMouseLeftButtonDown="grid6_3_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon6_3" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon6_3" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon6_3" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon6_3" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="1" Grid.Row="2"
+					<Grid Grid.Column="1" Grid.Row="2" PreviewMouseLeftButtonDown="grid6_4_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon6_4" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon6_4" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon6_4" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon6_4" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="2" Grid.Row="2"
+					<Grid Grid.Column="2" Grid.Row="2" PreviewMouseLeftButtonDown="grid6_5_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon6_5" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon6_5" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon6_5" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon6_5" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="3" Grid.Row="2"
+					<Grid Grid.Column="3" Grid.Row="2" PreviewMouseLeftButtonDown="grid6_6_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon6_6" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon6_6" Source="Images/daheo6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon6_6" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon6_6" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
 				</Grid>
-			</Grid>
 
-			<Grid x:Name="grid8" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="70" />
-					<ColumnDefinition Width="*" />
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="*" />
-					<RowDefinition Height="60" />
-				</Grid.RowDefinitions>
-				<Grid Grid.Row="0" Grid.Column="1">
+				<Grid x:Name="grid8" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="20" />
 						<ColumnDefinition Width="*" />
@@ -391,113 +371,113 @@
 
 					<!--//to do Home Screen-->
 
-					<Grid Grid.Column="1" Grid.Row="1"
+					<Grid Grid.Column="1" Grid.Row="1" PreviewMouseLeftButtonDown="grid8_1_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon8_1" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon8_1" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon8_1" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon8_1" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="2" Grid.Row="1"
+					<Grid Grid.Column="2" Grid.Row="1" PreviewMouseLeftButtonDown="grid8_2_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon8_2" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon8_2" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon8_2" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon8_2" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="3" Grid.Row="1"
+					<Grid Grid.Column="3" Grid.Row="1" PreviewMouseLeftButtonDown="grid8_3_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon8_3" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon8_3" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon8_3" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon8_3" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="4" Grid.Row="1"
+					<Grid Grid.Column="4" Grid.Row="1" PreviewMouseLeftButtonDown="grid8_4_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon8_4" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon8_4" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon8_4" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon8_4" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="1" Grid.Row="2"
+					<Grid Grid.Column="1" Grid.Row="2" PreviewMouseLeftButtonDown="grid8_5_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon8_5" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon8_5" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon8_5" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon8_5" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="2" Grid.Row="2"
+					<Grid Grid.Column="2" Grid.Row="2" PreviewMouseLeftButtonDown="grid8_6_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon8_6" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon8_6" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon8_6" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon8_6" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="3" Grid.Row="2"
+					<Grid Grid.Column="3" Grid.Row="2" PreviewMouseLeftButtonDown="grid8_7_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon8_7" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon8_7" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon8_7" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon8_7" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="15"/>
 					</Grid>
-					<Grid Grid.Column="4" Grid.Row="2"
+					<Grid Grid.Column="4" Grid.Row="2" PreviewMouseLeftButtonDown="grid8_8_Event"
                             Margin="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="40"/>
 						</Grid.RowDefinitions>
-						<Image x:Name="img_mon8_8" Source="Images/flan6.jpg" Stretch="UniformToFill" 
+						<Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="img_mon8_8" Source="Images/flan6.jpg" Stretch="UniformToFill" 
                                Grid.Column="0" Grid.Row="0"/>
-						<Label x:Name="lb_mon8_8" Content="Daheo"
+						<Label Foreground="DarkBlue" x:Name="lb_mon8_8" Content="Daheo"
                                Grid.Column="0" Grid.Row="1"
                                VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
@@ -505,6 +485,8 @@
 					</Grid>
 				</Grid>
 			</Grid>
+
+			
 
 			<!--//Contact Screen-->
 			<Grid x:Name="contact_screen" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
@@ -621,7 +603,7 @@
 
 					<!--//List items //ListView-->
 					<ListView x:Name="LV" Background="Transparent" BorderBrush="Transparent"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
 						<!--//HOME-->
 						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" 
                                       PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown">
@@ -651,7 +633,7 @@
 
 						<!--//ADD-->
 						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-									  PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown_1">
+									  >
 							<StackPanel Orientation="Horizontal" Width="230">
 								<Image Source="/Assets/plus.png" Stretch="None" Margin="12,0,0,0" />
 								<TextBlock Text="Add Food" Margin="25,0,0,0" Style="{StaticResource font_style}" />
@@ -663,9 +645,10 @@
 						</ListViewItem>
 
 						<!--//Search-->
-						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-							<StackPanel Orientation="Horizontal" Width="230">
-								<Image Source="/Assets/search.png" Stretch="None" Margin="12,0,0,0" Height="46" VerticalAlignment="Top" />
+						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+									  PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown_1">
+							<StackPanel Orientation="Horizontal" Width="230" PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown_1">
+								<Image Source="/Assets/search.png" Stretch="None" Margin="12,0,0,0" PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown_1" />
 								<TextBlock Text="Search" Margin="25,0,0,0" Style="{StaticResource font_style}" />
 							</StackPanel>
 

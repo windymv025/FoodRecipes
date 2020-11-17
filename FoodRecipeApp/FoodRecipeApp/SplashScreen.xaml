@@ -5,33 +5,53 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:FoodRecipeApp"
     mc:Ignorable="d"
-    Title="SplashScreen" Height="700" Width="600" Loaded="Window_Loaded" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="300"></RowDefinition>
-            <RowDefinition Height="250"></RowDefinition>
-            <RowDefinition Height="150"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Image Width="250" Height="250" Margin="175,25" Grid.ColumnSpan="2"></Image>
-        </Grid>
-        <Grid Grid.Row="1">
-            <StackPanel>
-                <TextBlock x:Name="Title" Text="..." TextAlignment="Center" FontSize="35" Margin="10">
-                </TextBlock>
-                <TextBlock TextWrapping="Wrap" Name="Descripttion" Text="..." FontSize="20" TextAlignment="Center"></TextBlock>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="2">
-            <CheckBox x:Name="CheckSplashScreen"
+    Title="SplashScreen" Height="700" Width="600" Loaded="Window_Loaded" WindowStyle="None" WindowStartupLocation="CenterScreen" 
+		ResizeMode="NoResize">
+	<Grid>
+		<Grid.Background>
+			<ImageBrush ImageSource="{Binding FoodImage}" Opacity="0.1" Stretch="UniformToFill">
+				<ImageBrush.RelativeTransform>
+					<TransformGroup>
+						<ScaleTransform CenterY="10" CenterX="10"/>
+						<SkewTransform CenterY="10" CenterX="10"/>
+						<RotateTransform CenterY="10" CenterX="10"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</ImageBrush.RelativeTransform>
+			</ImageBrush>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="20"/>
+			<RowDefinition Height="5*"></RowDefinition>
+			<RowDefinition Height="2*"></RowDefinition>
+			<RowDefinition Height="120"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="1" Margin="10" >
+			<Border CornerRadius="70">
+				<Border.Background>
+					<ImageBrush x:Name="foodImage" RenderOptions.BitmapScalingMode="Fant" ImageSource="{Binding FoodImage}"/>
+				</Border.Background>
+			</Border>
+		</Grid>
+		<Grid Grid.Row="2">
+			<StackPanel>
+				<TextBlock x:Name="Title" Text="{Binding NameFood}" TextAlignment="Center" FontSize="35" Margin="10" FontFamily="Rockwell Extra Bold" Foreground="#FFFF8500" FontWeight="Bold" >
+				</TextBlock>
+				<TextBlock Margin="10,0,10,0"  TextWrapping="WrapWithOverflow" Name="Description" Text="{Binding DishDescription}" FontSize="20" TextAlignment="Justify" FontFamily="Tahoma" ></TextBlock>
+			</StackPanel>
+		</Grid>
+		<Grid Grid.Row="3">
+			<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+				<CheckBox x:Name="CheckSplashScreen"
                      Unchecked="CheckSplashScreen_Unchecked"
-                     Checked="CheckSplashScreen_Checked" Content="Don't Show Again!"
+                     Checked="CheckSplashScreen_Checked" Content="Don't Show Again!" Margin="0,0,0,20"
                      FontSize="16" HorizontalAlignment="Center"
-                     HorizontalContentAlignment="Center"
-                     Margin="208,30,207.667,100">
-            </CheckBox>
-            <Button x:Name="Skip" Click="Skip_Click" Width="80" Height="40" Margin="250,74,250,36" Content="Skip" FontSize="30" Background="LightYellow">
-            </Button>
-        </Grid>
-    </Grid>
+                     HorizontalContentAlignment="Center">
+				</CheckBox>
+				<Button x:Name="Skip" Click="Skip_Click" Width="80" Height="50"  Content="Skip" FontSize="25
+					" Background="LightYellow">
+				</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
 </Window>

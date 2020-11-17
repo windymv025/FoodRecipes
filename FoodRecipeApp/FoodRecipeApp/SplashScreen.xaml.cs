@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Threading;
+using FoodRecipeApp.Models;
 
 namespace FoodRecipeApp
 {
@@ -20,33 +22,22 @@ namespace FoodRecipeApp
     /// </summary>
     public partial class SplashScreen : Window
     {
-        private string dataFile = "";
         System.Timers.Timer timer;
         private int count = 0;
-        private int target = 30;
+        private bool isClickSkip;
+        private const int target = 10;
+        private const string FILE_NAME_LOG = "StartUpSplash.log";
+
+        private Random rgn = new Random();
 
         public SplashScreen()
         {
-            var folder = AppDomain.CurrentDomain.BaseDirectory;
-            dataFile = $"{folder}CheckSplashScreen.txt";
-            var checkSplashScreen = File.ReadAllText(dataFile);
-            var showSplash = bool.Parse(checkSplashScreen);
-            if (showSplash)
-            {
-                var screen = new MainWindow();
-                screen.Show();
-
-                this.Close();
-            }
-            else
-            {
-                timer = new System.Timers.Timer();
-                timer.Elapsed += Timer_Elapsed;
-                timer.Interval = 1000;
-                timer.Start();
-            }
-
             InitializeComponent();
+            isClickSkip = false;
+            timer = new System.Timers.Timer();
+            timer.Elapsed += Timer_Elapsed;
+            timer.Interval = 1000;
+            timer.Start();
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -59,10 +50,13 @@ namespace FoodRecipeApp
 
                 Dispatcher.Invoke(() =>
                 {
-                    var screen = new MainWindow();
-                    screen.Show();
+                    if (!isClickSkip)
+                    {
+                        var screen = new MainWindow();
+                        screen.Show();
 
-                    this.Close();
+                        this.Close();
+                    }
                 });
             }
 
@@ -70,27 +64,50 @@ namespace FoodRecipeApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            FoodRecipe f = new FoodRecipe();
+            using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
+            {
+                var list = db.FoodRecipes.ToList();
+                int index = rgn.Next(list.Count);
+                //foodImage.ImageSource = new BitmapImage(new Uri(list[index].FoodImage, UriKind.Relative));
+                //Title.Text = list[index].NameFood;
+                //Descripttion.Text = list[index].DishDescription;
+                f = list[index];
+            }
+            this.DataContext = f;
+            
         }
 
         private void CheckSplashScreen_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            if (File.Exists(FILE_NAME_LOG))
+                File.Delete(FILE_NAME_LOG);
+            using (StreamWriter f = new StreamWriter(FILE_NAME_LOG))
+            {
+                f.WriteLine(true);
+                f.Close();
+            }
         }
 
         private void CheckSplashScreen_Checked(object sender, RoutedEventArgs e)
         {
-            string folder = AppDomain.CurrentDomain.BaseDirectory;
-            dataFile = $"{folder}CheckSplashScreen.txt";
-            File.WriteAllText(dataFile, "true");
+            if (File.Exists(FILE_NAME_LOG))
+                File.Delete(FILE_NAME_LOG);
+            using (StreamWriter f = new StreamWriter(FILE_NAME_LOG))
+            {
+                f.WriteLine(false);
+                f.Close();
+            }
         }
 
         private void Skip_Click(object sender, RoutedEventArgs e)
         {
-            var screen = new MainWindow();
-            screen.Show();
-
+            isClickSkip = true;
+            timer.Stop();
+            MainWindow main = new MainWindow();
+            main.Show();
             this.Close();
+
         }
     }
 }
