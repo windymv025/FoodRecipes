@@ -61,9 +61,13 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <Button x:Name="AddStep" Height="40" Width="300" Margin="10,5" 
-                    Content="Thêm bước thực hiện" FontSize="26" Background="LightGreen" 
-                    FontWeight="Bold" Click="AddStep_Click">
+            <Button x:Name="AddStep" Height="40" Width="320" Margin="10,5" 
+                    Background="LightGreen" Click="AddStep_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AddBox" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" Foreground="Black"/>
+                    <TextBlock Text="Thêm bước thực hiện" VerticalAlignment="Center" FontSize="26" Foreground="Black">
+                    </TextBlock>
+                </StackPanel>
             </Button>
         </Grid>
         <Border Grid.Row="3" Margin="5" Height="300">
@@ -79,13 +83,25 @@
         </Border>
         <Grid Grid.Row="4" VerticalAlignment="Stretch">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="Save" Width="170" Height="40" Content="Lưu và kết thúc"
-                            FontSize="20" FontWeight="Bold" Margin="10" Padding="5"
+                <Button x:Name="Save" Width="220" Height="40" Margin="10"
                             Background="Cyan" Click="Save_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ContentSaveOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" Foreground="Black"/>
+                        <TextBlock Text="Lưu và kết thúc" VerticalAlignment="Center" FontSize="20" Foreground="Black">
+
+                        </TextBlock>
+                    </StackPanel>
+
                 </Button>
-                <Button x:Name="Cancel" Width="80" Height="40" Content="Hủy"
-                            FontSize="20" FontWeight="Bold" Margin="10" Padding="5"
-                            Click="Cancel_Click"></Button>
+                <Button x:Name="Cancel" Width="120" Height="40"
+                        Margin="10" Click="Cancel_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="CloseBoxOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" Foreground="Black"/>
+                        <TextBlock Text="Hủy" FontSize="20" VerticalAlignment="Center" Foreground="Black">
+                        </TextBlock>
+                    </StackPanel>
+
+                </Button>
             </StackPanel>
         </Grid>
     </Grid>
