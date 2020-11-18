@@ -525,8 +525,58 @@ namespace FoodRecipeApp
 
         private void ListViewItem_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            search6_tb.Visibility = Visibility.Visible;
-            search6_img.Visibility = Visibility.Visible;
+            searchBox.Visibility = Visibility.Visible;
+            searchImg.Visibility = Visibility.Visible;
+        }
+
+        private void searchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            string name = searchBox.Text.Trim();
+            if(name.Contains("\n"))
+            {
+                name = name.Replace('\n', ' ');
+            }
+            homeViewModel.FoodRecipes = FoodRecipeDao.GetAllWithName(name);
+            homeViewModel.PagingInfo = new PagingInfo(2, 6, homeViewModel.FoodRecipes.Count);
+
+            grid6.Visibility = Visibility.Visible;
+            grid8.Visibility = Visibility.Collapsed;
+            visibleDishInPage(1);
+
+            bg.Visibility = Visibility.Visible;
+            contact_screen.Visibility = Visibility.Collapsed;
+            Tg_btn.IsChecked = false;
+
+            btnSoLuong.SelectedIndex = 0;
+            btnSapxep.SelectedIndex = -1;
+            homeViewModel.LogFile.TypeSort = -1;
+
+            LabelPage.Content = $"{homeViewModel.PagingInfo.CurrentPage}/{homeViewModel.PagingInfo.TotalPage}";
+        }
+
+        private void searchImg_Click(object sender, RoutedEventArgs e)
+        {
+            string name = searchBox.Text.Trim();
+            if (name.Contains("\n"))
+            {
+                name = name.Replace('\n', ' ');
+            }
+            homeViewModel.FoodRecipes = FoodRecipeDao.GetAllWithName(name);
+            homeViewModel.PagingInfo = new PagingInfo(2, 6, homeViewModel.FoodRecipes.Count);
+
+            grid6.Visibility = Visibility.Visible;
+            grid8.Visibility = Visibility.Collapsed;
+            visibleDishInPage(1);
+
+            bg.Visibility = Visibility.Visible;
+            contact_screen.Visibility = Visibility.Collapsed;
+            Tg_btn.IsChecked = false;
+
+            btnSoLuong.SelectedIndex = 0;
+            btnSapxep.SelectedIndex = -1;
+            homeViewModel.LogFile.TypeSort = -1;
+
+            LabelPage.Content = $"{homeViewModel.PagingInfo.CurrentPage}/{homeViewModel.PagingInfo.TotalPage}";
         }
     }
 }

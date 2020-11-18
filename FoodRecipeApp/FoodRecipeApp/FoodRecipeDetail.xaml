@@ -23,7 +23,7 @@
 				<WebBrowser x:Name="video" Margin="0,15,0,0"  Height="355" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 				<TextBlock Text="Nguyên liệu:" FontSize="15" FontWeight="Bold" Margin="10,10,10,5" HorizontalAlignment="Left" FontFamily="Arial"/>
 				<TextBlock Text="{Binding CookingIngredients}" FontSize="15" TextWrapping="WrapWithOverflow" FontStyle="Italic" FontFamily="Arial" Margin="25, 0, 25, 0" />
-				<TextBlock Text="Cách thực hiện:" FontSize="15" FontWeight="Bold" Margin="0,25,0,10" HorizontalAlignment="Left" FontFamily="Arial"/>
+				<TextBlock Text="Cách thực hiện:" FontSize="15" FontWeight="Bold" Margin="10,25,0,10" HorizontalAlignment="Left" FontFamily="Arial"/>
 				<ListView x:Name="foodStepListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"  HorizontalAlignment="Center" VerticalAlignment="Center" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" IsEnabled="False" >
 					<ListView.ItemsPanel >
 						<ItemsPanelTemplate>

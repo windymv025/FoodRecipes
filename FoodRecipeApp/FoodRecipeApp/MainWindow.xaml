@@ -240,12 +240,16 @@
 						<ColumnDefinition Width="*"/>
 						<ColumnDefinition Width="350"/>
 					</Grid.ColumnDefinitions>
-					<TextBox x:Name="search6_tb" Grid.Column="1" Visibility="Collapsed" VerticalContentAlignment="Center"
-							 Padding="5,0,0,0" Margin="10,3,30,0">
+					<TextBox x:Name="searchBox" Grid.Column="1" Visibility="Visible" VerticalContentAlignment="Center"
+							 Padding="5,0,0,0" Margin="10,3,30,0" KeyDown="searchBox_KeyDown">
 
 					</TextBox>
-					<Image Visibility="Collapsed" Grid.Column="1" x:Name="search6_img" Source="Assets/search.png"
-						   HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Margin="10,3,35,0" />
+					<Button Visibility="Visible" Grid.Column="1" x:Name="searchImg"
+						   HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Margin="0,3,35,0" Background="{x:Null}" BorderBrush="{x:Null}" Click="searchImg_Click" >
+						<Image Visibility="Visible" Source="Assets/search.png"
+						   HorizontalAlignment="Center" VerticalAlignment="Center" Height="24"/>
+					</Button>
+					
 				</Grid>
 
 				<Grid x:Name="grid6" Grid.Row="1" Grid.Column="1" 	Visibility="Collapsed"	>

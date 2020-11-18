@@ -23,6 +23,24 @@ namespace FoodRecipeApp.ViewModels
             }
             return foodRecipes;
         }
+        public static List<FoodRecipe> GetAllWithName(string name)
+        {
+            List<FoodRecipe> foodRecipes;
+            name = name.Trim();
+            using (DBFoodRecipesEntities db = new DBFoodRecipesEntities())
+            {
+                if (name != null)
+                {
+                    string sql = $"select * from FoodRecipes where NameFood like N'%{name}%' ";
+                    foodRecipes = db.FoodRecipes.SqlQuery(sql).ToList();
+                }
+                else
+                {
+                    foodRecipes = db.FoodRecipes.ToList();
+                }
+            }
+            return foodRecipes;
+        }
     }
     public class FavoriteFoodDao
     {
