@@ -25,18 +25,20 @@ namespace FoodRecipeApp
     /// </summary>
     public partial class AddRecipeWindow : Window
     {
-        private FoodRecipe foodRecipe;
+        AddRecipeViewModel viewModel;
         public AddRecipeWindow()
         {
             InitializeComponent();
-            foodRecipe = new FoodRecipe();
+            viewModel = new AddRecipeViewModel();
         }
 
         private void AddStep_Click(object sender, RoutedEventArgs e)
         {
-            SaveImage.listFiles.Add(SaveImage.tempUriImage);
+            viewModel.FoodRecipe.NameFood = FoodName.Text.Trim();
+            viewModel.FoodRecipe.ulrVideo = FoodLinkYoutube.Text.Trim();
+            viewModel.FoodRecipe.DishDescription = FoodDesciption.Text.Trim();
 
-            var screen = new AddStepFoodRecipes();
+            var screen = new AddStepFoodRecipes(viewModel.FoodRecipe);
             screen.Show();
             this.Close();
         }
@@ -50,9 +52,9 @@ namespace FoodRecipeApp
             if (open.ShowDialog() == true)
             {
                 var img = open.FileNames;
-                SaveImage.tempUriImage = img[0].ToString();
-                ImageSource imgsource = new BitmapImage(new Uri(SaveImage.tempUriImage));
+                ImageSource imgsource = new BitmapImage(new Uri(img[0]));
                 ImageDescriptionOfRecipe.ImageSource = imgsource;
+                viewModel.FoodRecipe.FoodImage = img[0];
             }
         }
 

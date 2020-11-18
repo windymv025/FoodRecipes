@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using FoodRecipeApp.ViewModels;
+using FoodRecipeApp.Models;
 
 namespace FoodRecipeApp
 {
@@ -22,23 +23,20 @@ namespace FoodRecipeApp
     public partial class AddStepFoodRecipes : Window
     {
         public int stepNumber = 1;
-        public AddStepFoodRecipes()
+        AddRecipeViewModel viewModel;
+        public AddStepFoodRecipes(FoodRecipe foodRecipe)
         {
             InitializeComponent();
+            this.viewModel = new AddRecipeViewModel();
+            viewModel.FoodRecipe = foodRecipe;
+
+            this.DataContext = foodRecipe;
+            stepListView.ItemsSource = viewModel.FoodCookingSteps;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            SaveImage.Save_Image();
-            SaveImage.Free_Memory();
-
-            //check file
-            //var files = SaveImage.listImageName.ToArray();
-            //foreach (var file in files)
-            //{
-            //    MessageBox.Show(file);
-            //}
-
+            viewModel.saveAddFoodRecipe();
             var screen = new MainWindow();
             screen.Show();
             this.Close();
@@ -46,9 +44,6 @@ namespace FoodRecipeApp
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            //free memory
-            SaveImage.Free_Memory();
-
             var screen = new MainWindow();
             screen.Show();
             this.Close();
@@ -63,16 +58,29 @@ namespace FoodRecipeApp
             if (open.ShowDialog() == true)
             {
                 var img = open.FileNames;
-                SaveImage.tempUriImage = img[0].ToString();
-                ImageSource imgsource = new BitmapImage(new Uri(SaveImage.tempUriImage));
+                ImageSource imgsource = new BitmapImage(new Uri(img[0]));
                 ImageDescriptionOfRecipe.ImageSource = imgsource;
             }
         }
 
         private void AddStep_Click(object sender, RoutedEventArgs e)
         {
+            FoodCookingStep foodCookingStep = new FoodCookingStep();
+            foodCookingStep.NumberStep = stepNumber;
+            foodCookingStep.ImageStep = ImageDescriptionOfRecipe.ImageSource.ToString();
+            foodCookingStep.Step = Step.Text;
+
+            viewModel.FoodCookingSteps.Add(foodCookingStep);
+
+            ImageDescriptionOfRecipe.ImageSource = null;
+            Step.Text = "";
+
             stepNumber++;
-            SaveImage.listFiles.Add(SaveImage.tempUriImage); //Thêm ảnh vào list
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

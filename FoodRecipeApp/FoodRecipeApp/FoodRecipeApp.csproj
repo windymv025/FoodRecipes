@@ -194,126 +194,46 @@
     <Resource Include="Assets\That.jpg" />
     <Resource Include="Assets\Vu.jpg" />
     <Resource Include="Assets\Vuong.jpg" />
-    <None Include="Images\bimbimkhoailang1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\bimbimkhoailang2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\bimbimkhoailang3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\bunbohue1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\bunbohue2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\bunbohue3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\bunbohue4.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\burger1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\burger2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\burger3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\burger4.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\burger5.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo1.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo2.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo3.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo4.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo4.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo5.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo5.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo6.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\daheo6.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\flan1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\flan2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\flan3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\flan4.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\flan5.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\flan6.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\phobo1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\phobo2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\phobo3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\sandwich1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\sandwich2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\sandwich3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\tomvien1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\tomvien2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\tomvien3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Images\tomvien4.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Images\bimbimkhoailang1.jpg" />
+    <None Include="Images\bimbimkhoailang2.jpg" />
+    <None Include="Images\bimbimkhoailang3.jpg" />
+    <None Include="Images\bunbohue1.jpg" />
+    <None Include="Images\bunbohue2.jpg" />
+    <None Include="Images\bunbohue3.jpg" />
+    <None Include="Images\bunbohue4.jpg" />
+    <None Include="Images\burger1.jpg" />
+    <None Include="Images\burger2.jpg" />
+    <None Include="Images\burger3.jpg" />
+    <None Include="Images\burger4.jpg" />
+    <None Include="Images\burger5.jpg" />
+    <None Include="Images\daheo1.jpeg" />
+    <None Include="Images\daheo1.jpg" />
+    <None Include="Images\daheo2.jpeg" />
+    <None Include="Images\daheo2.jpg" />
+    <None Include="Images\daheo3.jpeg" />
+    <None Include="Images\daheo3.jpg" />
+    <None Include="Images\daheo4.jpeg" />
+    <None Include="Images\daheo4.jpg" />
+    <None Include="Images\daheo5.jpeg" />
+    <None Include="Images\daheo5.jpg" />
+    <None Include="Images\daheo6.jpeg" />
+    <None Include="Images\daheo6.jpg" />
+    <None Include="Images\flan1.jpg" />
+    <None Include="Images\flan2.jpg" />
+    <None Include="Images\flan3.jpg" />
+    <None Include="Images\flan4.jpg" />
+    <None Include="Images\flan5.jpg" />
+    <None Include="Images\flan6.jpg" />
+    <None Include="Images\phobo1.jpg" />
+    <None Include="Images\phobo2.jpg" />
+    <None Include="Images\phobo3.jpg" />
+    <None Include="Images\sandwich1.jpg" />
+    <None Include="Images\sandwich2.jpg" />
+    <None Include="Images\sandwich3.jpg" />
+    <None Include="Images\tomvien1.jpg" />
+    <None Include="Images\tomvien2.jpg" />
+    <None Include="Images\tomvien3.jpg" />
+    <None Include="Images\tomvien4.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

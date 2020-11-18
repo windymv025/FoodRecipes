@@ -13,92 +13,96 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:local="clr-namespace:FoodRecipeApp"
         mc:Ignorable="d"
-        Title="AddStepFoodRecipes"
+        Title="{Binding NameFood}"
         Height="700" 
         Width="1024"
         WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock x:Name="Cook" Text="CÁCH LÀM:" Width="200" Height="60"
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="53*"/>
+			<ColumnDefinition Width="455*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"></RowDefinition>
+			<RowDefinition Height="auto"></RowDefinition>
+			<RowDefinition Height="auto"></RowDefinition>
+			<RowDefinition Height="auto"></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0" Grid.ColumnSpan="2">
+			<TextBlock x:Name="Cook" Text="CÁCH LÀM:" Width="200" Height="60"
                        FontSize="32" FontWeight="Bold" TextAlignment="Center" Padding="10"
-                       Foreground="brown" Margin="0,-10,817.333,-10"></TextBlock>
-        </Grid>
-        <Grid Grid.Row="1" x:Name="Steps" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="239*"/>
-                <ColumnDefinition Width="778*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Name="StepByStep" Grid.ColumnSpan="2" Margin="0,0,0.334,0">
-                <StackPanel x:Name="CookingSteps" Height="200" Orientation="Horizontal">
-                    <TextBlock x:Name="StepNumber" Text="{Binding StepNumber}" Width="50" Height="50"
+                       Foreground="brown" Margin="0,0,817.333,-10"></TextBlock>
+		</Grid>
+		<Grid Grid.Row="1" x:Name="Steps" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="239*"/>
+				<ColumnDefinition Width="778*"/>
+			</Grid.ColumnDefinitions>
+			<StackPanel Name="StepByStep" Grid.ColumnSpan="2" Margin="0,0,0.334,0">
+				<StackPanel x:Name="CookingSteps" Height="200" Orientation="Horizontal">
+					<TextBlock x:Name="StepNumber" Text="{Binding stepNumber}" Width="50" Height="50"
                                FontSize="26" FontWeight="Bold" TextAlignment="Center" Padding="5"
                                Margin="10,10,0,140" Background="DarkRed" Foreground="WhiteSmoke"></TextBlock>
-                    
-                    <TextBox Width="700" Height="180" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+
+					<TextBox x:Name="Step" Width="700" Height="180" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                                  Margin="5,10,10,5" VerticalAlignment="Top" AcceptsReturn="True" FontSize="16"
                                  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Nhập hướng dẫn cách làm"/>
-                    
-                    <Border Width="220" Height="180" BorderBrush="LightGray" BorderThickness="2">
-                        <Border.Background>
-                            <ImageBrush x:Name="ImageDescriptionOfRecipe" 
+
+					<Border Width="220" Height="180" BorderBrush="LightGray" BorderThickness="2">
+						<Border.Background>
+							<ImageBrush x:Name="ImageDescriptionOfRecipe" 
                                     RenderOptions.BitmapScalingMode="HighQuality" 
                                     Stretch="UniformToFill">
-                            </ImageBrush>
-                        </Border.Background>
-                        <Button x:Name="InsertFoodImage" Height="25" VerticalAlignment="Bottom" Content="Chèn ảnh mô tả" 
+							</ImageBrush>
+						</Border.Background>
+						<Button x:Name="InsertFoodImage" Height="25" VerticalAlignment="Bottom" Content="Chèn ảnh mô tả" 
                                 FontSize="16" Opacity="0.6" Foreground="Black"
                                 Click="InsertFoodImage_Click" Background="White" BorderThickness="0">
-                        </Button>
-                    </Border>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="2" >
-            <Button x:Name="AddStep" Height="40" Width="260" Margin="10,5" Click="AddStep_Click" Background="DeepSkyBlue">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="AddBox" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" />
-                    <TextBlock Text="Thêm bước thực hiện" VerticalAlignment="Center" FontSize="20" Foreground="Black">
-                    </TextBlock>
-                </StackPanel>
-            </Button>
-        </Grid>
-        <materialDesign:Card Grid.Row="3" Margin="5" Height="300">
-            <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem}">
-                <ListView.View>
-                    <GridView ToolBar.OverflowMode="AsNeeded">
-                        <GridViewColumn Width="100" Header="Bước" DisplayMemberBinding="{Binding StepNumber}"></GridViewColumn>
-                        <GridViewColumn Width="700" Header="Hướng dẫn thực hiện" DisplayMemberBinding="{Binding Description}"></GridViewColumn>
-                        <GridViewColumn Width="200" Header="Ảnh mô tả" DisplayMemberBinding="{Binding ImageDescription}"></GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </materialDesign:Card>
-        <Grid Grid.Row="4" VerticalAlignment="Stretch">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="Save" Width="220" Height="40" Margin="10" Click="Save_Click" Background="DeepSkyBlue">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="ContentSaveOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" />
-                        <TextBlock Text="Lưu và kết thúc" VerticalAlignment="Center" FontSize="20" Foreground="Black">
+						</Button>
+					</Border>
+				</StackPanel>
+			</StackPanel>
+		</Grid>
+		<Grid Grid.Row="2" Grid.ColumnSpan="2" >
+			<Button x:Name="AddStep" Height="40" Width="260" Margin="10,5" Click="AddStep_Click" Background="DeepSkyBlue">
+				<StackPanel Orientation="Horizontal">
+					<materialDesign:PackIcon Kind="AddBox" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" />
+					<TextBlock Text="Thêm bước thực hiện" VerticalAlignment="Center" FontSize="20" Foreground="Black">
+					</TextBlock>
+				</StackPanel>
+			</Button>
+		</Grid>
+		<materialDesign:Card Grid.Row="3" Margin="5" Height="300" Grid.ColumnSpan="2">
+			<ListView x:Name="stepListView" SelectionChanged="ListView_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+				<ListView.View>
+					<GridView ToolBar.OverflowMode="AsNeeded">
+						<GridViewColumn Width="auto" Header="Bước" DisplayMemberBinding="{Binding StepNumber}"></GridViewColumn>
+						<GridViewColumn Width="auto" Header="Hướng dẫn thực hiện" DisplayMemberBinding="{Binding Description}"></GridViewColumn>
+						<GridViewColumn Width="auto" Header="Ảnh mô tả" DisplayMemberBinding="{Binding ImageDescription}"></GridViewColumn>
+					</GridView>
+				</ListView.View>
+			</ListView>
+		</materialDesign:Card>
+		<Grid Grid.Row="4" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+				<Button x:Name="Save" Width="220" Height="40" Margin="10" Click="Save_Click" Background="DeepSkyBlue">
+					<StackPanel Orientation="Horizontal">
+						<materialDesign:PackIcon Kind="ContentSaveOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" />
+						<TextBlock Text="Lưu và kết thúc" VerticalAlignment="Center" FontSize="20" Foreground="Black">
 
-                        </TextBlock>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="Cancel" Width="120" Height="40" Background="DeepSkyBlue"
+						</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button x:Name="Cancel" Width="120" Height="40" Background="DeepSkyBlue"
                         Margin="10" Click="Cancel_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="CloseBoxOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0"/>
-                        <TextBlock Text="Hủy" FontSize="20" VerticalAlignment="Center" Foreground="Black">
-                        </TextBlock>
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-        </Grid>
-    </Grid>
+					<StackPanel Orientation="Horizontal">
+						<materialDesign:PackIcon Kind="CloseBoxOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0"/>
+						<TextBlock Text="Hủy" FontSize="20" VerticalAlignment="Center" Foreground="Black">
+						</TextBlock>
+					</StackPanel>
+				</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
 </Window>

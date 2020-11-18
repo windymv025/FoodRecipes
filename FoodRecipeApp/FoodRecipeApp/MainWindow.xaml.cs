@@ -583,6 +583,8 @@ namespace FoodRecipeApp
         {
             AddRecipeWindow addRecipe = new AddRecipeWindow();
             addRecipe.Show();
+            this.Close();
+
         }
     }
 }
