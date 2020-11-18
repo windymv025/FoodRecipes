@@ -12,8 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.IO;
-using System.Diagnostics;
 using FoodRecipeApp.ViewModels;
 
 namespace FoodRecipeApp
@@ -29,37 +27,14 @@ namespace FoodRecipeApp
             InitializeComponent();
         }
 
-        //biến sử dụng
-        private string tempUriImage; //Ảnh được load
-        private List<string> listFiles = new List<string>(); //List files ảnh sẽ được lưu
-        private List<string> listImageName = new List<string>(); //List name ảnh đã được lưu theo thứ tự 1->n
-        
-        //hàm dùng để lưu ảnh được tải vào thư mục images
-        private void Save_Image()
-        {
-            var currentFolder = AppDomain.CurrentDomain.BaseDirectory.ToString();
-            string uriImage = "";
-
-            for (int i = 0; i < currentFolder.Length - 10; i++)
-            {
-                uriImage += currentFolder[i];
-            }
-            var files = listFiles.ToArray();
-            foreach (var file in files)
-            {
-                var info = new FileInfo(file);
-                var newName = $"{Guid.NewGuid()}{info.Extension}";
-                listImageName.Add(newName);
-                File.Copy(file, $"{uriImage}Images\\{newName}");
-            }
-        }
-
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Save_Image();
+            SaveImage.Save_Image();
+            SaveImage.Free_Memory();
 
-            //var files = listImageName.ToArray();
-            //foreach(var file in files)
+            //check file
+            //var files = SaveImage.listImageName.ToArray();
+            //foreach (var file in files)
             //{
             //    MessageBox.Show(file);
             //}
@@ -72,10 +47,7 @@ namespace FoodRecipeApp
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             //free memory
-            listFiles.Clear();
-            tempUriImage = null;
-            listImageName.Clear();
-
+            SaveImage.Free_Memory();
 
             var screen = new MainWindow();
             screen.Show();
@@ -91,8 +63,8 @@ namespace FoodRecipeApp
             if (open.ShowDialog() == true)
             {
                 var img = open.FileNames;
-                tempUriImage = img[0].ToString();
-                ImageSource imgsource = new BitmapImage(new Uri(tempUriImage));
+                SaveImage.tempUriImage = img[0].ToString();
+                ImageSource imgsource = new BitmapImage(new Uri(SaveImage.tempUriImage));
                 ImageDescriptionOfRecipe.ImageSource = imgsource;
             }
         }
@@ -100,11 +72,7 @@ namespace FoodRecipeApp
         private void AddStep_Click(object sender, RoutedEventArgs e)
         {
             stepNumber++;
-            listFiles.Add(tempUriImage);
-           // var nextStep = new StackPanel();
-            //nextStep.Height = 250;
-            
-           // StepByStep.Children.Add(nextStep);
+            SaveImage.listFiles.Add(SaveImage.tempUriImage); //Thêm ảnh vào list
         }
     }
 }
