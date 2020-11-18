@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Diagnostics;
+using FoodRecipeApp.Models;
 
 namespace FoodRecipeApp
 {
@@ -22,9 +23,11 @@ namespace FoodRecipeApp
     /// </summary>
     public partial class AddRecipeWindow : Window
     {
+        private FoodRecipe foodRecipe;
         public AddRecipeWindow()
         {
             InitializeComponent();
+            foodRecipe = new FoodRecipe();
         }
 
         private void AddStep_Click(object sender, RoutedEventArgs e)

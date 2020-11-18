@@ -110,6 +110,7 @@
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AddRecipeViewModel.cs" />
     <Compile Include="ViewModels\DetailViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Page Include="AddRecipeWindow.xaml">
