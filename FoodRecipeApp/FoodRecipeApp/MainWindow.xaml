@@ -4,6 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodRecipeApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="Food Ricipe App" 
         Height="700" 
@@ -230,19 +238,21 @@
 					<ColumnDefinition Width="*" />
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
-					<RowDefinition Height="33" />
+					<RowDefinition Height="40" />
 					<RowDefinition Height="*" />
 					<RowDefinition Height="60" />
 				</Grid.RowDefinitions>
 
-				<Grid Grid.Column="1">
+				<Grid Grid.Column="1" Grid.Row="0">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*"/>
 						<ColumnDefinition Width="350"/>
 					</Grid.ColumnDefinitions>
 					<TextBox x:Name="searchBox" Grid.Column="1" Visibility="Collapsed" VerticalContentAlignment="Center"
-							 Padding="5,0,0,0" Margin="10,3,30,0" KeyDown="searchBox_KeyDown">
-
+							 Margin="10,5,30,0" KeyDown="searchBox_KeyDown" Padding="5,0,0,0"
+                             materialDesign:HintAssist.Hint="Nhập tên món ăn" Foreground="Black" FontWeight="Bold"
+							 FontSize="16" Background="WhiteSmoke" materialDesign:TextFieldAssist.UnderlineBrush="DeepSkyBlue">
+						
 					</TextBox>
 					<Button Visibility="Collapsed" Grid.Column="1" x:Name="searchImg"
 						   HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Margin="0,3,35,0" Background="{x:Null}" BorderBrush="{x:Null}" Click="searchImg_Click" >
@@ -639,7 +649,7 @@
 						<ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
 									  >
 							<StackPanel Orientation="Horizontal" Width="230">
-								<Image x:Name="addDish" Source="/Assets/plus.png" Stretch="None" Margin="12,0,0,0" PreviewMouseLeftButtonDown="addDish_PreviewMouseLeftButtonDown" />
+								<Image Source="/Assets/plus.png" Stretch="None" Margin="12,0,0,0" />
 								<TextBlock Text="Add Food" Margin="25,0,0,0" Style="{StaticResource font_style}" />
 							</StackPanel>
 

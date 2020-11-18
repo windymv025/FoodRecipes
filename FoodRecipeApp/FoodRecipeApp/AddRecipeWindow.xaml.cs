@@ -12,9 +12,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 using System.IO;
 using System.Diagnostics;
 using FoodRecipeApp.Models;
+using FoodRecipeApp.ViewModels;
 
 namespace FoodRecipeApp
 {
@@ -32,6 +34,8 @@ namespace FoodRecipeApp
 
         private void AddStep_Click(object sender, RoutedEventArgs e)
         {
+            SaveImage.listFiles.Add(SaveImage.tempUriImage);
+
             var screen = new AddStepFoodRecipes();
             screen.Show();
             this.Close();
@@ -43,34 +47,13 @@ namespace FoodRecipeApp
             open.Multiselect = false;
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
 
-            var currentFolder = AppDomain.CurrentDomain.BaseDirectory.ToString();
-            string uriImage = "";
-
-            for(int i = 0; i < currentFolder.Length - 10; i++)
-            {
-                uriImage += currentFolder[i];
-            }
-
             if (open.ShowDialog() == true)
             {
                 var img = open.FileNames;
-
-                foreach (var file in img)
-                {
-                    var info = new FileInfo(file);
-                    var newName = $"{Guid.NewGuid()}{info.Extension}";
-                    Debug.WriteLine(newName);
-                    File.Copy(file, $"{uriImage}Images\\{newName}");
-                }
-
-                ImageSource imgsource = new BitmapImage(new Uri(img[0].ToString()));
+                SaveImage.tempUriImage = img[0].ToString();
+                ImageSource imgsource = new BitmapImage(new Uri(SaveImage.tempUriImage));
                 ImageDescriptionOfRecipe.ImageSource = imgsource;
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
