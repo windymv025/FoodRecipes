@@ -578,5 +578,11 @@ namespace FoodRecipeApp
 
             LabelPage.Content = $"{homeViewModel.PagingInfo.CurrentPage}/{homeViewModel.PagingInfo.TotalPage}";
         }
+
+        private void addDish_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            AddRecipeWindow addRecipe = new AddRecipeWindow();
+            addRecipe.Show();
+        }
     }
 }
