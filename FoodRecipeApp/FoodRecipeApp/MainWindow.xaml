@@ -503,7 +503,7 @@
 			
 
 			<!--//Contact Screen-->
-			<Grid x:Name="contact_screen" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+			<Grid x:Name="contact_screen" Visibility="Visible" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
 				<Grid.Background>
 					<ImageBrush x:Name="img_bg_contact" ImageSource="/Assets/background.jpg" Stretch="Fill" />
 				</Grid.Background>
@@ -529,7 +529,10 @@
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                FontWeight="Bold" FontSize="25"/>
-					</Grid>
+                        <Label Grid.Row="2"  Content="Email: 18120655@student.hcmus.edu.vn"
+                               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                               FontWeight="Bold" FontSize="14"/>
+                    </Grid>
 				</Grid>
 				<Grid x:Name="That" Grid.Row="0" Grid.Column="2" Margin="10">
 					<Grid>
@@ -543,8 +546,10 @@
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                FontWeight="Bold" FontSize="25"/>
-
-					</Grid>
+                        <Label Grid.Row="2"  Content="Email: 18120568@student.hcmus.edu.vn"
+                               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                               FontWeight="Bold" FontSize="14"/>
+                    </Grid>
 				</Grid>
 				<Grid x:Name="Vu" Grid.Row="0" Grid.Column="3" Margin="10">
 					<Grid>
@@ -558,6 +563,9 @@
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                FontWeight="Bold" FontSize="25"/>
+                        <Label Grid.Row="2"  Content="Email: 18120653@student.hcmus.edu.vn"
+                               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                               FontWeight="Bold" FontSize="14"/>
 
 					</Grid>
 				</Grid>
