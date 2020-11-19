@@ -1,6 +1,7 @@
 ﻿using FoodRecipeApp.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,12 @@ namespace FoodRecipeApp.ViewModels
     class AddRecipeViewModel
     {
         public FoodRecipe FoodRecipe { get; set; }
-        public List<FoodCookingStep> FoodCookingSteps { get; set; }
+        public BindingList<FoodCookingStep> FoodCookingSteps { get; set; }
 
         public AddRecipeViewModel()
         {
             this.FoodRecipe = new FoodRecipe();
-            FoodCookingSteps = new List<FoodCookingStep>();
+            FoodCookingSteps = new BindingList<FoodCookingStep>();
         }
 
         public void saveAddFoodRecipe()

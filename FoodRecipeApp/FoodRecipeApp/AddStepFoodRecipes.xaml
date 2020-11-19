@@ -73,16 +73,39 @@
 				</StackPanel>
 			</Button>
 		</Grid>
-		<materialDesign:Card Grid.Row="3" Margin="5" Height="250" Grid.ColumnSpan="2">
+		<materialDesign:Card Grid.Row="3" Margin="5" Height="250" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center">
 			<ListView x:Name="stepListView" SelectionChanged="ListView_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 				<ListView.View>
-					<GridView ToolBar.OverflowMode="AsNeeded">
-						<GridViewColumn Width="100" Header="Bước" DisplayMemberBinding="{Binding NumberStep}"></GridViewColumn>
-						<GridViewColumn Width="700" Header="Hướng dẫn thực hiện" DisplayMemberBinding="{Binding Step}"></GridViewColumn>
-						<GridViewColumn Width="200" Header="Ảnh mô tả" >
+					<GridView >
+						<GridViewColumn Width="100" TextBlock.TextAlignment="Center">
+							<GridViewColumn.Header>
+								<TextBlock Text="Bước" FontSize="16" FontWeight="Bold" Foreground="DarkRed"></TextBlock>
+							</GridViewColumn.Header>
+
 							<GridViewColumn.CellTemplate>
 								<DataTemplate>
-									<Image Source="{Binding ImageStep}" Width="200" Height="150"></Image>
+									<TextBlock Text="{Binding NumberStep}" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+									</TextBlock>
+								</DataTemplate>
+							</GridViewColumn.CellTemplate>
+						</GridViewColumn>
+						<GridViewColumn Width="700">
+							<GridViewColumn.Header>
+								<TextBlock Text="Hướng dẫn thực hiện" FontSize="16" FontWeight="Bold" Foreground="DarkRed" />
+							</GridViewColumn.Header>
+							<GridViewColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Step}" FontSize="15" Width="600" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" TextAlignment="Justify"></TextBlock>
+								</DataTemplate>
+							</GridViewColumn.CellTemplate>
+						</GridViewColumn>
+						<GridViewColumn Width="auto">
+							<GridViewColumn.Header>
+								<TextBlock Text="Ảnh minh họa" FontSize="16" FontWeight="Bold" Foreground="DarkRed" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+							</GridViewColumn.Header>
+							<GridViewColumn.CellTemplate>
+								<DataTemplate>
+									<Image Source="{Binding ImageStep}" Width="auto" Height="70" HorizontalAlignment="Center"></Image>
 								</DataTemplate>
 							</GridViewColumn.CellTemplate>
 						</GridViewColumn>

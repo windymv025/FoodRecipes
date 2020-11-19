@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using FoodRecipeApp.ViewModels;
 using FoodRecipeApp.Models;
+using System.ComponentModel;
 
 namespace FoodRecipeApp
 {
@@ -65,9 +66,28 @@ namespace FoodRecipeApp
 
         private void AddStep_Click(object sender, RoutedEventArgs e)
         {
+            if (ImageDescriptionOfRecipe.ImageSource == null && Step.Text == null)
+            {
+                MessageBox.Show("Hướng dẫn cần có hình ảnh minh họa.\nBạn cần nhập hướng dẫn nấu ăn cho từng bước.","Error");
+                return;
+            }
+            else
+            {
+
+                if (ImageDescriptionOfRecipe.ImageSource == null)
+                {
+                    MessageBox.Show("Hướng dẫn cần có hình ảnh minh họa.","Error");
+                    return;
+
+                }
+                if (Step.Text == null || Step.Text.Trim() == null) 
+                {
+                    MessageBox.Show("Bạn cần nhập hướng dẫn nấu ăn cho từng bước.", "Error");
+                    return;
+                }
+            }
             FoodCookingStep foodCookingStep = new FoodCookingStep();
             foodCookingStep.NumberStep = stepNumber;
-
 
             var uriImg = ImageDescriptionOfRecipe.ImageSource.ToString(); // uriImg = "file:///D:/......"
             string imgsource = "";
@@ -85,8 +105,10 @@ namespace FoodRecipeApp
 
             ImageDescriptionOfRecipe.ImageSource = null;
             Step.Text = "";
+            //MessageBox.Show($"Thêm bước {stepNumber} thành công");
             StepNumber.Text = $"{++stepNumber}";
-            stepListView.ItemsSource = viewModel.FoodCookingSteps;
+
+            //stepListView.Items.DeferRefresh();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

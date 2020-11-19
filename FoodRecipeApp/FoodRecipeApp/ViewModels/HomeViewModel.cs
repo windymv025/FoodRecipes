@@ -31,8 +31,13 @@ namespace FoodRecipeApp.ViewModels
             {
                 if (name != null)
                 {
-                    string sql = $"select * from FoodRecipes where NameFood like N'%{name}%' ";
+                    string sql = $"select * from FoodRecipes where contains(NameFood, N'{name}') ";
                     foodRecipes = db.FoodRecipes.SqlQuery(sql).ToList();
+                    if (foodRecipes.Count <= 0) 
+                    {
+                        sql = $"select * from FoodRecipes where NameFood LIKE N'%{name}%' ";
+                        foodRecipes = db.FoodRecipes.SqlQuery(sql).ToList();
+                    }   
                 }
                 else
                 {
