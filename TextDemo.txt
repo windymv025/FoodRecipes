@@ -1,0 +1,34 @@
+1. Splash Screen
+- Hiển thị thông tin chào mừng mỗi khi ứng dụng khởi chạy.
+- Mỗi lần hiện ngẫu nhiên một thông tin thú vị về món ăn / loại đồ ăn.
+- Cho phép chọn check “Không hiện hộp thoại này mỗi khi khởi động”.
+   Từ nay về sau đi thẳng vào màn hình HomeScreen luôn.
+
+2. HomeScreen
+- Liệt kê toàn bộ danh sách món ăn có phân trang.
+- Liệt kê danh sách các món ăn được ưa thích.
+- Lưu lại thông tin phân trang cho mỗi lần mở app lên.
+- Thêm và loại bỏ món ăn vào danh sách ưa thích này.
+
+3. SearchScreen: tìm món ăn theo tên
+Cảnh giới 1: Tìm chính xác.
+Cảnh giới 2: Hỗ trợ tìm kiếm không dấu
+Cảnh giới 3: Tìm không dấu hay có dấu hoặc có dấu chưa đúng nhưng kết quả vẫn ra và có độ ưu tiên.
+Cảnh giới 4: Tìm với từng từ hoặc kết hợp tạo ra tổ hợp từ các từ, có thể trong các trường khác nhau của dữ liệu.
+Cảnh giới 5: Thêm các từ khóa and, or, not.
+Cảnh giới 6: dùng CSDL.
+
+4. DetailScreen ?
+- Hiển thị chi tiết các bước nấu món ăn.
+Có danh sách hình ảnh dạng carousel, có thể xem video (cục bộ hoặc online hoặc nhúng youtube đều được)
+
+Cảnh giới 1: Có animation
+Cảnh giới 2: Xem video từ internet
+
+5. AppRecipe
+Cho phép người dùng tự thêm một công thức nấu ăn vào hệ thống
++ Tên món
++ Thêm các bước làm, với mỗi bước
++ Thêm mô tả bằng text
++ Thêm hình ảnh
++ Thêm video cục bộ / link video youtube
