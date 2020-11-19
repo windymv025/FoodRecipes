@@ -20,7 +20,7 @@ WPF .net framework
 - Liệt kê danh sách các món ăn được ưa thích.
 - Liệt kê toàn bộ danh sách món ăn có phân trang.
 - Lưu lại thông tin phân trang cho mỗi lần mở app lên.
-   	+ Có 2 chế độ: coi 6 sản phẩm mỗi trang hoặc 8 sản phẩm mỗi trang.
+   	+ Có 2 chế độ: xem 6 sản phẩm mỗi trang hoặc 8 sản phẩm mỗi trang.
         + Sắp xếp tăng dần hoặc giảm dần theo tên.
 - Có thể xem danh sách các món ăn ưa thích (được ghim lại), thêm và loại bỏ món ăn vào danh sách ưa thích này.
 
@@ -35,7 +35,7 @@ Tìm kiếm món ăn theo tên. Đã hoàn thành các cảnh giới sau:
 - Cảnh giới 4: Tìm với từng từ hoặc kết hợp tạo ra tổ hợp từ các từ, có thể trong các trường khác nhau của dữ liệu.
 	(ví dụ: tìm 1 từ "cơm" sẽ ra kết quả có chứa từ "cơm" như "cơm trộn mayonaise", "cá cơm kho tiêu",
 	          tìm 1 cụm từ "cơm trộn" thì sẽ hiện kết quả có chứa "cơm trộn" như "cơm trộn mayonaise").
-- Cảnh giới 5: Thêm các từ khóa and, or, not.								// Không có
+- Cảnh giới 5: Thêm các từ khóa and, or, not.
 	(ví dụ: tìm "thịt and kho" sẽ hiện món có chữ "thịt" VÀ chữ "kho" như: "thịt kho trứng",
 	          tìm "thịt or kho" sẽ hiện món có chữ "thịt" HOẶC chữ "kho" như: "thịt kho trứng", "lẩu kim chi thịt bò", "cá cơm kho tiêu",
 	          tìm "thịt not kho" sẽ hiện món có chữ "thịt" KHÔNG CÓ chữ "kho" như: "thịt heo om nấm đậu Hà Lan").
@@ -43,10 +43,8 @@ Tìm kiếm món ăn theo tên. Đã hoàn thành các cảnh giới sau:
 
 4. DetailScreen (2 điểm):
 - Hiển thị chi tiết các bước nấu món ăn.
-- Có danh sách dạng carousel, có thể xem video (nhúng youtube).
-- Hoàn thành cảnh giới:
-	+ Cảnh giới 1: Có animation.
-	+ Cảnh giới 2: Xem video từ internet.
+- Có thể xem video (nhúng youtube).
+- Xem video từ internet.
 
 5. AddRecipe (2 điểm):
 - Cho phép người dùng tự thêm một công thức nấu ăn vào hệ thống.
