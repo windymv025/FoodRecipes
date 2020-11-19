@@ -503,7 +503,7 @@
 			
 
 			<!--//Contact Screen-->
-			<Grid x:Name="contact_screen" Visibility="Visible" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
+			<Grid x:Name="contact_screen" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
 				<Grid.Background>
 					<ImageBrush x:Name="img_bg_contact" ImageSource="/Assets/background.jpg" Stretch="Fill" />
 				</Grid.Background>
