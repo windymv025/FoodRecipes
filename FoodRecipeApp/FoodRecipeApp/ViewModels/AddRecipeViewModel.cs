@@ -30,7 +30,7 @@ namespace FoodRecipeApp.ViewModels
                 foreach(FoodCookingStep step in FoodCookingSteps)
                 {
 
-           //         step.ImageStep = "Images/" + saveImage(step.ImageStep);
+                    //step.ImageStep = "Images/" + saveImage(step.ImageStep);
                     db.FoodCookingSteps.Add(step);
                 }
                 db.SaveChanges();

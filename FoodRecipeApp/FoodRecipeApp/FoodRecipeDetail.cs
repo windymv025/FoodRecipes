@@ -51,7 +51,7 @@ namespace FoodRecipeApp
             }
 
             this.DataContext = detailViewModel.FoodRecipe;
-            foodStepListView.ItemsSource = detailViewModel.FoodCookingSteps;
+            //foodStepListView.ItemsSource = detailViewModel.FoodCookingSteps;
         }
 
         private void favorite_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -71,7 +71,7 @@ namespace FoodRecipeApp
                     img_mon6_1.Visibility = Visibility.Visible;
                     lb_mon6_1.Visibility = Visibility.Visible;
 
-                    img_mon6_1.Source = new BitmapImage(new Uri(dishes[0].FoodImage, UriKind.Relative));
+                    img_mon6_1.Source = new BitmapImage(new Uri(dishes[0].FoodImage, UriKind.RelativeOrAbsolute));
                     lb_mon6_1.Content = dishes[0].NameFood;
                 }
                 else
@@ -85,7 +85,7 @@ namespace FoodRecipeApp
                     img_mon6_2.Visibility = Visibility.Visible;
                     lb_mon6_2.Visibility = Visibility.Visible;
 
-                    img_mon6_2.Source = new BitmapImage(new Uri(dishes[1].FoodImage, UriKind.Relative));
+                    img_mon6_2.Source = new BitmapImage(new Uri(dishes[1].FoodImage, UriKind.RelativeOrAbsolute));
                     lb_mon6_2.Content = dishes[1].NameFood;
                 }
                 else
@@ -99,7 +99,7 @@ namespace FoodRecipeApp
                     img_mon6_3.Visibility = Visibility.Visible;
                     lb_mon6_3.Visibility = Visibility.Visible;
 
-                    img_mon6_3.Source = new BitmapImage(new Uri(dishes[2].FoodImage, UriKind.Relative));
+                    img_mon6_3.Source = new BitmapImage(new Uri(dishes[2].FoodImage, UriKind.RelativeOrAbsolute));
                     lb_mon6_3.Content = dishes[2].NameFood;
 
                 }
@@ -114,7 +114,7 @@ namespace FoodRecipeApp
                     img_mon6_4.Visibility = Visibility.Visible;
                     lb_mon6_4.Visibility = Visibility.Visible;
 
-                    img_mon6_4.Source = new BitmapImage(new Uri(dishes[3].FoodImage, UriKind.Relative));
+                    img_mon6_4.Source = new BitmapImage(new Uri(dishes[3].FoodImage, UriKind.RelativeOrAbsolute));
                     lb_mon6_4.Content = dishes[3].NameFood;
 
                 }
