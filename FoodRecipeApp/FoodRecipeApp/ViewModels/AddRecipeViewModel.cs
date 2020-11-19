@@ -21,7 +21,7 @@ namespace FoodRecipeApp.ViewModels
 
         public void saveAddFoodRecipe()
         {
-            FoodRecipe.FoodImage = "Images/" + saveImage(FoodRecipe.FoodImage);
+            //FoodRecipe.FoodImage = "Images/" + saveImage(FoodRecipe.FoodImage);
 
             this.setIDFoodRecipe();
             using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
@@ -30,7 +30,7 @@ namespace FoodRecipeApp.ViewModels
                 foreach(FoodCookingStep step in FoodCookingSteps)
                 {
 
-                    step.ImageStep = "Images/" + saveImage(step.ImageStep);
+           //         step.ImageStep = "Images/" + saveImage(step.ImageStep);
                     db.FoodCookingSteps.Add(step);
                 }
                 db.SaveChanges();
@@ -54,7 +54,7 @@ namespace FoodRecipeApp.ViewModels
             string detail = file.Split('.')[file.Split('.').Length - 1];
 
             var info = new FileInfo(file);
-            var newName = $"{Guid.NewGuid()}{info.Extension}.{detail}";
+            var newName = $"{Guid.NewGuid()}{info.Extension}";
 
             Directory.CreateDirectory(currentFolder + "Images");
 
