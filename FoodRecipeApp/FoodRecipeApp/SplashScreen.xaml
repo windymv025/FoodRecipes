@@ -48,8 +48,7 @@
                      FontSize="16" HorizontalAlignment="Center"
                      HorizontalContentAlignment="Center">
 				</CheckBox>
-				<Button x:Name="Skip" Click="Skip_Click" Width="80" Height="50"  Content="Skip" FontSize="25
-					" Background="LightYellow">
+				<Button x:Name="Skip" Click="Skip_Click" Width="80" Height="50"  Content="Skip" FontSize="25" >
 				</Button>
 			</StackPanel>
 		</Grid>
