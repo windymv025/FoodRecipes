@@ -67,7 +67,18 @@ namespace FoodRecipeApp
         {
             FoodCookingStep foodCookingStep = new FoodCookingStep();
             foodCookingStep.NumberStep = stepNumber;
-            foodCookingStep.ImageStep = ImageDescriptionOfRecipe.ImageSource.ToString();
+
+
+            var uriImg = ImageDescriptionOfRecipe.ImageSource.ToString(); // uriImg = "file:///D:/......"
+            string imgsource = "";
+
+            for (int i = 8; i < uriImg.Length; i++)  // Loại bỏ file:/// để thành đường dẫn chính xác D:/....
+            {
+                imgsource += uriImg[i];
+            }
+
+            foodCookingStep.ImageStep = imgsource;
+
             foodCookingStep.Step = Step.Text;
 
             viewModel.FoodCookingSteps.Add(foodCookingStep);

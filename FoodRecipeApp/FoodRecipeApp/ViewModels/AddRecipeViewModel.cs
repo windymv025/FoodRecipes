@@ -29,6 +29,7 @@ namespace FoodRecipeApp.ViewModels
                 db.FoodRecipes.Add(FoodRecipe);
                 foreach(FoodCookingStep step in FoodCookingSteps)
                 {
+                    
                     step.ImageStep = saveImage(step.ImageStep);
                     db.FoodCookingSteps.Add(step);
                 }
@@ -48,14 +49,16 @@ namespace FoodRecipeApp.ViewModels
         }
         private string saveImage(string file)
         {
-            string currentFolder = AppDomain.CurrentDomain.BaseDirectory.ToString();
+            var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
 
             string detail = file.Split('.')[file.Split('.').Length - 1];
 
-            var info = new FileInfo(currentFolder);
-            string newName = $"{"Images\\"}{Guid.NewGuid()}{info.Extension}.{detail}";
+            var info = new FileInfo(file);
+            var newName = $"{Guid.NewGuid()}{info.Extension}.{detail}";
+
             Directory.CreateDirectory(currentFolder + "Images");
-            File.Copy(file, $"{currentFolder}{newName}",true);
+
+            File.Copy(file, $"{currentFolder}Images\\{newName}");
 
             return newName;
         }
