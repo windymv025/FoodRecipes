@@ -21,7 +21,7 @@ namespace FoodRecipeApp.ViewModels
 
         public void saveAddFoodRecipe()
         {
-            FoodRecipe.FoodImage = saveImage(FoodRecipe.FoodImage);
+            FoodRecipe.FoodImage = "Images/" + saveImage(FoodRecipe.FoodImage);
 
             this.setIDFoodRecipe();
             using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
@@ -29,8 +29,8 @@ namespace FoodRecipeApp.ViewModels
                 db.FoodRecipes.Add(FoodRecipe);
                 foreach(FoodCookingStep step in FoodCookingSteps)
                 {
-                    
-                    step.ImageStep = saveImage(step.ImageStep);
+
+                    step.ImageStep = "Images/" + saveImage(step.ImageStep);
                     db.FoodCookingSteps.Add(step);
                 }
                 db.SaveChanges();

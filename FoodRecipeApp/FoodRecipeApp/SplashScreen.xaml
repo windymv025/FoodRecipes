@@ -6,7 +6,8 @@
     xmlns:local="clr-namespace:FoodRecipeApp"
     mc:Ignorable="d"
     Title="SplashScreen" Height="700" Width="600" Loaded="Window_Loaded" WindowStyle="None" WindowStartupLocation="CenterScreen" 
-		ResizeMode="NoResize">
+		ResizeMode="NoResize"
+        Topmost="True">
 	<Grid>
 		<Grid.Background>
 			<ImageBrush ImageSource="{Binding FoodImage}" Opacity="0.1" Stretch="UniformToFill">
