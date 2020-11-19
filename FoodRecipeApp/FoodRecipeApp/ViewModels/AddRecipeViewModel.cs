@@ -54,7 +54,8 @@ namespace FoodRecipeApp.ViewModels
 
             var info = new FileInfo(currentFolder);
             string newName = $"{"Images\\"}{Guid.NewGuid()}{info.Extension}.{detail}";
-            File.Copy(file, $"{currentFolder}{newName}");
+            Directory.CreateDirectory(currentFolder + "Images");
+            File.Copy(file, $"{currentFolder}{newName}",true);
 
             return newName;
         }
