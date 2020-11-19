@@ -25,8 +25,9 @@ namespace FoodRecipeApp
 
             homeViewModel = new HomeViewModel();
             homeViewModel.FoodRecipes = FoodRecipeDao.GetAll();
-            homeViewModel.PagingInfo = new PagingInfo(2, 6, homeViewModel.FoodRecipes.Count);
             homeViewModel.LogFile = new LogFile();
+            homeViewModel.PagingInfo = new PagingInfo(2, homeViewModel.LogFile.NumberOfDishInPerPage, homeViewModel.FoodRecipes.Count);
+
 
             homeViewModel.loadLogFile();
 
@@ -39,7 +40,6 @@ namespace FoodRecipeApp
                 if (homeViewModel.LogFile.NumberOfDishInPerPage == 8)
                     btnSoLuong.SelectedIndex = 1;
             }
-            //dishListView.ItemsSource = homeViewModel.loadPage(1, homeViewModel.PagingInfo.NumberOfDishInPerPage); 
             if (homeViewModel.PagingInfo.NumberOfDishInPerPage == 6)
             {
                 grid6.Visibility = Visibility.Visible;

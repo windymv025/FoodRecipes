@@ -48,17 +48,13 @@ namespace FoodRecipeApp.ViewModels
         }
         private string saveImage(string file)
         {
-            var currentFolder = AppDomain.CurrentDomain.BaseDirectory.ToString();
-            string uriImage = "";
+            string currentFolder = AppDomain.CurrentDomain.BaseDirectory.ToString();
 
-            for (int i = 0; i < currentFolder.Length - 10; i++)
-            {
-                uriImage += currentFolder[i];
-            }
+            string detail = file.Split('.')[file.Split('.').Length - 1];
 
-            var info = new FileInfo(file);
-            string newName = $"{Guid.NewGuid()}{info.Extension}";
-            File.Copy(file, $"{uriImage}Images\\{newName}");
+            var info = new FileInfo(currentFolder);
+            string newName = $"{"Images\\"}{Guid.NewGuid()}{info.Extension}.{detail}";
+            File.Copy(file, $"{currentFolder}{newName}");
 
             return newName;
         }

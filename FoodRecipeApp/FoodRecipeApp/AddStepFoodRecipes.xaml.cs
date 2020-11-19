@@ -74,8 +74,8 @@ namespace FoodRecipeApp
 
             ImageDescriptionOfRecipe.ImageSource = null;
             Step.Text = "";
-
-            stepNumber++;
+            StepNumber.Text = $"{++stepNumber}";
+            stepListView.ItemsSource = viewModel.FoodCookingSteps;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
