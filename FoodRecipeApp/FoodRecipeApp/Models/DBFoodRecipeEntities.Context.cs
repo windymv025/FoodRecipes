@@ -12,6 +12,8 @@ namespace FoodRecipeApp.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DBFoodRecipesEntities : DbContext
     {
@@ -28,5 +30,15 @@ namespace FoodRecipeApp.Models
         public virtual DbSet<FavoriteFood> FavoriteFoods { get; set; }
         public virtual DbSet<FoodCookingStep> FoodCookingSteps { get; set; }
         public virtual DbSet<FoodRecipe> FoodRecipes { get; set; }
+    
+        [DbFunction("DBFoodRecipesEntities", "FullTextSearchNameFood")]
+        public virtual IQueryable<FullTextSearchNameFood_Result> FullTextSearchNameFood(string nameFood)
+        {
+            var nameFoodParameter = nameFood != null ?
+                new ObjectParameter("nameFood", nameFood) :
+                new ObjectParameter("nameFood", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FullTextSearchNameFood_Result>("[DBFoodRecipesEntities].[FullTextSearchNameFood](@nameFood)", nameFoodParameter);
+        }
     }
 }

@@ -68,7 +68,7 @@ namespace FoodRecipeApp
         {
             if (ImageDescriptionOfRecipe.ImageSource == null && Step.Text == null)
             {
-                MessageBox.Show("Hướng dẫn cần có hình ảnh minh họa.\nBạn cần nhập hướng dẫn nấu ăn cho từng bước.","Error");
+                MessageBox.Show("Hướng dẫn cần có hình ảnh minh họa.\nBạn cần nhập hướng dẫn nấu ăn cho từng bước.", "Error");
                 return;
             }
             else
@@ -76,11 +76,11 @@ namespace FoodRecipeApp
 
                 if (ImageDescriptionOfRecipe.ImageSource == null)
                 {
-                    MessageBox.Show("Hướng dẫn cần có hình ảnh minh họa.","Error");
+                    MessageBox.Show("Hướng dẫn cần có hình ảnh minh họa.", "Error");
                     return;
 
                 }
-                if (Step.Text == null || Step.Text.Trim() == null) 
+                if (Step.Text == null || Step.Text.Trim() == null)
                 {
                     MessageBox.Show("Bạn cần nhập hướng dẫn nấu ăn cho từng bước.", "Error");
                     return;

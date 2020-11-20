@@ -27,7 +27,7 @@ namespace FoodRecipeApp
                 using (StreamReader f = new StreamReader(FILE_NAME_LOG))
                 {
                     string str = f.ReadLine();
-                    if (str == null) 
+                    if (str == null)
                     {
                         isStartWithSplash = true;
                     }

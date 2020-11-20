@@ -17,7 +17,7 @@ namespace FoodRecipeApp.ViewModels
         public static List<FoodRecipe> GetAll()
         {
             List<FoodRecipe> foodRecipes;
-            using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
+            using (DBFoodRecipesEntities db = new DBFoodRecipesEntities())
             {
                 foodRecipes = db.FoodRecipes.ToList();
             }
@@ -25,19 +25,15 @@ namespace FoodRecipeApp.ViewModels
         }
         public static List<FoodRecipe> GetAllWithName(string name)
         {
-            List<FoodRecipe> foodRecipes;
+            List<FoodRecipe> foodRecipes = new List<FoodRecipe>();
             name = name.Trim();
             using (DBFoodRecipesEntities db = new DBFoodRecipesEntities())
             {
                 if (name != null)
                 {
-                    string sql = $"select * from FoodRecipes where contains(NameFood, N'{name}') ";
+                    string sql = $"select * from FoodRecipes where NameFood LIKE N'%{name}%' ";
                     foodRecipes = db.FoodRecipes.SqlQuery(sql).ToList();
-                    if (foodRecipes.Count <= 0) 
-                    {
-                        sql = $"select * from FoodRecipes where NameFood LIKE N'%{name}%' ";
-                        foodRecipes = db.FoodRecipes.SqlQuery(sql).ToList();
-                    }   
+
                 }
                 else
                 {
@@ -72,7 +68,14 @@ namespace FoodRecipeApp.ViewModels
 
         public PagingInfo(int rowsPerpage, int numberOfDishInPerPage, int totalDish)
         {
-            CurrentPage = 1;
+            if (totalDish > 0)
+            {
+                CurrentPage = 1;
+            }    
+            else
+            { 
+                CurrentPage = 0;
+            }    
             RowsPerPage = rowsPerpage;
             NumberOfDishInPerPage = numberOfDishInPerPage;
             TotalPage = totalDish / numberOfDishInPerPage +
@@ -100,7 +103,7 @@ namespace FoodRecipeApp.ViewModels
             {
                 using (FileStream f = new FileStream(FILE_NAME, FileMode.Open, FileAccess.Read))
                 {
-                    if(!f.CanRead)
+                    if (!f.CanRead)
                     {
                         NumberOfDishInPerPage = 6;
                         TypeSort = -1;
@@ -144,7 +147,7 @@ namespace FoodRecipeApp.ViewModels
             PagingInfo.CurrentPage = pageNumber;
 
             List<FoodRecipe> resulf = FoodRecipes.Skip((pageNumber - 1) * PagingInfo.NumberOfDishInPerPage).Take(PagingInfo.NumberOfDishInPerPage).ToList();
-            
+
             return resulf;
         }
         public void sortAscendingName()
@@ -168,7 +171,7 @@ namespace FoodRecipeApp.ViewModels
         {
             LogFile.readLog();
             PagingInfo.NumberOfDishInPerPage = LogFile.NumberOfDishInPerPage;
-            if(LogFile.TypeSort == 0)
+            if (LogFile.TypeSort == 0)
             {
                 this.sortAscendingName();
             }
@@ -183,6 +186,6 @@ namespace FoodRecipeApp.ViewModels
         {
             LogFile.writeLog();
         }
-        
+
     }
 }

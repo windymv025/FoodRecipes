@@ -22,16 +22,12 @@ namespace FoodRecipeApp.ViewModels
 
         public void saveAddFoodRecipe()
         {
-            //FoodRecipe.FoodImage = "Images/" + saveImage(FoodRecipe.FoodImage);
-
             this.setIDFoodRecipe();
-            using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
+            using (DBFoodRecipesEntities db = new DBFoodRecipesEntities())
             {
                 db.FoodRecipes.Add(FoodRecipe);
-                foreach(FoodCookingStep step in FoodCookingSteps)
+                foreach (FoodCookingStep step in FoodCookingSteps)
                 {
-
-                    //step.ImageStep = "Images/" + saveImage(step.ImageStep);
                     db.FoodCookingSteps.Add(step);
                 }
                 db.SaveChanges();
@@ -48,20 +44,6 @@ namespace FoodRecipeApp.ViewModels
                 step.IdFoodRecipes = FoodRecipe.ID;
             }
         }
-        private string saveImage(string file)
-        {
-            var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
-
-            string detail = file.Split('.')[file.Split('.').Length - 1];
-
-            var info = new FileInfo(file);
-            var newName = $"{Guid.NewGuid()}{info.Extension}";
-
-            Directory.CreateDirectory(currentFolder + "Images");
-
-            File.Copy(file, $"{currentFolder}Images\\{newName}");
-
-            return newName;
-        }
+        
     }
 }

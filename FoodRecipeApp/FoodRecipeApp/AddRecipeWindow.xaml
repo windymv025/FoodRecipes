@@ -17,82 +17,82 @@
         Height="700" 
         Width="1024"
         WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="480"></ColumnDefinition>
-            <ColumnDefinition Width="544"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="500"></RowDefinition>
-            <RowDefinition Height="150"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0">
-            <StackPanel>
-                <TextBlock x:Name="FoodAvatar" Width="150" Height="40"
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="480"></ColumnDefinition>
+			<ColumnDefinition Width="544"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="500"></RowDefinition>
+			<RowDefinition Height="150"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid Grid.Column="0" Grid.Row="0">
+			<StackPanel>
+				<TextBlock x:Name="FoodAvatar" Width="150" Height="40"
                                Text="Ảnh mô tả:" TextAlignment="Center" 
                                FontSize="24" FontWeight="Bold"
                                Padding="5" Margin="0"></TextBlock>
-                <Border BorderThickness="3" BorderBrush="SlateGray" Width="450" Height="450" Margin="0,0">
-                    <Border.Background>
-                        <ImageBrush x:Name="ImageDescriptionOfRecipe" 
+				<Border BorderThickness="3" BorderBrush="SlateGray" Width="450" Height="450" Margin="0,0">
+					<Border.Background>
+						<ImageBrush x:Name="ImageDescriptionOfRecipe" 
                                     RenderOptions.BitmapScalingMode="HighQuality" 
                                     Stretch="UniformToFill">
-                        </ImageBrush>
-                    </Border.Background>
-                    <Button x:Name="InsertFoodImage" Height="60" VerticalAlignment="Bottom" Opacity="0.5"
+						</ImageBrush>
+					</Border.Background>
+					<Button x:Name="InsertFoodImage" Height="60" VerticalAlignment="Bottom" Opacity="0.5"
                             Click="InsertFoodImage_Click" Background="White">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="InsertPhoto" Width="40" Height="40" Foreground="Black" Margin="0,0,5,0"/>
-                            <TextBlock Text="Click để chèn ảnh" FontSize="20" VerticalAlignment="Center" Foreground="Black">
-                            </TextBlock>
-                        </StackPanel>
-                    </Button>
-                </Border>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Column="1" Grid.Row="0">
-            <StackPanel>
-                <TextBlock x:Name="Title" Width="150" Height="40"
+						<StackPanel Orientation="Horizontal">
+							<materialDesign:PackIcon Kind="InsertPhoto" Width="40" Height="40" Foreground="Black" Margin="0,0,5,0"/>
+							<TextBlock Text="Click để chèn ảnh" FontSize="20" VerticalAlignment="Center" Foreground="Black">
+							</TextBlock>
+						</StackPanel>
+					</Button>
+				</Border>
+			</StackPanel>
+		</Grid>
+		<Grid Grid.Column="1" Grid.Row="0">
+			<StackPanel>
+				<TextBlock x:Name="Title" Width="150" Height="40"
                            Text="Tên món ăn:" TextAlignment="Center" 
                            FontSize="24" FontWeight="Bold"
                            Padding="5" Margin="-12,0,336,0"></TextBlock>
-                <TextBox x:Name="FoodName" Width="480" Height="70" Padding="5" Margin="17,0,17,0"
+				<TextBox x:Name="FoodName" Width="480" Height="70" Padding="5" Margin="17,0,17,0"
                          FontSize="20" BorderThickness="3"></TextBox>
-                <TextBlock x:Name="Desciption" Width="100" Height="40"
+				<TextBlock x:Name="Desciption" Width="100" Height="40"
                            Text="Mô tả:" HorizontalAlignment="Center"
                            FontSize="24" FontWeight="Bold"
                            Padding="5" Margin="24,0,420,0"></TextBlock>
-                <TextBox x:Name="FoodDesciption" Width="480" Height="240" Padding="5" Margin="17,0,17,0"
+				<TextBox x:Name="FoodDesciption" Width="480" Height="240" Padding="5" Margin="17,0,17,0"
                          FontSize="20" BorderThickness="3"></TextBox>
-                <TextBlock x:Name="LinkYoutube" Width="150" Height="40"
+				<TextBlock x:Name="LinkYoutube" Width="150" Height="40"
                            Text="Link Youtube:" TextAlignment="Center" 
                            FontSize="24" FontWeight="Bold"
                            Padding="5" Margin="-12,0,336,0"></TextBlock>
-                <TextBox x:Name="FoodLinkYoutube" Width="480" Height="60" Padding="5" Margin="17,0,17,0"
+				<TextBox x:Name="FoodLinkYoutube" Width="480" Height="60" Padding="5" Margin="17,0,17,0"
                          FontSize="20" BorderThickness="3"></TextBox>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="262,0.333">
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                <Button x:Name="AddStep" Width="260" Height="60" Margin="50, 20,20,20"
+			</StackPanel>
+		</Grid>
+		<Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="262,0.333">
+			<StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+				<Button x:Name="AddStep" Width="260" Height="60" Margin="50, 20,20,20"
                         Click="AddStep_Click" Background="DeepSkyBlue" HorizontalAlignment="Center" VerticalAlignment="Center"
                         Padding="5">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="ContentSaveOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" />
-                        <TextBlock Text="Thêm các bước nấu ăn" VerticalAlignment="Center" FontSize="20" Foreground="Black">
+					<StackPanel Orientation="Horizontal">
+						<materialDesign:PackIcon Kind="ContentSaveOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0" />
+						<TextBlock Text="Thêm các bước nấu ăn" VerticalAlignment="Center" FontSize="20" Foreground="Black">
 
-                        </TextBlock>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="Cancel" Width="120" Height="60" Background="DeepSkyBlue"
+						</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button x:Name="Cancel" Width="120" Height="60" Background="DeepSkyBlue"
                         Margin="10" Click="Cancel_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="CloseBoxOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0"/>
-                        <TextBlock Text="Hủy" FontSize="20" VerticalAlignment="Center" Foreground="Black">
-                        </TextBlock>
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-        </Grid>
-    </Grid>
+					<StackPanel Orientation="Horizontal">
+						<materialDesign:PackIcon Kind="CloseBoxOutline" VerticalAlignment="Center" Width="30" Height="30" Margin="0,0,5,0"/>
+						<TextBlock Text="Hủy" FontSize="20" VerticalAlignment="Center" Foreground="Black">
+						</TextBlock>
+					</StackPanel>
+				</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
 </Window>

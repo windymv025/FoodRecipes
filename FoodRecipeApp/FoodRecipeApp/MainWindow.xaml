@@ -252,14 +252,14 @@
 							 Margin="10,5,30,0" TextChanged="searchBox_TextChanged" KeyDown="searchBox_KeyDown" Padding="5,0,0,0"
                              materialDesign:HintAssist.Hint="Nhập tên món ăn" Foreground="Black" FontWeight="Bold"
 							 FontSize="16" Background="WhiteSmoke" materialDesign:TextFieldAssist.UnderlineBrush="DeepSkyBlue">
-						
+
 					</TextBox>
 					<Button Visibility="Collapsed" Grid.Column="1" x:Name="searchImg"
 						   HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Margin="0,3,35,0" Background="{x:Null}" BorderBrush="{x:Null}" Click="searchImg_Click" >
 						<Image Visibility="Collapsed" Source="Assets/search.png"
 						   HorizontalAlignment="Center" VerticalAlignment="Center" Height="24"/>
 					</Button>
-					
+
 				</Grid>
 
 				<Grid x:Name="grid6" Grid.Row="1" Grid.Column="1" 	Visibility="Collapsed"	>
@@ -277,7 +277,7 @@
 					</Grid.RowDefinitions>
 
 					<!--//to do Home Screen-->
-					
+
 					<Grid Grid.Column="1" Grid.Row="1"
                             Margin="10" PreviewMouseLeftButtonDown="grid6_1_Event">
 						<Grid.RowDefinitions>
@@ -500,7 +500,7 @@
 				</Grid>
 			</Grid>
 
-			
+
 
 			<!--//Contact Screen-->
 			<Grid x:Name="contact_screen" Visibility="Collapsed" PreviewMouseLeftButtonDown="bg_PreviewMouseLeftButtonDown">
@@ -529,10 +529,10 @@
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                FontWeight="Bold" FontSize="25"/>
-                        <Label Grid.Row="2"  Content="Email: 18120655@student.hcmus.edu.vn"
+						<Label Grid.Row="2"  Content="Email: 18120655@student.hcmus.edu.vn"
                                VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="14"/>
-                    </Grid>
+					</Grid>
 				</Grid>
 				<Grid x:Name="That" Grid.Row="0" Grid.Column="2" Margin="10">
 					<Grid>
@@ -546,10 +546,10 @@
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                FontWeight="Bold" FontSize="25"/>
-                        <Label Grid.Row="2"  Content="Email: 18120568@student.hcmus.edu.vn"
+						<Label Grid.Row="2"  Content="Email: 18120568@student.hcmus.edu.vn"
                                VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="14"/>
-                    </Grid>
+					</Grid>
 				</Grid>
 				<Grid x:Name="Vu" Grid.Row="0" Grid.Column="3" Margin="10">
 					<Grid>
@@ -563,7 +563,7 @@
                                Grid.Row="1" HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                FontWeight="Bold" FontSize="25"/>
-                        <Label Grid.Row="2"  Content="Email: 18120653@student.hcmus.edu.vn"
+						<Label Grid.Row="2"  Content="Email: 18120653@student.hcmus.edu.vn"
                                VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                                FontWeight="Bold" FontSize="14"/>
 

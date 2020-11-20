@@ -65,7 +65,7 @@ namespace FoodRecipeApp
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             FoodRecipe f = new FoodRecipe();
-            using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
+            using (DBFoodRecipesEntities db = new DBFoodRecipesEntities())
             {
                 var list = db.FoodRecipes.ToList();
                 int index = rgn.Next(list.Count);
@@ -75,7 +75,7 @@ namespace FoodRecipeApp
                 f = list[index];
             }
             this.DataContext = f;
-            
+
         }
 
         private void CheckSplashScreen_Unchecked(object sender, RoutedEventArgs e)

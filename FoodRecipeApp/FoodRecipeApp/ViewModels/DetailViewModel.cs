@@ -41,7 +41,7 @@ namespace FoodRecipeApp.ViewModels
         }
         public void deleteFavoriteFood()
         {
-            using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
+            using (DBFoodRecipesEntities db = new DBFoodRecipesEntities())
             {
                 var favoriteFood = from f in db.FavoriteFoods
                                    where f.IdFoodRecipes == this.FoodRecipe.ID
@@ -64,14 +64,14 @@ namespace FoodRecipeApp.ViewModels
         {
             bool resulf = false;
             int count = 0;
-            using(DBFoodRecipesEntities db = new DBFoodRecipesEntities())
+            using (DBFoodRecipesEntities db = new DBFoodRecipesEntities())
             {
                 var list = from f in db.FavoriteFoods
                            where f.IdFoodRecipes == this.FoodRecipe.ID
                            select f;
                 count = list.Count();
             }
-            if(count == 0)
+            if (count == 0)
             {
                 resulf = false;
             }
