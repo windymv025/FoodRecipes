@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBFoodRecipesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBFoodRecipesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="FavoriteFood">
           <Key>
             <PropertyRef Name="IdFoodRecipes" />
@@ -26,7 +26,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="NameFood" Type="nvarchar" MaxLength="100" />
+          <Property Name="NameFood" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="DishDescription" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CookingIngredients" Type="nvarchar(max)" />
           <Property Name="FoodImage" Type="nvarchar(max)" />
@@ -56,21 +56,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="FullTextSearchNameFood" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="nameFood" Type="nvarchar" Mode="In" />
-          <ReturnType>
-            <CollectionType>
-              <RowType>
-                <Property Name="ID" Type="int" Nullable="false" />
-                <Property Name="NameFood" Type="nvarchar" MaxLength="100" />
-                <Property Name="DishDescription" Type="nvarchar(max)" Nullable="false" />
-                <Property Name="CookingIngredients" Type="nvarchar(max)" />
-                <Property Name="FoodImage" Type="nvarchar(max)" />
-                <Property Name="ulrVideo" Type="nvarchar" MaxLength="100" />
-              </RowType>
-            </CollectionType>
-          </ReturnType>
-        </Function>
         <EntityContainer Name="DBFoodRecipesModelStoreContainer">
           <EntitySet Name="FavoriteFood" EntityType="Self.FavoriteFood" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FoodCookingStep" EntityType="Self.FoodCookingStep" Schema="dbo" store:Type="Tables" />
@@ -84,7 +69,8 @@
             <End Role="FoodCookingStep" EntitySet="FoodCookingStep" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBFoodRecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -111,7 +97,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="NameFood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NameFood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DishDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CookingIngredients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FoodImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -155,18 +141,7 @@
             <End Role="FoodRecipes" EntitySet="FoodRecipes" />
             <End Role="FoodCookingStep" EntitySet="FoodCookingSteps" />
           </AssociationSet>
-          <FunctionImport Name="FullTextSearchNameFood" IsComposable="true" ReturnType="Collection(DBFoodRecipesModel.FullTextSearchNameFood_Result)">
-          <Parameter Name="nameFood" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="FullTextSearchNameFood_Result">
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="NameFood" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="DishDescription" Nullable="false" />
-          <Property Type="String" Name="CookingIngredients" Nullable="true" />
-          <Property Type="String" Name="FoodImage" Nullable="true" />
-          <Property Type="String" Name="ulrVideo" Nullable="true" MaxLength="100" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -202,18 +177,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="FullTextSearchNameFood" FunctionName="DBFoodRecipesModel.Store.FullTextSearchNameFood">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBFoodRecipesModel.FullTextSearchNameFood_Result">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NameFood" ColumnName="NameFood" />
-                <ScalarProperty Name="DishDescription" ColumnName="DishDescription" />
-                <ScalarProperty Name="CookingIngredients" ColumnName="CookingIngredients" />
-                <ScalarProperty Name="FoodImage" ColumnName="FoodImage" />
-                <ScalarProperty Name="ulrVideo" ColumnName="ulrVideo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

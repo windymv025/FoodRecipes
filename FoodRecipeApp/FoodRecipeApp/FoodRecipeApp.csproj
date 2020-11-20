@@ -108,9 +108,6 @@
     <Compile Include="Models\FoodRecipe.cs">
       <DependentUpon>DBFoodRecipeEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FullTextSearchNameFood_Result.cs">
-      <DependentUpon>DBFoodRecipeEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>

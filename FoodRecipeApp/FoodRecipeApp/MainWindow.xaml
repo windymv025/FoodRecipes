@@ -249,7 +249,7 @@
 						<ColumnDefinition Width="350"/>
 					</Grid.ColumnDefinitions>
 					<TextBox x:Name="searchBox" Grid.Column="1" Visibility="Collapsed" VerticalContentAlignment="Center"
-							 Margin="10,5,30,0" TextChanged="searchBox_TextChanged" KeyDown="searchBox_KeyDown" Padding="5,0,0,0"
+							 Margin="10,5,30,0" TextChanged="searchBox_TextChanged" Padding="5,0,0,0"
                              materialDesign:HintAssist.Hint="Nhập tên món ăn" Foreground="Black" FontWeight="Bold"
 							 FontSize="16" Background="WhiteSmoke" materialDesign:TextFieldAssist.UnderlineBrush="DeepSkyBlue">
 

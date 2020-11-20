@@ -23,11 +23,11 @@
 			<ColumnDefinition Width="544"></ColumnDefinition>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="500"></RowDefinition>
-			<RowDefinition Height="150"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="100"></RowDefinition>
 		</Grid.RowDefinitions>
 		<Grid Grid.Column="0" Grid.Row="0">
-			<StackPanel>
+			<StackPanel Margin="0,20,0,0">
 				<TextBlock x:Name="FoodAvatar" Width="150" Height="40"
                                Text="Ảnh mô tả:" TextAlignment="Center" 
                                FontSize="24" FontWeight="Bold"
@@ -56,13 +56,18 @@
                            Text="Tên món ăn:" TextAlignment="Center" 
                            FontSize="24" FontWeight="Bold"
                            Padding="5" Margin="-12,0,336,0"></TextBlock>
-				<TextBox x:Name="FoodName" Width="480" Height="70" Padding="5" Margin="17,0,17,0"
+				<TextBox x:Name="FoodName" Width="480" Height="60" Padding="5" Margin="17,0,17,0"
                          FontSize="20" BorderThickness="3"></TextBox>
 				<TextBlock x:Name="Desciption" Width="100" Height="40"
                            Text="Mô tả:" HorizontalAlignment="Center"
                            FontSize="24" FontWeight="Bold"
                            Padding="5" Margin="24,0,420,0"></TextBlock>
-				<TextBox x:Name="FoodDesciption" Width="480" Height="240" Padding="5" Margin="17,0,17,0"
+				<TextBox x:Name="FoodDesciption" Width="480" Height="120" Padding="5" Margin="17,0,17,0"
+                         FontSize="20" BorderThickness="3"></TextBox>
+				<TextBlock Text="Nguyên liệu" HorizontalAlignment="Left"
+                           FontSize="24" FontWeight="Bold"
+                           Padding="5" Margin="24,0,0,0"></TextBlock>
+				<TextBox x:Name="Ingredients" Width="480" Height="120" Padding="5" Margin="17,0,17,0"
                          FontSize="20" BorderThickness="3"></TextBox>
 				<TextBlock x:Name="LinkYoutube" Width="150" Height="40"
                            Text="Link Youtube:" TextAlignment="Center" 

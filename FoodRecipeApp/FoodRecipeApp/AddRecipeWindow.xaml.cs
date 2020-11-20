@@ -37,6 +37,7 @@ namespace FoodRecipeApp
             viewModel.FoodRecipe.NameFood = FoodName.Text.Trim();
             viewModel.FoodRecipe.ulrVideo = FoodLinkYoutube.Text.Trim();
             viewModel.FoodRecipe.DishDescription = FoodDesciption.Text.Trim();
+            viewModel.FoodRecipe.CookingIngredients = Ingredients.Text.Trim();
 
             var screen = new AddStepFoodRecipes(viewModel.FoodRecipe);
             screen.Show();

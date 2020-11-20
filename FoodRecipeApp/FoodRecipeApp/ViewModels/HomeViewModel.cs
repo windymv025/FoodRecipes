@@ -31,9 +31,8 @@ namespace FoodRecipeApp.ViewModels
             {
                 if (name != null)
                 {
-                    string sql = $"select * from FoodRecipes where NameFood LIKE N'%{name}%' ";
+                    string sql = $"select * from FoodRecipes where freetext(NameFood, N'%{name}%')";
                     foodRecipes = db.FoodRecipes.SqlQuery(sql).ToList();
-
                 }
                 else
                 {
@@ -89,8 +88,7 @@ namespace FoodRecipeApp.ViewModels
         private const string FILE_NAME = "logfile.log";
         public LogFile()
         {
-            TypeSort = -1;
-            NumberOfDishInPerPage = 6;
+            this.readLog();
         }
         public void readLog()
         {
