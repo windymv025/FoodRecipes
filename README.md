@@ -79,6 +79,5 @@ Tìm kiếm món ăn theo tên. Đã hoàn thành các cảnh giới sau:
 # Ghi chú:
 	*Để chạy được project cần thực hiện những thao tác sau:
 		- Cài full text search cho MS SQL Server
-		- Tạo mới CSDL bằng cách chạy file query "dbFoodRecipes.sql"
-		- Tạo một Full-text indext trên bảng FoodRecipes ở thuộc tính name.
+		- Tạo CSDL bằng cách chạy file query "dbFoodRecipes.sql" trong thư mục Database
 	* Nếu project này được dùng để làm demo cho khóa sau: Nhờ thầy chỉ cung cấp video demo và ẩn source code của nhóm em đi ạ.
