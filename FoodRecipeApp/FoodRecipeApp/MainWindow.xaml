@@ -19,12 +19,13 @@
         WindowStartupLocation="CenterScreen"
 		Loaded="loadDuLieu"
 		Closing="Window_Closing">
+	<Window.Icon >
+		<ImageSource>Assets/appicon.png</ImageSource>
+	</Window.Icon>
 	<!--<Button Margin="20" Background="#189EFF">-->
-
 	<Window.Resources>
 		<!--//Toggle btn style-->
 		<ImageBrush ImageSource="/Assets/tgBtn_MouseOver.png" x:Key="tb_mouse_over" />
-
 		<!--//Text font style-->
 		<Style x:Key="font_style" TargetType="TextBlock">
 			<Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto" />

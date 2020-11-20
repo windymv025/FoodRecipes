@@ -21,7 +21,7 @@ WPF .net framework
 	- Có thể xem danh sách các món ăn ưa thích (được ghim lại), thêm và loại bỏ món ăn vào danh sách ưa thích này.
 	- Lưu lại thông tin phân trang cho mỗi lần mở app lên.
 		+ Có 2 chế độ: xem 6 sản phẩm mỗi trang hoặc 8 sản phẩm mỗi trang.
-			+ Sắp xếp tăng dần hoặc giảm dần theo tên.
+        + Sắp xếp tăng dần hoặc giảm dần theo tên.
 
 3. SearchScreen (2 điểm):
 Tìm kiếm món ăn theo tên. Đã hoàn thành các cảnh giới sau:
