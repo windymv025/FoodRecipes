@@ -18,10 +18,7 @@
         Width="1024"
         WindowStartupLocation="CenterScreen"
 		Loaded="loadDuLieu"
-		Closing="Window_Closing">
-	<Window.Icon >
-		<ImageSource>Assets/appicon.png</ImageSource>
-	</Window.Icon>
+		Closing="Window_Closing" Icon="Assets/appicon.png">
 	<!--<Button Margin="20" Background="#189EFF">-->
 	<Window.Resources>
 		<!--//Toggle btn style-->
